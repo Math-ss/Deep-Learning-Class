@@ -10,8 +10,8 @@ MATHGIQUE
 #include<cstdio>
 #include<vector>
 #include<string>
-#include "Include/deepNetworkMini.h"
-#include "Include/main.h"
+#include "..\Include\deepNetworkMini.h"
+#include "..\Include\main.h"
 
 
 using namespace std;
