@@ -25,6 +25,7 @@ private:
 	int m_nbInput;
 	int m_nbOutput;
 	int m_nb;
+	double m_coefficient;
 	std::string m_fLogi;
 
 	void feedForward();
@@ -36,6 +37,7 @@ public:
 	NetworkMini(int inputLayer, int outputLayer, std::vector<int> &hiddenLayer, std::string &f);
 	void runLearning(std::vector<std::vector<double>> *test, std::vector<std::vector<double>> *resultDesired);
 	void runPrediction(std::vector<double> *data);
+	bool setCoefficient(double value);
 	static double F_Sigmoide(double value);
 	static double F_Prime(double value);
 	static double F_Tangente(double value);

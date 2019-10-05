@@ -93,8 +93,8 @@ void NetworkMini::backPropagation()
 		{
 			m_delta[last][i] = ((*m_excepted)[i] - m_perceptrons[last][i]) * F_Prime(m_perceptrons[last][i]);
 			for (int j = 0; j < m_perceptrons[last - 1].size(); j++)
-				m_weights[last][i][j] += 0.5 * m_delta[last][i] * m_perceptrons[last - 1][j];
-			m_biais[last][i] += 0.5 * m_delta[last][i];
+				m_weights[last][i][j] += m_coefficient * m_delta[last][i] * m_perceptrons[last - 1][j];
+			m_biais[last][i] += m_coefficient * m_delta[last][i];
 
 			if (m_perceptrons[last][i] > 0.5)
 				m_nb++;
@@ -115,8 +115,8 @@ void NetworkMini::backPropagation()
 			m_delta[i][j] = error * F_Prime(m_perceptrons[i][j]);
 
 			for (int k = 0; k < m_perceptrons[i - 1].size(); k++)
-				m_weights[i][j][k] += 0.5 * m_delta[i][j] * m_perceptrons[i - 1][k];
-			m_biais[i][j] += 0.5 * m_delta[i][j];
+				m_weights[i][j][k] += m_coefficient * m_delta[i][j] * m_perceptrons[i - 1][k];
+			m_biais[i][j] += m_coefficient * m_delta[i][j];
 		}
 	}
 
@@ -147,6 +147,7 @@ void NetworkMini::setExcepted(std::vector<double>* excepted)
 NetworkMini::NetworkMini(int inputLayer, int outputLayer, vector<int> &hiddenLayer, string &f):m_nbInput(inputLayer), m_nbOutput(outputLayer), m_fLogi(f)
 {
 	m_nb = 0;
+	m_coefficient = 0.5;
 	
 	m_perceptrons.push_back(vector<double>(hiddenLayer[0]));
 	m_biais.push_back(vector<double>(hiddenLayer[0]));
@@ -199,6 +200,17 @@ void NetworkMini::runPrediction(std::vector<double>* data)
 	for (int h = 0; h < m_perceptrons[m_perceptrons.size() - 1].size(); h++)
 		printf("%f\n", m_perceptrons[m_perceptrons.size() - 1][h]);
 	printf("\n");
+}
+
+bool NetworkMini::setCoefficient(double value)
+{
+  if (value < 1 && value > 0)
+  {
+	  m_coefficient = value;
+	  return true;
+  }
+  else
+	return false;
 }
 
 double NetworkMini::F_Sigmoide(double value)

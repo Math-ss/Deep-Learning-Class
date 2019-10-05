@@ -22,7 +22,7 @@ int main(void)
 {
   srand(time(NULL));
 
-  ifstream Ftrain("");
+  ifstream Ftrain("D:/Users/Ma-Game/Documents/Mathis/Programmation/C++/IA/mnist_train_complete.csv");
 
   if (Ftrain)
 	  printf("cool\n");
@@ -39,7 +39,7 @@ int main(void)
 	  Ftrain >> toutou;
 	  Ftrain >> passe;
 
-	  if (toutou == 9)
+	  if (toutou == 0)
 		  prevu[i][0] = 1;
 
 	  visi[toutou]++;
