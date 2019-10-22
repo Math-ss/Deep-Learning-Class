@@ -31,6 +31,8 @@ int main(void)
   vector<vector<double>> train(100, vector<double>(784));
   vector<vector<double>> prevu(100, vector<double>(1, 0));
   vector<int> visi(10);
+  int decide = 0;
+  vector<double> test(784);
 
   for (int i = 0; i < 100; i++)
   {
@@ -56,14 +58,42 @@ int main(void)
 	  train[i][783] = toutou;
   }
 
+  for (int i = 0; i < 50; i++)
+  {
+	  double toutou = 6.0;
+	  char passe;
+	  Ftrain >> toutou;
+	  Ftrain >> passe;
+
+	  if (toutou == 0)
+		  decide = 1;
+
+	  for (int j = 0; j < 783; j++)
+	  {
+		  Ftrain >> toutou;
+		  Ftrain >> passe;
+		  toutou /= (255 * 10);
+		  test[j] = toutou;
+	  }
+	  Ftrain >> toutou;
+	  toutou /= (255 * 10);
+	  test[783] = toutou;
+	
+	  if (decide)
+		  break;
+  }
+
   NetworkMini numberImage(784, 1, define, string("sigmoide"));
 
   printf("cool>Bis\n");
   
 
-  for(int i = 0; i < 100'000; i++)
+  for(int i = 0; i < 50'000; i++)
 	numberImage.runLearning(&train, &prevu);
 
+  numberImage.runPrediction(&test);
+
+  printf("%d", decide);
   system("pause");
 
   return 0;
