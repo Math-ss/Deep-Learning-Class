@@ -87,7 +87,7 @@ void NetworkMini::backPropagation()
 {
 	int last = m_perceptrons.size() - 1;
 	
-	if (m_fLogi == "tangente" || m_fLogi == "sigmoide")
+	if (m_fLogi == "tangente" || m_fLogi == "sigmoide" || m_fLogi == "softmax")
 	{
 		for (int i = 0; i < m_perceptrons[last].size(); i++)
 		{
@@ -99,9 +99,9 @@ void NetworkMini::backPropagation()
 			if (m_perceptrons[last][i] > 0.5)
 				m_nb++;
 
-			printf("%f\n", m_perceptrons[last][i]);
+			//printf("%f\n", m_perceptrons[last][i]);
 		}
-		printf("\n");
+		//printf("\n");
 	}
 	
 	for (int i = last - 1; i > 0; i--)
@@ -190,7 +190,7 @@ void NetworkMini::runLearning(vector<vector<double>>* test, vector<std::vector<d
 		backPropagation();
 	}
 	printf("%d\n", m_nb);
-	printf("End learning\n");
+	//printf("End learning\n");
 }
 
 void NetworkMini::runPrediction(std::vector<double>* data)
