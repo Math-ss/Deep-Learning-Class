@@ -21,7 +21,7 @@ int main(void)
 {
   srand(time(NULL));
 
-  ifstream Ftrain("D:/Users/Ma-Game/Documents/Mathis/Programmation/C++/IA/mnist_train_complete.csv");
+  ifstream Ftrain("mnist_train_complete.csv");
 
   if (Ftrain)
 	  printf("cool\n");
