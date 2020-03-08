@@ -1,0 +1,27 @@
+﻿  deepNetworkMini.cpp
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(25,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(28,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(36,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(39,23): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(46,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(49,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(57,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(60,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(69,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(78,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(91,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(94,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(108,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(111,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(116,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(122,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(125,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(130,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(156,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(169,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(170,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(172,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(199,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(240,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(243,20): warning C4018: '<': signed/unsigned mismatch
+  Lib-DeepLearning.vcxproj -> D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Debug\Lib-DeepLearning.lib

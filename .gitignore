@@ -33,9 +33,9 @@
 
 # Files
 /x64
-/Debug
 /.vs
 *.sln
 *.vcxproj
 *.filters
 *.user
+/Lib-DeepLearning/x64

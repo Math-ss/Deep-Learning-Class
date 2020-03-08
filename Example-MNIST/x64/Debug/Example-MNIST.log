@@ -1,0 +1,6 @@
+﻿  main.cpp
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(22,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(43,13): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(45,9): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(66,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Example-MNIST.vcxproj -> D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\x64\Debug\Example-MNIST.exe
