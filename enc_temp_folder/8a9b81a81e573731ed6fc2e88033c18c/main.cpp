@@ -13,13 +13,14 @@ MATHGIQUE
 #include<cstdlib>
 #include<ctime>
 #include<cstdio>
-#include"deepNetworkMini.h"
+//#include"deepNetworkMini.h"
+#include"NetworkLight.h"
 
 using namespace std;
 
 int main(void)
 {
-  srand(time(NULL));
+  /*srand(time(NULL));
 
   ifstream Ftrain("D:/Users/Ma-Game/Documents/Mathis/Programmation/C++/IA/mnist_train_complete.csv");
 
@@ -87,9 +88,18 @@ int main(void)
 
   numberImage.runPrediction(&test);
 
-  printf("%d", decide);
+  printf("%d", decide);*/
 
-  system("pause");
+	uint8_t testons[2] = { 15, 15 };
+
+	NetworkLight<40, 525> test(testons, 10, 10, 2);
+	system("pause");
+
+	float in[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+	test.runPrediction(in);
+
+	system("pause");
 
   return 0;
 }
