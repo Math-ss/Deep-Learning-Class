@@ -3,7 +3,7 @@ deepNetworkMini.h
 
 int m_nb is for debuging
 
-Create by
+Created by
 MATHGIQUE
 */
 
@@ -38,6 +38,8 @@ public:
 	void runLearning(std::vector<std::vector<double>> *test, std::vector<std::vector<double>> *resultDesired);
 	void runPrediction(std::vector<double> *data);
 	bool setCoefficient(double value);
+	bool saveWeights(std::string path);
+
 	static double F_Sigmoide(double value);
 	static double F_Prime(double value);
 	static double F_Tangente(double value);

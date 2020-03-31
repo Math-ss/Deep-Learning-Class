@@ -10,6 +10,7 @@ MATHGIQUE
 #include<cstdio>
 #include<vector>
 #include<string>
+#include<fstream>
 #include "deepNetworkMini.h"
 
 
@@ -245,4 +246,26 @@ void NetworkMini::F_Softmax(vector<double>* value)
 		num = pow(2.718281828459, (*value)[i]);
 		(*value)[i] = num / denom;
 	}
+}
+
+bool NetworkMini::saveWeights(string path)
+{
+	path += "info.wtw";
+
+	ofstream file;
+	file.open("path", std::ofstream::out | std::ofstream::trunc);
+
+	if (!file)
+		return false;
+
+	for (int i = 0; i < m_weights.size(); i++)
+		for (int j = 0; j < m_weights[i].size(); j++)
+			for (int k = 0; k < m_weights[i][j].size(); k++)
+				file << m_weights[i][j][k] << std::endl;
+
+	for (int i = 0; i < m_weights.size(); i++)
+		for (int j = 0; j < m_weights[i].size(); j++)
+			file << m_biais[i][j] << std::endl;
+
+	return true;
 }
