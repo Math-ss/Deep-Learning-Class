@@ -1,7 +1,18 @@
 ﻿  main.cpp
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(24,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(47,13): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(49,9): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(97,51): warning C4305: 'argument': truncation from 'int' to 'uint8_t'
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(97,42): warning C4309: 'argument': truncation of constant value
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h(134,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h(133): message : while compiling class template member function 'float NetworkLight<25,11910>::F_Sigmoide(float)'
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h(86): message : see reference to function template instantiation 'float NetworkLight<25,11910>::F_Sigmoide(float)' being compiled
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h(76): message : while compiling class template member function 'float *NetworkLight<25,11910>::runPrediction(float *)'
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(99): message : see reference to function template instantiation 'float *NetworkLight<25,11910>::runPrediction(float *)' being compiled
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(97): message : see reference to class template instantiation 'NetworkLight<25,11910>' being compiled
   Generating code
-  4 of 4 functions (100.0%) were compiled.
-    3 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  94 of 277 functions (33.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    42 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Example-MNIST.vcxproj -> D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\x64\Release\Example-MNIST.exe

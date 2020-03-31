@@ -1,8 +1,5 @@
 ﻿  main.cpp
-D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h(121,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h(120): message : while compiling class template member function 'float NetworkLight<40,525>::F_Sigmoide(float)'
-D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h(75): message : see reference to function template instantiation 'float NetworkLight<40,525>::F_Sigmoide(float)' being compiled
-D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h(66): message : while compiling class template member function 'float *NetworkLight<40,525>::runPrediction(float *)'
-D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(100): message : see reference to function template instantiation 'float *NetworkLight<40,525>::runPrediction(float *)' being compiled
-D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(95): message : see reference to class template instantiation 'NetworkLight<40,525>' being compiled
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(24,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(45,13): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(47,9): warning C4244: 'argument': conversion from 'double' to 'const unsigned __int64', possible loss of data
   Example-MNIST.vcxproj -> D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\x64\Debug\Example-MNIST.exe

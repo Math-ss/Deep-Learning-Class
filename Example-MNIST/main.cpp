@@ -14,6 +14,8 @@ MATHGIQUE
 #include<ctime>
 #include<cstdio>
 #include"deepNetworkMini.h"
+#include"NetworkLight.h"
+#include <iostream>
 
 using namespace std;
 
@@ -21,11 +23,11 @@ int main(void)
 {
   srand(time(NULL));
 
-  ifstream Ftrain("D:/Users/Ma-Game/Documents/Mathis/Programmation/C++/IA/mnist_train_complete.csv");
+  ifstream Ftrain("mnist_train_complete.csv");
 
-  if (Ftrain)
-	  printf("cool\n");
-
+  if (!Ftrain)
+	  return 1;
+  
   vector<int> define(1, 15);
   vector<vector<double>> train(200, vector<double>(784));
   vector<vector<double>> prevu(200, vector<double>(10, 0));
@@ -35,59 +37,58 @@ int main(void)
 
   for (int i = 0; i < 200; i++)
   {
-	  double toutou = 6.0;
+	  double buffer = 6.0;
 	  char passe;
-	  Ftrain >> toutou;
+	  Ftrain >> buffer;
 	  Ftrain >> passe;
 
-	  prevu[i][toutou] = 1;
+	  prevu[i][buffer] = 1;
 
-	  visi[toutou]++;
+	  visi[buffer]++;
 
 	  for (int j = 0; j < 783; j++)
 	  {
-		  Ftrain >> toutou;
+		  Ftrain >> buffer;
 		  Ftrain >> passe;
-		  toutou /= (255 * 10);
-		  train[i][j] = toutou;
+		  buffer /= (255 * 10);
+		  train[i][j] = buffer;
 	  }
-	  Ftrain >> toutou;
-	  toutou /= (255 * 10);
-	  train[i][783] = toutou;
+	  Ftrain >> buffer;
+	  buffer /= (255 * 10);
+	  train[i][783] = buffer;
   }
 
   {
-	  double toutou = 6.0;
+	  double buffer = 6.0;
 	  char passe;
-	  Ftrain >> toutou;
+	  Ftrain >> buffer;
 	  Ftrain >> passe;
 
-	  decide = (int) toutou;
+	  decide = (int) buffer;
 
 	  for (int j = 0; j < 783; j++)
 	  {
-		  Ftrain >> toutou;
+		  Ftrain >> buffer;
 		  Ftrain >> passe;
-		  toutou /= (255 * 10);
-		  test[j] = toutou;
+		  buffer /= (255 * 10);
+		  test[j] = buffer;
 	  }
-	  Ftrain >> toutou;
-	  toutou /= (255 * 10);
-	  test[783] = toutou;
+	  Ftrain >> buffer;
+	  buffer /= (255 * 10);
+	  test[783] = buffer;
   }
 
   string fonctiun("sigmoide");
 
-  NetworkMini numberImage(784, 10, define, fonctiun);
+  NetworkMini MNIST(784, 10, define, fonctiun);
   
-  numberImage.setCoefficient(0.58);//I've just a little tried(5 times). I'm sure it's possible to do better
+  MNIST.setCoefficient(0.5);//I've just a little tried(5 times). I'm sure it's possible to do better
 
-  for(int i = 0; i < 5'000; i++)
-	numberImage.runLearning(&train, &prevu);
+  for(int i = 0; i < 2'500; i++)
+	  MNIST.runLearning(&train, &prevu);
 
-  numberImage.runPrediction(&test);
-
-  printf("%d", decide);
+  MNIST.runPrediction(&test);
+  MNIST.saveWeights("");
 
   system("pause");
 
