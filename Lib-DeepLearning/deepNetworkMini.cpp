@@ -12,6 +12,7 @@ MATHGIQUE
 #include<string>
 #include<fstream>
 #include "deepNetworkMini.h"
+#include <iostream>
 
 
 using namespace std;
@@ -256,7 +257,10 @@ bool NetworkMini::saveWeights(string path)
 	file.open("path", std::ofstream::out | std::ofstream::trunc);
 
 	if (!file)
+	{
+		std::cerr << "Can't open the save file" << std::endl;
 		return false;
+	}
 
 	for (int i = 0; i < m_weights.size(); i++)
 		for (int j = 0; j < m_weights[i].size(); j++)
@@ -266,6 +270,8 @@ bool NetworkMini::saveWeights(string path)
 	for (int i = 0; i < m_weights.size(); i++)
 		for (int j = 0; j < m_weights[i].size(); j++)
 			file << m_biais[i][j] << std::endl;
+
+	file.close();
 
 	return true;
 }

@@ -1,0 +1,5 @@
+﻿  main.cpp
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(24,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(45,13): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\main.cpp(47,9): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+LINK : fatal error LNK1104: cannot open file 'D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Debug\Lib-DeepLearning.lib'

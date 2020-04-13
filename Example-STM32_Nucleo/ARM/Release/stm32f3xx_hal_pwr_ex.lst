@@ -1,0 +1,194 @@
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_pwr_ex.c"
+  14              		.text
+  15              		.section	.text.HAL_PWR_ConfigPVD,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	HAL_PWR_ConfigPVD
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	HAL_PWR_ConfigPVD:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28              		@ link register save eliminated.
+  29 0000 1B49     		ldr	r1, .L20
+  30 0002 1C4B     		ldr	r3, .L20+4
+  31 0004 0A68     		ldr	r2, [r1]
+  32 0006 10B4     		push	{r4}
+  33 0008 0468     		ldr	r4, [r0]
+  34 000a 22F0E002 		bic	r2, r2, #224
+  35 000e 2243     		orrs	r2, r2, r4
+  36 0010 0A60     		str	r2, [r1]
+  37 0012 5A68     		ldr	r2, [r3, #4]
+  38 0014 22F48032 		bic	r2, r2, #65536
+  39 0018 5A60     		str	r2, [r3, #4]
+  40 001a 1A68     		ldr	r2, [r3]
+  41 001c 22F48032 		bic	r2, r2, #65536
+  42 0020 1A60     		str	r2, [r3]
+  43 0022 9A68     		ldr	r2, [r3, #8]
+  44 0024 22F48032 		bic	r2, r2, #65536
+  45 0028 9A60     		str	r2, [r3, #8]
+  46 002a DA68     		ldr	r2, [r3, #12]
+  47 002c 22F48032 		bic	r2, r2, #65536
+  48 0030 DA60     		str	r2, [r3, #12]
+  49 0032 4268     		ldr	r2, [r0, #4]
+  50 0034 D403     		lsls	r4, r2, #15
+  51 0036 03D5     		bpl	.L2
+  52 0038 1968     		ldr	r1, [r3]
+  53 003a 41F48031 		orr	r1, r1, #65536
+  54 003e 1960     		str	r1, [r3]
+  55              	.L2:
+  56 0040 9003     		lsls	r0, r2, #14
+  57 0042 04D5     		bpl	.L3
+  58 0044 0B49     		ldr	r1, .L20+4
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s 			page 2
+
+
+  59 0046 4B68     		ldr	r3, [r1, #4]
+  60 0048 43F48033 		orr	r3, r3, #65536
+  61 004c 4B60     		str	r3, [r1, #4]
+  62              	.L3:
+  63 004e D107     		lsls	r1, r2, #31
+  64 0050 04D5     		bpl	.L4
+  65 0052 0849     		ldr	r1, .L20+4
+  66 0054 8B68     		ldr	r3, [r1, #8]
+  67 0056 43F48033 		orr	r3, r3, #65536
+  68 005a 8B60     		str	r3, [r1, #8]
+  69              	.L4:
+  70 005c 9307     		lsls	r3, r2, #30
+  71 005e 04D5     		bpl	.L1
+  72 0060 044A     		ldr	r2, .L20+4
+  73 0062 D368     		ldr	r3, [r2, #12]
+  74 0064 43F48033 		orr	r3, r3, #65536
+  75 0068 D360     		str	r3, [r2, #12]
+  76              	.L1:
+  77 006a 5DF8044B 		ldr	r4, [sp], #4
+  78 006e 7047     		bx	lr
+  79              	.L21:
+  80              		.align	2
+  81              	.L20:
+  82 0070 00700040 		.word	1073770496
+  83 0074 00040140 		.word	1073808384
+  85              		.section	.text.HAL_PWR_EnablePVD,"ax",%progbits
+  86              		.align	1
+  87              		.p2align 2,,3
+  88              		.global	HAL_PWR_EnablePVD
+  89              		.syntax unified
+  90              		.thumb
+  91              		.thumb_func
+  92              		.fpu fpv4-sp-d16
+  94              	HAL_PWR_EnablePVD:
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              		@ link register save eliminated.
+  98 0000 024A     		ldr	r2, .L23
+  99 0002 1368     		ldr	r3, [r2]
+ 100 0004 43F01003 		orr	r3, r3, #16
+ 101 0008 1360     		str	r3, [r2]
+ 102 000a 7047     		bx	lr
+ 103              	.L24:
+ 104              		.align	2
+ 105              	.L23:
+ 106 000c 00700040 		.word	1073770496
+ 108              		.section	.text.HAL_PWR_DisablePVD,"ax",%progbits
+ 109              		.align	1
+ 110              		.p2align 2,,3
+ 111              		.global	HAL_PWR_DisablePVD
+ 112              		.syntax unified
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.fpu fpv4-sp-d16
+ 117              	HAL_PWR_DisablePVD:
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s 			page 3
+
+
+ 120              		@ link register save eliminated.
+ 121 0000 024A     		ldr	r2, .L26
+ 122 0002 1368     		ldr	r3, [r2]
+ 123 0004 23F01003 		bic	r3, r3, #16
+ 124 0008 1360     		str	r3, [r2]
+ 125 000a 7047     		bx	lr
+ 126              	.L27:
+ 127              		.align	2
+ 128              	.L26:
+ 129 000c 00700040 		.word	1073770496
+ 131              		.section	.text.HAL_PWR_PVDCallback,"ax",%progbits
+ 132              		.align	1
+ 133              		.p2align 2,,3
+ 134              		.weak	HAL_PWR_PVDCallback
+ 135              		.syntax unified
+ 136              		.thumb
+ 137              		.thumb_func
+ 138              		.fpu fpv4-sp-d16
+ 140              	HAL_PWR_PVDCallback:
+ 141              		@ args = 0, pretend = 0, frame = 0
+ 142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 143              		@ link register save eliminated.
+ 144 0000 7047     		bx	lr
+ 146 0002 00BF     		.section	.text.HAL_PWR_PVD_IRQHandler,"ax",%progbits
+ 147              		.align	1
+ 148              		.p2align 2,,3
+ 149              		.global	HAL_PWR_PVD_IRQHandler
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 153              		.fpu fpv4-sp-d16
+ 155              	HAL_PWR_PVD_IRQHandler:
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 158 0000 10B5     		push	{r4, lr}
+ 159 0002 054C     		ldr	r4, .L36
+ 160 0004 6369     		ldr	r3, [r4, #20]
+ 161 0006 DB03     		lsls	r3, r3, #15
+ 162 0008 00D4     		bmi	.L35
+ 163 000a 10BD     		pop	{r4, pc}
+ 164              	.L35:
+ 165 000c FFF7FEFF 		bl	HAL_PWR_PVDCallback
+ 166 0010 4FF48033 		mov	r3, #65536
+ 167 0014 6361     		str	r3, [r4, #20]
+ 168 0016 10BD     		pop	{r4, pc}
+ 169              	.L37:
+ 170              		.align	2
+ 171              	.L36:
+ 172 0018 00040140 		.word	1073808384
+ 174              		.ident	"GCC: (xPack GNU Arm Embedded GCC, 64-bit) 9.2.1 20191025 (release) [ARM/arm-9-branch revis
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_pwr_ex.c
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:16     .text.HAL_PWR_ConfigPVD:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:25     .text.HAL_PWR_ConfigPVD:0000000000000000 HAL_PWR_ConfigPVD
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:82     .text.HAL_PWR_ConfigPVD:0000000000000070 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:86     .text.HAL_PWR_EnablePVD:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:94     .text.HAL_PWR_EnablePVD:0000000000000000 HAL_PWR_EnablePVD
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:106    .text.HAL_PWR_EnablePVD:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:109    .text.HAL_PWR_DisablePVD:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:117    .text.HAL_PWR_DisablePVD:0000000000000000 HAL_PWR_DisablePVD
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:129    .text.HAL_PWR_DisablePVD:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:132    .text.HAL_PWR_PVDCallback:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:140    .text.HAL_PWR_PVDCallback:0000000000000000 HAL_PWR_PVDCallback
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:147    .text.HAL_PWR_PVD_IRQHandler:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:155    .text.HAL_PWR_PVD_IRQHandler:0000000000000000 HAL_PWR_PVD_IRQHandler
+D:\Users\Ma-Game\AppData\Local\Temp\ccMhOHIk.s:172    .text.HAL_PWR_PVD_IRQHandler:0000000000000018 $d
+
+NO UNDEFINED SYMBOLS

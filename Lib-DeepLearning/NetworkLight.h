@@ -118,7 +118,6 @@ template<typename indexType, int nbPerceptrons, int nbWeights>
 inline bool NetworkLight<indexType, nbPerceptrons, nbWeights>::loadWeight(const char* path)
 {
 	std::ifstream file;
-	float enCours = 0.0f;
 
 	file.open(path);
 	if (!file)

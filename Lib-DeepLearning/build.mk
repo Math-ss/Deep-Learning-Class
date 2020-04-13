@@ -1,0 +1,1 @@
+CXX_INCLUDES += -ID:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning

@@ -1,0 +1,692 @@
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_rcc_ex.c"
+  14              		.text
+  15              		.section	.text.HAL_RCCEx_PeriphCLKConfig,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	HAL_RCCEx_PeriphCLKConfig
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	HAL_RCCEx_PeriphCLKConfig:
+  26              		@ args = 0, pretend = 0, frame = 8
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+  29 0004 0368     		ldr	r3, [r0]
+  30 0006 DD03     		lsls	r5, r3, #15
+  31 0008 83B0     		sub	sp, sp, #12
+  32 000a 0446     		mov	r4, r0
+  33 000c 3DD5     		bpl	.L2
+  34 000e 794B     		ldr	r3, .L72
+  35 0010 DA69     		ldr	r2, [r3, #28]
+  36 0012 D000     		lsls	r0, r2, #3
+  37 0014 40F1A580 		bpl	.L70
+  38 0018 774D     		ldr	r5, .L72+4
+  39 001a 2B68     		ldr	r3, [r5]
+  40 001c D905     		lsls	r1, r3, #23
+  41 001e 4FF00006 		mov	r6, #0
+  42 0022 40F1AE80 		bpl	.L4
+  43              	.L10:
+  44 0026 734D     		ldr	r5, .L72
+  45 0028 2B6A     		ldr	r3, [r5, #32]
+  46 002a 13F44073 		ands	r3, r3, #768
+  47 002e 1FD0     		beq	.L67
+  48 0030 6168     		ldr	r1, [r4, #4]
+  49 0032 01F44072 		and	r2, r1, #768
+  50 0036 9A42     		cmp	r2, r3
+  51 0038 1BD0     		beq	.L11
+  52 003a 296A     		ldr	r1, [r5, #32]
+  53 003c 4FF48033 		mov	r3, #65536
+  54 0040 21F44070 		bic	r0, r1, #768
+  55              		.syntax unified
+  56              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+  57 0044 93FAA3F2 		rbit r2, r3
+  58              	@ 0 "" 2
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 2
+
+
+  59              		.thumb
+  60              		.syntax unified
+  61 0048 DFF8B0C1 		ldr	ip, .L72+8
+  62 004c B2FA82F2 		clz	r2, r2
+  63 0050 6244     		add	r2, r2, ip
+  64 0052 9200     		lsls	r2, r2, #2
+  65 0054 0127     		movs	r7, #1
+  66 0056 1760     		str	r7, [r2]
+  67              		.syntax unified
+  68              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+  69 0058 93FAA3F3 		rbit r3, r3
+  70              	@ 0 "" 2
+  71              		.thumb
+  72              		.syntax unified
+  73 005c B3FA83F3 		clz	r3, r3
+  74 0060 6344     		add	r3, r3, ip
+  75 0062 9B00     		lsls	r3, r3, #2
+  76 0064 0022     		movs	r2, #0
+  77 0066 1A60     		str	r2, [r3]
+  78 0068 CB07     		lsls	r3, r1, #31
+  79 006a 2862     		str	r0, [r5, #32]
+  80 006c 00F19D80 		bmi	.L12
+  81              	.L67:
+  82 0070 6168     		ldr	r1, [r4, #4]
+  83              	.L11:
+  84 0072 604A     		ldr	r2, .L72
+  85 0074 136A     		ldr	r3, [r2, #32]
+  86 0076 23F44073 		bic	r3, r3, #768
+  87 007a 0B43     		orrs	r3, r3, r1
+  88 007c 1362     		str	r3, [r2, #32]
+  89 007e 1EB1     		cbz	r6, .L68
+  90 0080 D369     		ldr	r3, [r2, #28]
+  91 0082 23F08053 		bic	r3, r3, #268435456
+  92 0086 D361     		str	r3, [r2, #28]
+  93              	.L68:
+  94 0088 2368     		ldr	r3, [r4]
+  95              	.L2:
+  96 008a DD07     		lsls	r5, r3, #31
+  97 008c 06D5     		bpl	.L19
+  98 008e 5949     		ldr	r1, .L72
+  99 0090 A068     		ldr	r0, [r4, #8]
+ 100 0092 0A6B     		ldr	r2, [r1, #48]
+ 101 0094 22F00302 		bic	r2, r2, #3
+ 102 0098 0243     		orrs	r2, r2, r0
+ 103 009a 0A63     		str	r2, [r1, #48]
+ 104              	.L19:
+ 105 009c 9806     		lsls	r0, r3, #26
+ 106 009e 06D5     		bpl	.L20
+ 107 00a0 5449     		ldr	r1, .L72
+ 108 00a2 E068     		ldr	r0, [r4, #12]
+ 109 00a4 0A6B     		ldr	r2, [r1, #48]
+ 110 00a6 22F01002 		bic	r2, r2, #16
+ 111 00aa 0243     		orrs	r2, r2, r0
+ 112 00ac 0A63     		str	r2, [r1, #48]
+ 113              	.L20:
+ 114 00ae 9903     		lsls	r1, r3, #14
+ 115 00b0 06D5     		bpl	.L21
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 3
+
+
+ 116 00b2 5049     		ldr	r1, .L72
+ 117 00b4 206B     		ldr	r0, [r4, #48]
+ 118 00b6 4A68     		ldr	r2, [r1, #4]
+ 119 00b8 22F48002 		bic	r2, r2, #4194304
+ 120 00bc 0243     		orrs	r2, r2, r0
+ 121 00be 4A60     		str	r2, [r1, #4]
+ 122              	.L21:
+ 123 00c0 5A06     		lsls	r2, r3, #25
+ 124 00c2 06D5     		bpl	.L22
+ 125 00c4 4B49     		ldr	r1, .L72
+ 126 00c6 2069     		ldr	r0, [r4, #16]
+ 127 00c8 0A6B     		ldr	r2, [r1, #48]
+ 128 00ca 22F02002 		bic	r2, r2, #32
+ 129 00ce 0243     		orrs	r2, r2, r0
+ 130 00d0 0A63     		str	r2, [r1, #48]
+ 131              	.L22:
+ 132 00d2 1F04     		lsls	r7, r3, #16
+ 133 00d4 06D5     		bpl	.L23
+ 134 00d6 4749     		ldr	r1, .L72
+ 135 00d8 6069     		ldr	r0, [r4, #20]
+ 136 00da 0A6B     		ldr	r2, [r1, #48]
+ 137 00dc 22F04002 		bic	r2, r2, #64
+ 138 00e0 0243     		orrs	r2, r2, r0
+ 139 00e2 0A63     		str	r2, [r1, #48]
+ 140              	.L23:
+ 141 00e4 9E05     		lsls	r6, r3, #22
+ 142 00e6 06D5     		bpl	.L24
+ 143 00e8 4249     		ldr	r1, .L72
+ 144 00ea E069     		ldr	r0, [r4, #28]
+ 145 00ec 4A68     		ldr	r2, [r1, #4]
+ 146 00ee 22F40002 		bic	r2, r2, #8388608
+ 147 00f2 0243     		orrs	r2, r2, r0
+ 148 00f4 4A60     		str	r2, [r1, #4]
+ 149              	.L24:
+ 150 00f6 1D06     		lsls	r5, r3, #24
+ 151 00f8 06D5     		bpl	.L25
+ 152 00fa 3E49     		ldr	r1, .L72
+ 153 00fc A069     		ldr	r0, [r4, #24]
+ 154 00fe CA6A     		ldr	r2, [r1, #44]
+ 155 0100 22F4F872 		bic	r2, r2, #496
+ 156 0104 0243     		orrs	r2, r2, r0
+ 157 0106 CA62     		str	r2, [r1, #44]
+ 158              	.L25:
+ 159 0108 D804     		lsls	r0, r3, #19
+ 160 010a 06D5     		bpl	.L26
+ 161 010c 3949     		ldr	r1, .L72
+ 162 010e 206A     		ldr	r0, [r4, #32]
+ 163 0110 0A6B     		ldr	r2, [r1, #48]
+ 164 0112 22F48072 		bic	r2, r2, #256
+ 165 0116 0243     		orrs	r2, r2, r0
+ 166 0118 0A63     		str	r2, [r1, #48]
+ 167              	.L26:
+ 168 011a 5903     		lsls	r1, r3, #13
+ 169 011c 06D5     		bpl	.L27
+ 170 011e 3549     		ldr	r1, .L72
+ 171 0120 606A     		ldr	r0, [r4, #36]
+ 172 0122 0A6B     		ldr	r2, [r1, #48]
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 4
+
+
+ 173 0124 22F48062 		bic	r2, r2, #1024
+ 174 0128 0243     		orrs	r2, r2, r0
+ 175 012a 0A63     		str	r2, [r1, #48]
+ 176              	.L27:
+ 177 012c 1A03     		lsls	r2, r3, #12
+ 178 012e 06D5     		bpl	.L28
+ 179 0130 3049     		ldr	r1, .L72
+ 180 0132 A06A     		ldr	r0, [r4, #40]
+ 181 0134 0A6B     		ldr	r2, [r1, #48]
+ 182 0136 22F40062 		bic	r2, r2, #2048
+ 183 013a 0243     		orrs	r2, r2, r0
+ 184 013c 0A63     		str	r2, [r1, #48]
+ 185              	.L28:
+ 186 013e 13F48013 		ands	r3, r3, #1048576
+ 187 0142 03D1     		bne	.L71
+ 188 0144 1846     		mov	r0, r3
+ 189 0146 03B0     		add	sp, sp, #12
+ 190              		@ sp needed
+ 191 0148 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 192              	.L71:
+ 193 014c 294A     		ldr	r2, .L72
+ 194 014e E16A     		ldr	r1, [r4, #44]
+ 195 0150 136B     		ldr	r3, [r2, #48]
+ 196 0152 23F40053 		bic	r3, r3, #8192
+ 197 0156 0B43     		orrs	r3, r3, r1
+ 198 0158 0020     		movs	r0, #0
+ 199 015a 1363     		str	r3, [r2, #48]
+ 200 015c 03B0     		add	sp, sp, #12
+ 201              		@ sp needed
+ 202 015e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 203              	.L70:
+ 204 0162 DA69     		ldr	r2, [r3, #28]
+ 205 0164 244D     		ldr	r5, .L72+4
+ 206 0166 42F08052 		orr	r2, r2, #268435456
+ 207 016a DA61     		str	r2, [r3, #28]
+ 208 016c DB69     		ldr	r3, [r3, #28]
+ 209 016e 03F08053 		and	r3, r3, #268435456
+ 210 0172 0193     		str	r3, [sp, #4]
+ 211 0174 019B     		ldr	r3, [sp, #4]
+ 212 0176 2B68     		ldr	r3, [r5]
+ 213 0178 D905     		lsls	r1, r3, #23
+ 214 017a 4FF00106 		mov	r6, #1
+ 215 017e 3FF552AF 		bmi	.L10
+ 216              	.L4:
+ 217 0182 2B68     		ldr	r3, [r5]
+ 218 0184 43F48073 		orr	r3, r3, #256
+ 219 0188 2B60     		str	r3, [r5]
+ 220 018a FFF7FEFF 		bl	HAL_GetTick
+ 221 018e 0746     		mov	r7, r0
+ 222              	.L7:
+ 223 0190 2B68     		ldr	r3, [r5]
+ 224 0192 DA05     		lsls	r2, r3, #23
+ 225 0194 3FF547AF 		bmi	.L10
+ 226 0198 FFF7FEFF 		bl	HAL_GetTick
+ 227 019c C01B     		subs	r0, r0, r7
+ 228 019e 6428     		cmp	r0, #100
+ 229 01a0 F6D9     		bls	.L7
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 5
+
+
+ 230              	.L14:
+ 231 01a2 0320     		movs	r0, #3
+ 232 01a4 03B0     		add	sp, sp, #12
+ 233              		@ sp needed
+ 234 01a6 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 235              	.L12:
+ 236 01aa FFF7FEFF 		bl	HAL_GetTick
+ 237 01ae 4FF00209 		mov	r9, #2
+ 238 01b2 8046     		mov	r8, r0
+ 239 01b4 15E0     		b	.L13
+ 240              	.L15:
+ 241              		.syntax unified
+ 242              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 243 01b6 99FAA9F3 		rbit r3, r9
+ 244              	@ 0 "" 2
+ 245              		.thumb
+ 246              		.syntax unified
+ 247 01ba 6A6A     		ldr	r2, [r5, #36]
+ 248              	.L16:
+ 249              		.syntax unified
+ 250              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 251 01bc 99FAA9F3 		rbit r3, r9
+ 252              	@ 0 "" 2
+ 253              		.thumb
+ 254              		.syntax unified
+ 255 01c0 B3FA83F3 		clz	r3, r3
+ 256 01c4 03F01F03 		and	r3, r3, #31
+ 257 01c8 07FA03F3 		lsl	r3, r7, r3
+ 258 01cc 1342     		tst	r3, r2
+ 259 01ce 7FF44FAF 		bne	.L67
+ 260 01d2 FFF7FEFF 		bl	HAL_GetTick
+ 261 01d6 41F28833 		movw	r3, #5000
+ 262 01da A0EB0800 		sub	r0, r0, r8
+ 263 01de 9842     		cmp	r0, r3
+ 264 01e0 DFD8     		bhi	.L14
+ 265              	.L13:
+ 266              		.syntax unified
+ 267              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 268 01e2 99FAA9F3 		rbit r3, r9
+ 269              	@ 0 "" 2
+ 270              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 271 01e6 99FAA9F3 		rbit r3, r9
+ 272              	@ 0 "" 2
+ 273              		.thumb
+ 274              		.syntax unified
+ 275 01ea 002B     		cmp	r3, #0
+ 276 01ec E3D0     		beq	.L15
+ 277 01ee 2A6A     		ldr	r2, [r5, #32]
+ 278 01f0 E4E7     		b	.L16
+ 279              	.L73:
+ 280 01f2 00BF     		.align	2
+ 281              	.L72:
+ 282 01f4 00100240 		.word	1073876992
+ 283 01f8 00700040 		.word	1073770496
+ 284 01fc 00819010 		.word	277905664
+ 286              		.section	.text.HAL_RCCEx_GetPeriphCLKConfig,"ax",%progbits
+ 287              		.align	1
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 6
+
+
+ 288              		.p2align 2,,3
+ 289              		.global	HAL_RCCEx_GetPeriphCLKConfig
+ 290              		.syntax unified
+ 291              		.thumb
+ 292              		.thumb_func
+ 293              		.fpu fpv4-sp-d16
+ 295              	HAL_RCCEx_GetPeriphCLKConfig:
+ 296              		@ args = 0, pretend = 0, frame = 0
+ 297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 298              		@ link register save eliminated.
+ 299 0000 194B     		ldr	r3, .L75
+ 300 0002 1A49     		ldr	r1, .L75+4
+ 301 0004 1A6A     		ldr	r2, [r3, #32]
+ 302 0006 02F44072 		and	r2, r2, #768
+ 303 000a 4260     		str	r2, [r0, #4]
+ 304 000c 1A6B     		ldr	r2, [r3, #48]
+ 305 000e 02F00302 		and	r2, r2, #3
+ 306 0012 8260     		str	r2, [r0, #8]
+ 307 0014 1A6B     		ldr	r2, [r3, #48]
+ 308 0016 02F01002 		and	r2, r2, #16
+ 309 001a C260     		str	r2, [r0, #12]
+ 310 001c 5A68     		ldr	r2, [r3, #4]
+ 311 001e 02F48002 		and	r2, r2, #4194304
+ 312 0022 0263     		str	r2, [r0, #48]
+ 313 0024 1A6B     		ldr	r2, [r3, #48]
+ 314 0026 02F02002 		and	r2, r2, #32
+ 315 002a 0261     		str	r2, [r0, #16]
+ 316 002c 1A6B     		ldr	r2, [r3, #48]
+ 317 002e 02F04002 		and	r2, r2, #64
+ 318 0032 4261     		str	r2, [r0, #20]
+ 319 0034 5A68     		ldr	r2, [r3, #4]
+ 320 0036 02F40002 		and	r2, r2, #8388608
+ 321 003a C261     		str	r2, [r0, #28]
+ 322 003c DA6A     		ldr	r2, [r3, #44]
+ 323 003e 02F4F872 		and	r2, r2, #496
+ 324 0042 8261     		str	r2, [r0, #24]
+ 325 0044 1A6B     		ldr	r2, [r3, #48]
+ 326 0046 0160     		str	r1, [r0]
+ 327 0048 02F48072 		and	r2, r2, #256
+ 328 004c 0262     		str	r2, [r0, #32]
+ 329 004e 1A6B     		ldr	r2, [r3, #48]
+ 330 0050 02F48062 		and	r2, r2, #1024
+ 331 0054 4262     		str	r2, [r0, #36]
+ 332 0056 1A6B     		ldr	r2, [r3, #48]
+ 333 0058 02F40062 		and	r2, r2, #2048
+ 334 005c 8262     		str	r2, [r0, #40]
+ 335 005e 1B6B     		ldr	r3, [r3, #48]
+ 336 0060 03F40053 		and	r3, r3, #8192
+ 337 0064 C362     		str	r3, [r0, #44]
+ 338 0066 7047     		bx	lr
+ 339              	.L76:
+ 340              		.align	2
+ 341              	.L75:
+ 342 0068 00100240 		.word	1073876992
+ 343 006c E1921F00 		.word	2069217
+ 345              		.section	.text.HAL_RCCEx_GetPeriphCLKFreq,"ax",%progbits
+ 346              		.align	1
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 7
+
+
+ 347              		.p2align 2,,3
+ 348              		.global	HAL_RCCEx_GetPeriphCLKFreq
+ 349              		.syntax unified
+ 350              		.thumb
+ 351              		.thumb_func
+ 352              		.fpu fpv4-sp-d16
+ 354              	HAL_RCCEx_GetPeriphCLKFreq:
+ 355              		@ args = 0, pretend = 0, frame = 32
+ 356              		@ frame_needed = 0, uses_anonymous_args = 0
+ 357              		@ link register save eliminated.
+ 358 0000 70B4     		push	{r4, r5, r6}
+ 359 0002 8F4E     		ldr	r6, .L179
+ 360 0004 0446     		mov	r4, r0
+ 361 0006 0FCE     		ldmia	r6!, {r0, r1, r2, r3}
+ 362 0008 89B0     		sub	sp, sp, #36
+ 363 000a 6D46     		mov	r5, sp
+ 364 000c 0FC5     		stmia	r5!, {r0, r1, r2, r3}
+ 365 000e 96E80F00 		ldm	r6, {r0, r1, r2, r3}
+ 366 0012 B4F5004F 		cmp	r4, #32768
+ 367 0016 85E80F00 		stm	r5, {r0, r1, r2, r3}
+ 368 001a 00F08980 		beq	.L78
+ 369 001e 15D8     		bhi	.L79
+ 370 0020 802C     		cmp	r4, #128
+ 371 0022 00F0AC80 		beq	.L80
+ 372 0026 4DD8     		bhi	.L81
+ 373 0028 202C     		cmp	r4, #32
+ 374 002a 00F0D580 		beq	.L82
+ 375 002e 402C     		cmp	r4, #64
+ 376 0030 32D1     		bne	.L173
+ 377 0032 844B     		ldr	r3, .L179+4
+ 378 0034 1A6B     		ldr	r2, [r3, #48]
+ 379 0036 9406     		lsls	r4, r2, #26
+ 380 0038 7ED4     		bmi	.L99
+ 381              	.L161:
+ 382 003a 1868     		ldr	r0, [r3]
+ 383 003c 824B     		ldr	r3, .L179+8
+ 384 003e 10F00200 		ands	r0, r0, #2
+ 385 0042 18BF     		it	ne
+ 386 0044 1846     		movne	r0, r3
+ 387              	.L77:
+ 388 0046 09B0     		add	sp, sp, #36
+ 389              		@ sp needed
+ 390 0048 70BC     		pop	{r4, r5, r6}
+ 391 004a 7047     		bx	lr
+ 392              	.L79:
+ 393 004c B4F5802F 		cmp	r4, #262144
+ 394 0050 00F0C780 		beq	.L88
+ 395 0054 46D9     		bls	.L174
+ 396 0056 B4F5002F 		cmp	r4, #524288
+ 397 005a 77D0     		beq	.L92
+ 398 005c B4F5801F 		cmp	r4, #1048576
+ 399 0060 40F0EB80 		bne	.L112
+ 400 0064 774B     		ldr	r3, .L179+4
+ 401 0066 1A6B     		ldr	r2, [r3, #48]
+ 402 0068 9104     		lsls	r1, r2, #18
+ 403 006a 36D5     		bpl	.L107
+ 404              	.L170:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 8
+
+
+ 405 006c 1868     		ldr	r0, [r3]
+ 406 006e 10F00070 		ands	r0, r0, #33554432
+ 407 0072 E8D0     		beq	.L77
+ 408 0074 5868     		ldr	r0, [r3, #4]
+ 409 0076 5A68     		ldr	r2, [r3, #4]
+ 410 0078 C0F38340 		ubfx	r0, r0, #18, #4
+ 411 007c 0230     		adds	r0, r0, #2
+ 412              	.L167:
+ 413 007e D203     		lsls	r2, r2, #15
+ 414 0080 40F1B580 		bpl	.L111
+ 415 0084 DB6A     		ldr	r3, [r3, #44]
+ 416 0086 704A     		ldr	r2, .L179+8
+ 417 0088 03F00F03 		and	r3, r3, #15
+ 418 008c 0133     		adds	r3, r3, #1
+ 419 008e B2FBF3F3 		udiv	r3, r2, r3
+ 420 0092 00FB03F0 		mul	r0, r0, r3
+ 421 0096 D6E7     		b	.L77
+ 422              	.L173:
+ 423 0098 012C     		cmp	r4, #1
+ 424 009a 40F0CE80 		bne	.L112
+ 425 009e 694A     		ldr	r2, .L179+4
+ 426 00a0 136B     		ldr	r3, [r2, #48]
+ 427 00a2 13F00303 		ands	r3, r3, #3
+ 428 00a6 00F0A680 		beq	.L175
+ 429 00aa 032B     		cmp	r3, #3
+ 430 00ac 00F0AF80 		beq	.L176
+ 431 00b0 012B     		cmp	r3, #1
+ 432 00b2 41D0     		beq	.L99
+ 433 00b4 634B     		ldr	r3, .L179+4
+ 434 00b6 186A     		ldr	r0, [r3, #32]
+ 435 00b8 10F00200 		ands	r0, r0, #2
+ 436 00bc 18BF     		it	ne
+ 437 00be 4FF40040 		movne	r0, #32768
+ 438 00c2 C0E7     		b	.L77
+ 439              	.L81:
+ 440 00c4 B4F5007F 		cmp	r4, #512
+ 441 00c8 3AD0     		beq	.L86
+ 442 00ca B4F5805F 		cmp	r4, #4096
+ 443 00ce 40F0B480 		bne	.L112
+ 444 00d2 5C4B     		ldr	r3, .L179+4
+ 445 00d4 1A6B     		ldr	r2, [r3, #48]
+ 446 00d6 D505     		lsls	r5, r2, #23
+ 447 00d8 C8D4     		bmi	.L170
+ 448              	.L107:
+ 449 00da 5C4B     		ldr	r3, .L179+12
+ 450 00dc 1868     		ldr	r0, [r3]
+ 451 00de 09B0     		add	sp, sp, #36
+ 452              		@ sp needed
+ 453 00e0 70BC     		pop	{r4, r5, r6}
+ 454 00e2 7047     		bx	lr
+ 455              	.L174:
+ 456 00e4 B4F5803F 		cmp	r4, #65536
+ 457 00e8 35D0     		beq	.L90
+ 458 00ea B4F5003F 		cmp	r4, #131072
+ 459 00ee 40F0A480 		bne	.L112
+ 460 00f2 544B     		ldr	r3, .L179+4
+ 461 00f4 1868     		ldr	r0, [r3]
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 9
+
+
+ 462 00f6 10F00070 		ands	r0, r0, #33554432
+ 463 00fa A4D0     		beq	.L77
+ 464 00fc 5A68     		ldr	r2, [r3, #4]
+ 465 00fe 5868     		ldr	r0, [r3, #4]
+ 466 0100 12F4800F 		tst	r2, #4194304
+ 467 0104 C0F38340 		ubfx	r0, r0, #18, #4
+ 468 0108 5A68     		ldr	r2, [r3, #4]
+ 469 010a 00F10200 		add	r0, r0, #2
+ 470 010e B6D1     		bne	.L167
+ 471 0110 D203     		lsls	r2, r2, #15
+ 472 0112 40F18E80 		bpl	.L102
+ 473 0116 DB6A     		ldr	r3, [r3, #44]
+ 474 0118 4B4A     		ldr	r2, .L179+8
+ 475 011a 03F00F03 		and	r3, r3, #15
+ 476 011e 0133     		adds	r3, r3, #1
+ 477 0120 B2FBF3F3 		udiv	r3, r2, r3
+ 478 0124 00FB03F0 		mul	r0, r0, r3
+ 479              	.L103:
+ 480 0128 00EB4000 		add	r0, r0, r0, lsl #1
+ 481 012c 4008     		lsrs	r0, r0, #1
+ 482 012e 8AE7     		b	.L77
+ 483              	.L78:
+ 484 0130 444B     		ldr	r3, .L179+4
+ 485 0132 1A6B     		ldr	r2, [r3, #48]
+ 486 0134 5006     		lsls	r0, r2, #25
+ 487 0136 80D5     		bpl	.L161
+ 488              	.L99:
+ 489 0138 09B0     		add	sp, sp, #36
+ 490              		@ sp needed
+ 491 013a 70BC     		pop	{r4, r5, r6}
+ 492 013c FFF7FEBF 		b	HAL_RCC_GetSysClockFreq
+ 493              	.L86:
+ 494 0140 404B     		ldr	r3, .L179+4
+ 495 0142 5B68     		ldr	r3, [r3, #4]
+ 496 0144 1902     		lsls	r1, r3, #8
+ 497 0146 F7D5     		bpl	.L99
+ 498 0148 4148     		ldr	r0, .L179+16
+ 499 014a 7CE7     		b	.L77
+ 500              	.L92:
+ 501 014c 3D4B     		ldr	r3, .L179+4
+ 502 014e 1A6B     		ldr	r2, [r3, #48]
+ 503 0150 1005     		lsls	r0, r2, #20
+ 504 0152 C2D5     		bpl	.L107
+ 505 0154 8AE7     		b	.L170
+ 506              	.L90:
+ 507 0156 3B4A     		ldr	r2, .L179+4
+ 508 0158 136A     		ldr	r3, [r2, #32]
+ 509 015a 03F44073 		and	r3, r3, #768
+ 510 015e B3F5807F 		cmp	r3, #256
+ 511 0162 5BD0     		beq	.L177
+ 512 0164 B3F5007F 		cmp	r3, #512
+ 513 0168 49D0     		beq	.L178
+ 514 016a B3F5407F 		cmp	r3, #768
+ 515 016e 64D1     		bne	.L112
+ 516 0170 1068     		ldr	r0, [r2]
+ 517 0172 384B     		ldr	r3, .L179+20
+ 518 0174 10F40030 		ands	r0, r0, #131072
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 10
+
+
+ 519 0178 18BF     		it	ne
+ 520 017a 1846     		movne	r0, r3
+ 521 017c 63E7     		b	.L77
+ 522              	.L80:
+ 523 017e 314A     		ldr	r2, .L179+4
+ 524 0180 D16A     		ldr	r1, [r2, #44]
+ 525 0182 11F4F871 		ands	r1, r1, #496
+ 526 0186 A8D0     		beq	.L107
+ 527 0188 1068     		ldr	r0, [r2]
+ 528 018a 10F00070 		ands	r0, r0, #33554432
+ 529 018e 3FF45AAF 		beq	.L77
+ 530 0192 5368     		ldr	r3, [r2, #4]
+ 531 0194 5468     		ldr	r4, [r2, #4]
+ 532 0196 C3F38343 		ubfx	r3, r3, #18, #4
+ 533 019a E603     		lsls	r6, r4, #15
+ 534 019c 03F10200 		add	r0, r3, #2
+ 535 01a0 43D5     		bpl	.L105
+ 536 01a2 D36A     		ldr	r3, [r2, #44]
+ 537 01a4 284A     		ldr	r2, .L179+8
+ 538 01a6 03F00F03 		and	r3, r3, #15
+ 539 01aa 0133     		adds	r3, r3, #1
+ 540 01ac B2FBF3F3 		udiv	r3, r2, r3
+ 541 01b0 00FB03F0 		mul	r0, r0, r3
+ 542              	.L106:
+ 543 01b4 4FF4F873 		mov	r3, #496
+ 544              		.syntax unified
+ 545              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 546 01b8 93FAA3F3 		rbit r3, r3
+ 547              	@ 0 "" 2
+ 548              		.thumb
+ 549              		.syntax unified
+ 550 01bc B3FA83F3 		clz	r3, r3
+ 551 01c0 21FA03F3 		lsr	r3, r1, r3
+ 552 01c4 03F00F03 		and	r3, r3, #15
+ 553 01c8 08AA     		add	r2, sp, #32
+ 554 01ca 02EB4303 		add	r3, r2, r3, lsl #1
+ 555 01ce 33F8203C 		ldrh	r3, [r3, #-32]
+ 556 01d2 B0FBF3F0 		udiv	r0, r0, r3
+ 557 01d6 36E7     		b	.L77
+ 558              	.L82:
+ 559 01d8 1A4B     		ldr	r3, .L179+4
+ 560 01da 1A6B     		ldr	r2, [r3, #48]
+ 561 01dc D506     		lsls	r5, r2, #27
+ 562 01de ABD4     		bmi	.L99
+ 563 01e0 2BE7     		b	.L161
+ 564              	.L88:
+ 565 01e2 184B     		ldr	r3, .L179+4
+ 566 01e4 1A6B     		ldr	r2, [r3, #48]
+ 567 01e6 5405     		lsls	r4, r2, #21
+ 568 01e8 7FF577AF 		bpl	.L107
+ 569 01ec 3EE7     		b	.L170
+ 570              	.L111:
+ 571 01ee 1A4B     		ldr	r3, .L179+24
+ 572 01f0 03FB00F0 		mul	r0, r3, r0
+ 573 01f4 27E7     		b	.L77
+ 574              	.L175:
+ 575 01f6 09B0     		add	sp, sp, #36
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 11
+
+
+ 576              		@ sp needed
+ 577 01f8 70BC     		pop	{r4, r5, r6}
+ 578 01fa FFF7FEBF 		b	HAL_RCC_GetPCLK1Freq
+ 579              	.L178:
+ 580 01fe 506A     		ldr	r0, [r2, #36]
+ 581 0200 49F64043 		movw	r3, #40000
+ 582 0204 10F00200 		ands	r0, r0, #2
+ 583 0208 18BF     		it	ne
+ 584 020a 1846     		movne	r0, r3
+ 585 020c 1BE7     		b	.L77
+ 586              	.L176:
+ 587 020e 1068     		ldr	r0, [r2]
+ 588 0210 0D4B     		ldr	r3, .L179+8
+ 589 0212 10F00200 		ands	r0, r0, #2
+ 590 0216 18BF     		it	ne
+ 591 0218 1846     		movne	r0, r3
+ 592 021a 14E7     		b	.L77
+ 593              	.L177:
+ 594 021c 106A     		ldr	r0, [r2, #32]
+ 595 021e 10F00200 		ands	r0, r0, #2
+ 596 0222 18BF     		it	ne
+ 597 0224 4FF40040 		movne	r0, #32768
+ 598 0228 0DE7     		b	.L77
+ 599              	.L105:
+ 600 022a 0B4B     		ldr	r3, .L179+24
+ 601 022c 03FB00F0 		mul	r0, r3, r0
+ 602 0230 C0E7     		b	.L106
+ 603              	.L102:
+ 604 0232 094B     		ldr	r3, .L179+24
+ 605 0234 03FB00F0 		mul	r0, r3, r0
+ 606 0238 76E7     		b	.L103
+ 607              	.L112:
+ 608 023a 0020     		movs	r0, #0
+ 609 023c 03E7     		b	.L77
+ 610              	.L180:
+ 611 023e 00BF     		.align	2
+ 612              	.L179:
+ 613 0240 00000000 		.word	.LANCHOR0
+ 614 0244 00100240 		.word	1073876992
+ 615 0248 00127A00 		.word	8000000
+ 616 024c 00000000 		.word	SystemCoreClock
+ 617 0250 ADDEADDE 		.word	-559030611
+ 618 0254 90D00300 		.word	250000
+ 619 0258 00093D00 		.word	4000000
+ 621              		.section	.rodata
+ 622              		.align	2
+ 623              		.set	.LANCHOR0,. + 0
+ 624              	.LC0:
+ 625 0000 0100     		.short	1
+ 626 0002 0200     		.short	2
+ 627 0004 0400     		.short	4
+ 628 0006 0600     		.short	6
+ 629 0008 0800     		.short	8
+ 630 000a 0A00     		.short	10
+ 631 000c 0C00     		.short	12
+ 632 000e 1000     		.short	16
+ 633 0010 2000     		.short	32
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 12
+
+
+ 634 0012 4000     		.short	64
+ 635 0014 8000     		.short	128
+ 636 0016 0001     		.short	256
+ 637 0018 0001     		.short	256
+ 638 001a 0001     		.short	256
+ 639 001c 0001     		.short	256
+ 640 001e 0001     		.short	256
+ 641              		.ident	"GCC: (xPack GNU Arm Embedded GCC, 64-bit) 9.2.1 20191025 (release) [ARM/arm-9-branch revis
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_rcc_ex.c
+D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s:16     .text.HAL_RCCEx_PeriphCLKConfig:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s:25     .text.HAL_RCCEx_PeriphCLKConfig:0000000000000000 HAL_RCCEx_PeriphCLKConfig
+D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s:282    .text.HAL_RCCEx_PeriphCLKConfig:00000000000001f4 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s:287    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s:295    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000000 HAL_RCCEx_GetPeriphCLKConfig
+D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s:342    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000068 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s:346    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s:354    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000000 HAL_RCCEx_GetPeriphCLKFreq
+D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s:613    .text.HAL_RCCEx_GetPeriphCLKFreq:0000000000000240 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc26lVBg.s:622    .rodata:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GetTick
+HAL_RCC_GetSysClockFreq
+HAL_RCC_GetPCLK1Freq
+SystemCoreClock

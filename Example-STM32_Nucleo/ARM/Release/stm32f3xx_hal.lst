@@ -1,0 +1,703 @@
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal.c"
+  14              		.text
+  15              		.section	.text.HAL_MspInit,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.weak	HAL_MspInit
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	HAL_MspInit:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28              		@ link register save eliminated.
+  29 0000 7047     		bx	lr
+  31 0002 00BF     		.section	.text.HAL_MspDeInit,"ax",%progbits
+  32              		.align	1
+  33              		.p2align 2,,3
+  34              		.weak	HAL_MspDeInit
+  35              		.syntax unified
+  36              		.thumb
+  37              		.thumb_func
+  38              		.fpu fpv4-sp-d16
+  40              	HAL_MspDeInit:
+  41              		@ args = 0, pretend = 0, frame = 0
+  42              		@ frame_needed = 0, uses_anonymous_args = 0
+  43              		@ link register save eliminated.
+  44 0000 7047     		bx	lr
+  46 0002 00BF     		.section	.text.HAL_DeInit,"ax",%progbits
+  47              		.align	1
+  48              		.p2align 2,,3
+  49              		.global	HAL_DeInit
+  50              		.syntax unified
+  51              		.thumb
+  52              		.thumb_func
+  53              		.fpu fpv4-sp-d16
+  55              	HAL_DeInit:
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58 0000 10B5     		push	{r4, lr}
+  59 0002 074B     		ldr	r3, .L6
+  60 0004 4FF0FF32 		mov	r2, #-1
+  61 0008 0024     		movs	r4, #0
+  62 000a 1A61     		str	r2, [r3, #16]
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 2
+
+
+  63 000c 1C61     		str	r4, [r3, #16]
+  64 000e DA60     		str	r2, [r3, #12]
+  65 0010 DC60     		str	r4, [r3, #12]
+  66 0012 9A62     		str	r2, [r3, #40]
+  67 0014 9C62     		str	r4, [r3, #40]
+  68 0016 FFF7FEFF 		bl	HAL_MspDeInit
+  69 001a 2046     		mov	r0, r4
+  70 001c 10BD     		pop	{r4, pc}
+  71              	.L7:
+  72 001e 00BF     		.align	2
+  73              	.L6:
+  74 0020 00100240 		.word	1073876992
+  76              		.section	.text.HAL_InitTick,"ax",%progbits
+  77              		.align	1
+  78              		.p2align 2,,3
+  79              		.weak	HAL_InitTick
+  80              		.syntax unified
+  81              		.thumb
+  82              		.thumb_func
+  83              		.fpu fpv4-sp-d16
+  85              	HAL_InitTick:
+  86              		@ args = 0, pretend = 0, frame = 0
+  87              		@ frame_needed = 0, uses_anonymous_args = 0
+  88 0000 38B5     		push	{r3, r4, r5, lr}
+  89 0002 0E4A     		ldr	r2, .L14
+  90 0004 0E4B     		ldr	r3, .L14+4
+  91 0006 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+  92 0008 1B68     		ldr	r3, [r3]
+  93 000a 0546     		mov	r5, r0
+  94 000c 4FF47A70 		mov	r0, #1000
+  95 0010 B0FBF2F0 		udiv	r0, r0, r2
+  96 0014 B3FBF0F0 		udiv	r0, r3, r0
+  97 0018 FFF7FEFF 		bl	HAL_SYSTICK_Config
+  98 001c 08B9     		cbnz	r0, .L11
+  99 001e 0F2D     		cmp	r5, #15
+ 100 0020 01D9     		bls	.L13
+ 101              	.L11:
+ 102 0022 0120     		movs	r0, #1
+ 103 0024 38BD     		pop	{r3, r4, r5, pc}
+ 104              	.L13:
+ 105 0026 0446     		mov	r4, r0
+ 106 0028 0246     		mov	r2, r0
+ 107 002a 2946     		mov	r1, r5
+ 108 002c 4FF0FF30 		mov	r0, #-1
+ 109 0030 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 110 0034 034B     		ldr	r3, .L14+8
+ 111 0036 2046     		mov	r0, r4
+ 112 0038 1D60     		str	r5, [r3]
+ 113 003a 38BD     		pop	{r3, r4, r5, pc}
+ 114              	.L15:
+ 115              		.align	2
+ 116              	.L14:
+ 117 003c 00000000 		.word	.LANCHOR0
+ 118 0040 00000000 		.word	SystemCoreClock
+ 119 0044 00000000 		.word	.LANCHOR1
+ 121              		.section	.text.HAL_Init,"ax",%progbits
+ 122              		.align	1
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 3
+
+
+ 123              		.p2align 2,,3
+ 124              		.global	HAL_Init
+ 125              		.syntax unified
+ 126              		.thumb
+ 127              		.thumb_func
+ 128              		.fpu fpv4-sp-d16
+ 130              	HAL_Init:
+ 131              		@ args = 0, pretend = 0, frame = 0
+ 132              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133 0000 074A     		ldr	r2, .L18
+ 134 0002 08B5     		push	{r3, lr}
+ 135 0004 1368     		ldr	r3, [r2]
+ 136 0006 43F01003 		orr	r3, r3, #16
+ 137 000a 1360     		str	r3, [r2]
+ 138 000c 0320     		movs	r0, #3
+ 139 000e FFF7FEFF 		bl	HAL_NVIC_SetPriorityGrouping
+ 140 0012 0020     		movs	r0, #0
+ 141 0014 FFF7FEFF 		bl	HAL_InitTick
+ 142 0018 FFF7FEFF 		bl	HAL_MspInit
+ 143 001c 0020     		movs	r0, #0
+ 144 001e 08BD     		pop	{r3, pc}
+ 145              	.L19:
+ 146              		.align	2
+ 147              	.L18:
+ 148 0020 00200240 		.word	1073881088
+ 150              		.section	.text.HAL_IncTick,"ax",%progbits
+ 151              		.align	1
+ 152              		.p2align 2,,3
+ 153              		.weak	HAL_IncTick
+ 154              		.syntax unified
+ 155              		.thumb
+ 156              		.thumb_func
+ 157              		.fpu fpv4-sp-d16
+ 159              	HAL_IncTick:
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162              		@ link register save eliminated.
+ 163 0000 034A     		ldr	r2, .L21
+ 164 0002 044B     		ldr	r3, .L21+4
+ 165 0004 1168     		ldr	r1, [r2]
+ 166 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 167 0008 0B44     		add	r3, r3, r1
+ 168 000a 1360     		str	r3, [r2]
+ 169 000c 7047     		bx	lr
+ 170              	.L22:
+ 171 000e 00BF     		.align	2
+ 172              	.L21:
+ 173 0010 00000000 		.word	uwTick
+ 174 0014 00000000 		.word	.LANCHOR0
+ 176              		.section	.text.HAL_GetTick,"ax",%progbits
+ 177              		.align	1
+ 178              		.p2align 2,,3
+ 179              		.weak	HAL_GetTick
+ 180              		.syntax unified
+ 181              		.thumb
+ 182              		.thumb_func
+ 183              		.fpu fpv4-sp-d16
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 4
+
+
+ 185              	HAL_GetTick:
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188              		@ link register save eliminated.
+ 189 0000 014B     		ldr	r3, .L24
+ 190 0002 1868     		ldr	r0, [r3]
+ 191 0004 7047     		bx	lr
+ 192              	.L25:
+ 193 0006 00BF     		.align	2
+ 194              	.L24:
+ 195 0008 00000000 		.word	uwTick
+ 197              		.section	.text.HAL_GetTickPrio,"ax",%progbits
+ 198              		.align	1
+ 199              		.p2align 2,,3
+ 200              		.global	HAL_GetTickPrio
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 204              		.fpu fpv4-sp-d16
+ 206              	HAL_GetTickPrio:
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209              		@ link register save eliminated.
+ 210 0000 014B     		ldr	r3, .L27
+ 211 0002 1868     		ldr	r0, [r3]
+ 212 0004 7047     		bx	lr
+ 213              	.L28:
+ 214 0006 00BF     		.align	2
+ 215              	.L27:
+ 216 0008 00000000 		.word	.LANCHOR1
+ 218              		.section	.text.HAL_SetTickFreq,"ax",%progbits
+ 219              		.align	1
+ 220              		.p2align 2,,3
+ 221              		.global	HAL_SetTickFreq
+ 222              		.syntax unified
+ 223              		.thumb
+ 224              		.thumb_func
+ 225              		.fpu fpv4-sp-d16
+ 227              	HAL_SetTickFreq:
+ 228              		@ args = 0, pretend = 0, frame = 0
+ 229              		@ frame_needed = 0, uses_anonymous_args = 0
+ 230 0000 38B5     		push	{r3, r4, r5, lr}
+ 231 0002 074C     		ldr	r4, .L37
+ 232 0004 2578     		ldrb	r5, [r4]	@ zero_extendqisi2
+ 233 0006 8542     		cmp	r5, r0
+ 234 0008 01D1     		bne	.L36
+ 235 000a 0020     		movs	r0, #0
+ 236              	.L30:
+ 237 000c 38BD     		pop	{r3, r4, r5, pc}
+ 238              	.L36:
+ 239 000e 054B     		ldr	r3, .L37+4
+ 240 0010 2070     		strb	r0, [r4]
+ 241 0012 1868     		ldr	r0, [r3]
+ 242 0014 FFF7FEFF 		bl	HAL_InitTick
+ 243 0018 0028     		cmp	r0, #0
+ 244 001a F7D0     		beq	.L30
+ 245 001c 2570     		strb	r5, [r4]
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 5
+
+
+ 246 001e 38BD     		pop	{r3, r4, r5, pc}
+ 247              	.L38:
+ 248              		.align	2
+ 249              	.L37:
+ 250 0020 00000000 		.word	.LANCHOR0
+ 251 0024 00000000 		.word	.LANCHOR1
+ 253              		.section	.text.HAL_GetTickFreq,"ax",%progbits
+ 254              		.align	1
+ 255              		.p2align 2,,3
+ 256              		.global	HAL_GetTickFreq
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.fpu fpv4-sp-d16
+ 262              	HAL_GetTickFreq:
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265              		@ link register save eliminated.
+ 266 0000 014B     		ldr	r3, .L40
+ 267 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 268 0004 7047     		bx	lr
+ 269              	.L41:
+ 270 0006 00BF     		.align	2
+ 271              	.L40:
+ 272 0008 00000000 		.word	.LANCHOR0
+ 274              		.section	.text.HAL_Delay,"ax",%progbits
+ 275              		.align	1
+ 276              		.p2align 2,,3
+ 277              		.weak	HAL_Delay
+ 278              		.syntax unified
+ 279              		.thumb
+ 280              		.thumb_func
+ 281              		.fpu fpv4-sp-d16
+ 283              	HAL_Delay:
+ 284              		@ args = 0, pretend = 0, frame = 0
+ 285              		@ frame_needed = 0, uses_anonymous_args = 0
+ 286 0000 38B5     		push	{r3, r4, r5, lr}
+ 287 0002 0446     		mov	r4, r0
+ 288 0004 FFF7FEFF 		bl	HAL_GetTick
+ 289 0008 631C     		adds	r3, r4, #1
+ 290 000a 0546     		mov	r5, r0
+ 291 000c 02D0     		beq	.L44
+ 292 000e 044B     		ldr	r3, .L50
+ 293 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 294 0012 1C44     		add	r4, r4, r3
+ 295              	.L44:
+ 296 0014 FFF7FEFF 		bl	HAL_GetTick
+ 297 0018 431B     		subs	r3, r0, r5
+ 298 001a A342     		cmp	r3, r4
+ 299 001c FAD3     		bcc	.L44
+ 300 001e 38BD     		pop	{r3, r4, r5, pc}
+ 301              	.L51:
+ 302              		.align	2
+ 303              	.L50:
+ 304 0020 00000000 		.word	.LANCHOR0
+ 306              		.section	.text.HAL_SuspendTick,"ax",%progbits
+ 307              		.align	1
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 6
+
+
+ 308              		.p2align 2,,3
+ 309              		.weak	HAL_SuspendTick
+ 310              		.syntax unified
+ 311              		.thumb
+ 312              		.thumb_func
+ 313              		.fpu fpv4-sp-d16
+ 315              	HAL_SuspendTick:
+ 316              		@ args = 0, pretend = 0, frame = 0
+ 317              		@ frame_needed = 0, uses_anonymous_args = 0
+ 318              		@ link register save eliminated.
+ 319 0000 024A     		ldr	r2, .L53
+ 320 0002 1368     		ldr	r3, [r2]
+ 321 0004 23F00203 		bic	r3, r3, #2
+ 322 0008 1360     		str	r3, [r2]
+ 323 000a 7047     		bx	lr
+ 324              	.L54:
+ 325              		.align	2
+ 326              	.L53:
+ 327 000c 10E000E0 		.word	-536813552
+ 329              		.section	.text.HAL_ResumeTick,"ax",%progbits
+ 330              		.align	1
+ 331              		.p2align 2,,3
+ 332              		.weak	HAL_ResumeTick
+ 333              		.syntax unified
+ 334              		.thumb
+ 335              		.thumb_func
+ 336              		.fpu fpv4-sp-d16
+ 338              	HAL_ResumeTick:
+ 339              		@ args = 0, pretend = 0, frame = 0
+ 340              		@ frame_needed = 0, uses_anonymous_args = 0
+ 341              		@ link register save eliminated.
+ 342 0000 024A     		ldr	r2, .L56
+ 343 0002 1368     		ldr	r3, [r2]
+ 344 0004 43F00203 		orr	r3, r3, #2
+ 345 0008 1360     		str	r3, [r2]
+ 346 000a 7047     		bx	lr
+ 347              	.L57:
+ 348              		.align	2
+ 349              	.L56:
+ 350 000c 10E000E0 		.word	-536813552
+ 352              		.section	.text.HAL_GetHalVersion,"ax",%progbits
+ 353              		.align	1
+ 354              		.p2align 2,,3
+ 355              		.global	HAL_GetHalVersion
+ 356              		.syntax unified
+ 357              		.thumb
+ 358              		.thumb_func
+ 359              		.fpu fpv4-sp-d16
+ 361              	HAL_GetHalVersion:
+ 362              		@ args = 0, pretend = 0, frame = 0
+ 363              		@ frame_needed = 0, uses_anonymous_args = 0
+ 364              		@ link register save eliminated.
+ 365 0000 0048     		ldr	r0, .L59
+ 366 0002 7047     		bx	lr
+ 367              	.L60:
+ 368              		.align	2
+ 369              	.L59:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 7
+
+
+ 370 0004 00030501 		.word	17105664
+ 372              		.section	.text.HAL_GetREVID,"ax",%progbits
+ 373              		.align	1
+ 374              		.p2align 2,,3
+ 375              		.global	HAL_GetREVID
+ 376              		.syntax unified
+ 377              		.thumb
+ 378              		.thumb_func
+ 379              		.fpu fpv4-sp-d16
+ 381              	HAL_GetREVID:
+ 382              		@ args = 0, pretend = 0, frame = 0
+ 383              		@ frame_needed = 0, uses_anonymous_args = 0
+ 384              		@ link register save eliminated.
+ 385 0000 014B     		ldr	r3, .L62
+ 386 0002 1868     		ldr	r0, [r3]
+ 387 0004 000C     		lsrs	r0, r0, #16
+ 388 0006 7047     		bx	lr
+ 389              	.L63:
+ 390              		.align	2
+ 391              	.L62:
+ 392 0008 002004E0 		.word	-536600576
+ 394              		.section	.text.HAL_GetDEVID,"ax",%progbits
+ 395              		.align	1
+ 396              		.p2align 2,,3
+ 397              		.global	HAL_GetDEVID
+ 398              		.syntax unified
+ 399              		.thumb
+ 400              		.thumb_func
+ 401              		.fpu fpv4-sp-d16
+ 403              	HAL_GetDEVID:
+ 404              		@ args = 0, pretend = 0, frame = 0
+ 405              		@ frame_needed = 0, uses_anonymous_args = 0
+ 406              		@ link register save eliminated.
+ 407 0000 024B     		ldr	r3, .L65
+ 408 0002 1868     		ldr	r0, [r3]
+ 409 0004 C0F30B00 		ubfx	r0, r0, #0, #12
+ 410 0008 7047     		bx	lr
+ 411              	.L66:
+ 412 000a 00BF     		.align	2
+ 413              	.L65:
+ 414 000c 002004E0 		.word	-536600576
+ 416              		.section	.text.HAL_GetUIDw0,"ax",%progbits
+ 417              		.align	1
+ 418              		.p2align 2,,3
+ 419              		.global	HAL_GetUIDw0
+ 420              		.syntax unified
+ 421              		.thumb
+ 422              		.thumb_func
+ 423              		.fpu fpv4-sp-d16
+ 425              	HAL_GetUIDw0:
+ 426              		@ args = 0, pretend = 0, frame = 0
+ 427              		@ frame_needed = 0, uses_anonymous_args = 0
+ 428              		@ link register save eliminated.
+ 429 0000 014B     		ldr	r3, .L68
+ 430 0002 1868     		ldr	r0, [r3]
+ 431 0004 7047     		bx	lr
+ 432              	.L69:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 8
+
+
+ 433 0006 00BF     		.align	2
+ 434              	.L68:
+ 435 0008 ACF7FF1F 		.word	536868780
+ 437              		.section	.text.HAL_GetUIDw1,"ax",%progbits
+ 438              		.align	1
+ 439              		.p2align 2,,3
+ 440              		.global	HAL_GetUIDw1
+ 441              		.syntax unified
+ 442              		.thumb
+ 443              		.thumb_func
+ 444              		.fpu fpv4-sp-d16
+ 446              	HAL_GetUIDw1:
+ 447              		@ args = 0, pretend = 0, frame = 0
+ 448              		@ frame_needed = 0, uses_anonymous_args = 0
+ 449              		@ link register save eliminated.
+ 450 0000 014B     		ldr	r3, .L71
+ 451 0002 1868     		ldr	r0, [r3]
+ 452 0004 7047     		bx	lr
+ 453              	.L72:
+ 454 0006 00BF     		.align	2
+ 455              	.L71:
+ 456 0008 B0F7FF1F 		.word	536868784
+ 458              		.section	.text.HAL_GetUIDw2,"ax",%progbits
+ 459              		.align	1
+ 460              		.p2align 2,,3
+ 461              		.global	HAL_GetUIDw2
+ 462              		.syntax unified
+ 463              		.thumb
+ 464              		.thumb_func
+ 465              		.fpu fpv4-sp-d16
+ 467              	HAL_GetUIDw2:
+ 468              		@ args = 0, pretend = 0, frame = 0
+ 469              		@ frame_needed = 0, uses_anonymous_args = 0
+ 470              		@ link register save eliminated.
+ 471 0000 014B     		ldr	r3, .L74
+ 472 0002 1868     		ldr	r0, [r3]
+ 473 0004 7047     		bx	lr
+ 474              	.L75:
+ 475 0006 00BF     		.align	2
+ 476              	.L74:
+ 477 0008 B4F7FF1F 		.word	536868788
+ 479              		.section	.text.HAL_DBGMCU_EnableDBGSleepMode,"ax",%progbits
+ 480              		.align	1
+ 481              		.p2align 2,,3
+ 482              		.global	HAL_DBGMCU_EnableDBGSleepMode
+ 483              		.syntax unified
+ 484              		.thumb
+ 485              		.thumb_func
+ 486              		.fpu fpv4-sp-d16
+ 488              	HAL_DBGMCU_EnableDBGSleepMode:
+ 489              		@ args = 0, pretend = 0, frame = 0
+ 490              		@ frame_needed = 0, uses_anonymous_args = 0
+ 491              		@ link register save eliminated.
+ 492 0000 024A     		ldr	r2, .L77
+ 493 0002 5368     		ldr	r3, [r2, #4]
+ 494 0004 43F00103 		orr	r3, r3, #1
+ 495 0008 5360     		str	r3, [r2, #4]
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 9
+
+
+ 496 000a 7047     		bx	lr
+ 497              	.L78:
+ 498              		.align	2
+ 499              	.L77:
+ 500 000c 002004E0 		.word	-536600576
+ 502              		.section	.text.HAL_DBGMCU_DisableDBGSleepMode,"ax",%progbits
+ 503              		.align	1
+ 504              		.p2align 2,,3
+ 505              		.global	HAL_DBGMCU_DisableDBGSleepMode
+ 506              		.syntax unified
+ 507              		.thumb
+ 508              		.thumb_func
+ 509              		.fpu fpv4-sp-d16
+ 511              	HAL_DBGMCU_DisableDBGSleepMode:
+ 512              		@ args = 0, pretend = 0, frame = 0
+ 513              		@ frame_needed = 0, uses_anonymous_args = 0
+ 514              		@ link register save eliminated.
+ 515 0000 024A     		ldr	r2, .L80
+ 516 0002 5368     		ldr	r3, [r2, #4]
+ 517 0004 23F00103 		bic	r3, r3, #1
+ 518 0008 5360     		str	r3, [r2, #4]
+ 519 000a 7047     		bx	lr
+ 520              	.L81:
+ 521              		.align	2
+ 522              	.L80:
+ 523 000c 002004E0 		.word	-536600576
+ 525              		.section	.text.HAL_DBGMCU_EnableDBGStopMode,"ax",%progbits
+ 526              		.align	1
+ 527              		.p2align 2,,3
+ 528              		.global	HAL_DBGMCU_EnableDBGStopMode
+ 529              		.syntax unified
+ 530              		.thumb
+ 531              		.thumb_func
+ 532              		.fpu fpv4-sp-d16
+ 534              	HAL_DBGMCU_EnableDBGStopMode:
+ 535              		@ args = 0, pretend = 0, frame = 0
+ 536              		@ frame_needed = 0, uses_anonymous_args = 0
+ 537              		@ link register save eliminated.
+ 538 0000 024A     		ldr	r2, .L83
+ 539 0002 5368     		ldr	r3, [r2, #4]
+ 540 0004 43F00203 		orr	r3, r3, #2
+ 541 0008 5360     		str	r3, [r2, #4]
+ 542 000a 7047     		bx	lr
+ 543              	.L84:
+ 544              		.align	2
+ 545              	.L83:
+ 546 000c 002004E0 		.word	-536600576
+ 548              		.section	.text.HAL_DBGMCU_DisableDBGStopMode,"ax",%progbits
+ 549              		.align	1
+ 550              		.p2align 2,,3
+ 551              		.global	HAL_DBGMCU_DisableDBGStopMode
+ 552              		.syntax unified
+ 553              		.thumb
+ 554              		.thumb_func
+ 555              		.fpu fpv4-sp-d16
+ 557              	HAL_DBGMCU_DisableDBGStopMode:
+ 558              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 10
+
+
+ 559              		@ frame_needed = 0, uses_anonymous_args = 0
+ 560              		@ link register save eliminated.
+ 561 0000 024A     		ldr	r2, .L86
+ 562 0002 5368     		ldr	r3, [r2, #4]
+ 563 0004 23F00203 		bic	r3, r3, #2
+ 564 0008 5360     		str	r3, [r2, #4]
+ 565 000a 7047     		bx	lr
+ 566              	.L87:
+ 567              		.align	2
+ 568              	.L86:
+ 569 000c 002004E0 		.word	-536600576
+ 571              		.section	.text.HAL_DBGMCU_EnableDBGStandbyMode,"ax",%progbits
+ 572              		.align	1
+ 573              		.p2align 2,,3
+ 574              		.global	HAL_DBGMCU_EnableDBGStandbyMode
+ 575              		.syntax unified
+ 576              		.thumb
+ 577              		.thumb_func
+ 578              		.fpu fpv4-sp-d16
+ 580              	HAL_DBGMCU_EnableDBGStandbyMode:
+ 581              		@ args = 0, pretend = 0, frame = 0
+ 582              		@ frame_needed = 0, uses_anonymous_args = 0
+ 583              		@ link register save eliminated.
+ 584 0000 024A     		ldr	r2, .L89
+ 585 0002 5368     		ldr	r3, [r2, #4]
+ 586 0004 43F00403 		orr	r3, r3, #4
+ 587 0008 5360     		str	r3, [r2, #4]
+ 588 000a 7047     		bx	lr
+ 589              	.L90:
+ 590              		.align	2
+ 591              	.L89:
+ 592 000c 002004E0 		.word	-536600576
+ 594              		.section	.text.HAL_DBGMCU_DisableDBGStandbyMode,"ax",%progbits
+ 595              		.align	1
+ 596              		.p2align 2,,3
+ 597              		.global	HAL_DBGMCU_DisableDBGStandbyMode
+ 598              		.syntax unified
+ 599              		.thumb
+ 600              		.thumb_func
+ 601              		.fpu fpv4-sp-d16
+ 603              	HAL_DBGMCU_DisableDBGStandbyMode:
+ 604              		@ args = 0, pretend = 0, frame = 0
+ 605              		@ frame_needed = 0, uses_anonymous_args = 0
+ 606              		@ link register save eliminated.
+ 607 0000 024A     		ldr	r2, .L92
+ 608 0002 5368     		ldr	r3, [r2, #4]
+ 609 0004 23F00403 		bic	r3, r3, #4
+ 610 0008 5360     		str	r3, [r2, #4]
+ 611 000a 7047     		bx	lr
+ 612              	.L93:
+ 613              		.align	2
+ 614              	.L92:
+ 615 000c 002004E0 		.word	-536600576
+ 617              		.global	uwTickFreq
+ 618              		.global	uwTickPrio
+ 619              		.comm	uwTick,4,4
+ 620              		.section	.data.uwTickFreq,"aw"
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 11
+
+
+ 621              		.set	.LANCHOR0,. + 0
+ 624              	uwTickFreq:
+ 625 0000 01       		.byte	1
+ 626              		.section	.data.uwTickPrio,"aw"
+ 627              		.align	2
+ 628              		.set	.LANCHOR1,. + 0
+ 631              	uwTickPrio:
+ 632 0000 10000000 		.word	16
+ 633              		.ident	"GCC: (xPack GNU Arm Embedded GCC, 64-bit) 9.2.1 20191025 (release) [ARM/arm-9-branch revis
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal.c
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:16     .text.HAL_MspInit:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:25     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:32     .text.HAL_MspDeInit:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:40     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:47     .text.HAL_DeInit:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:55     .text.HAL_DeInit:0000000000000000 HAL_DeInit
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:74     .text.HAL_DeInit:0000000000000020 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:77     .text.HAL_InitTick:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:85     .text.HAL_InitTick:0000000000000000 HAL_InitTick
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:117    .text.HAL_InitTick:000000000000003c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:122    .text.HAL_Init:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:130    .text.HAL_Init:0000000000000000 HAL_Init
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:148    .text.HAL_Init:0000000000000020 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:151    .text.HAL_IncTick:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:159    .text.HAL_IncTick:0000000000000000 HAL_IncTick
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:173    .text.HAL_IncTick:0000000000000010 $d
+                            *COM*:0000000000000004 uwTick
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:177    .text.HAL_GetTick:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:185    .text.HAL_GetTick:0000000000000000 HAL_GetTick
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:195    .text.HAL_GetTick:0000000000000008 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:198    .text.HAL_GetTickPrio:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:206    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:216    .text.HAL_GetTickPrio:0000000000000008 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:219    .text.HAL_SetTickFreq:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:227    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:250    .text.HAL_SetTickFreq:0000000000000020 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:254    .text.HAL_GetTickFreq:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:262    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:272    .text.HAL_GetTickFreq:0000000000000008 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:275    .text.HAL_Delay:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:283    .text.HAL_Delay:0000000000000000 HAL_Delay
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:304    .text.HAL_Delay:0000000000000020 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:307    .text.HAL_SuspendTick:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:315    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:327    .text.HAL_SuspendTick:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:330    .text.HAL_ResumeTick:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:338    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:350    .text.HAL_ResumeTick:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:353    .text.HAL_GetHalVersion:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:361    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:370    .text.HAL_GetHalVersion:0000000000000004 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:373    .text.HAL_GetREVID:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:381    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:392    .text.HAL_GetREVID:0000000000000008 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:395    .text.HAL_GetDEVID:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:403    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:414    .text.HAL_GetDEVID:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:417    .text.HAL_GetUIDw0:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:425    .text.HAL_GetUIDw0:0000000000000000 HAL_GetUIDw0
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:435    .text.HAL_GetUIDw0:0000000000000008 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:438    .text.HAL_GetUIDw1:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:446    .text.HAL_GetUIDw1:0000000000000000 HAL_GetUIDw1
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:456    .text.HAL_GetUIDw1:0000000000000008 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:459    .text.HAL_GetUIDw2:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:467    .text.HAL_GetUIDw2:0000000000000000 HAL_GetUIDw2
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s 			page 13
+
+
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:477    .text.HAL_GetUIDw2:0000000000000008 $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:480    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:488    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:500    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:503    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:511    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:523    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:526    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:534    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:546    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:549    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:557    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:569    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:572    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:580    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:592    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:595    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:603    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:615    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:624    .data.uwTickFreq:0000000000000000 uwTickFreq
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:631    .data.uwTickPrio:0000000000000000 uwTickPrio
+D:\Users\Ma-Game\AppData\Local\Temp\cc4BYUIf.s:627    .data.uwTickPrio:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+HAL_SYSTICK_Config
+HAL_NVIC_SetPriority
+SystemCoreClock
+HAL_NVIC_SetPriorityGrouping

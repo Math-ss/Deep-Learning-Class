@@ -1,0 +1,735 @@
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_dma.c"
+  14              		.text
+  15              		.section	.text.HAL_DMA_Init,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	HAL_DMA_Init
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	HAL_DMA_Init:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28              		@ link register save eliminated.
+  29 0000 38B3     		cbz	r0, .L3
+  30 0002 70B4     		push	{r4, r5, r6}
+  31 0004 D0E90125 		ldrd	r2, r5, [r0, #4]
+  32 0008 D0E90314 		ldrd	r1, r4, [r0, #12]
+  33 000c 0346     		mov	r3, r0
+  34 000e 2A43     		orrs	r2, r2, r5
+  35 0010 0068     		ldr	r0, [r0]
+  36 0012 5E69     		ldr	r6, [r3, #20]
+  37 0014 9D69     		ldr	r5, [r3, #24]
+  38 0016 0A43     		orrs	r2, r2, r1
+  39 0018 2243     		orrs	r2, r2, r4
+  40 001a 3243     		orrs	r2, r2, r6
+  41 001c 0468     		ldr	r4, [r0]
+  42 001e 0E49     		ldr	r1, .L9
+  43 0020 0E4E     		ldr	r6, .L9+4
+  44 0022 2A43     		orrs	r2, r2, r5
+  45 0024 DD69     		ldr	r5, [r3, #28]
+  46 0026 24F47F54 		bic	r4, r4, #16320
+  47 002a 0144     		add	r1, r1, r0
+  48 002c 2A43     		orrs	r2, r2, r5
+  49 002e 24F03004 		bic	r4, r4, #48
+  50 0032 2243     		orrs	r2, r2, r4
+  51 0034 A6FB0161 		umull	r6, r1, r6, r1
+  52 0038 0260     		str	r2, [r0]
+  53 003a 094C     		ldr	r4, .L9+8
+  54 003c 0909     		lsrs	r1, r1, #4
+  55 003e 4FF48072 		mov	r2, #256
+  56 0042 0020     		movs	r0, #0
+  57 0044 8900     		lsls	r1, r1, #2
+  58 0046 1A84     		strh	r2, [r3, #32]	@ movhi
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 2
+
+
+  59 0048 C3E90F41 		strd	r4, r1, [r3, #60]
+  60 004c 70BC     		pop	{r4, r5, r6}
+  61 004e 9863     		str	r0, [r3, #56]
+  62 0050 7047     		bx	lr
+  63              	.L3:
+  64 0052 0120     		movs	r0, #1
+  65 0054 7047     		bx	lr
+  66              	.L10:
+  67 0056 00BF     		.align	2
+  68              	.L9:
+  69 0058 F8FFFDBF 		.word	-1073872904
+  70 005c CDCCCCCC 		.word	-858993459
+  71 0060 00000240 		.word	1073872896
+  73              		.section	.text.HAL_DMA_DeInit,"ax",%progbits
+  74              		.align	1
+  75              		.p2align 2,,3
+  76              		.global	HAL_DMA_DeInit
+  77              		.syntax unified
+  78              		.thumb
+  79              		.thumb_func
+  80              		.fpu fpv4-sp-d16
+  82              	HAL_DMA_DeInit:
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85              		@ link register save eliminated.
+  86 0000 08B3     		cbz	r0, .L13
+  87 0002 0346     		mov	r3, r0
+  88 0004 114A     		ldr	r2, .L18
+  89 0006 0068     		ldr	r0, [r0]
+  90 0008 1149     		ldr	r1, .L18+4
+  91 000a 0244     		add	r2, r2, r0
+  92 000c 70B4     		push	{r4, r5, r6}
+  93 000e A1FB0221 		umull	r2, r1, r1, r2
+  94 0012 0568     		ldr	r5, [r0]
+  95 0014 0F4E     		ldr	r6, .L18+8
+  96 0016 0909     		lsrs	r1, r1, #4
+  97 0018 8900     		lsls	r1, r1, #2
+  98 001a 0124     		movs	r4, #1
+  99 001c 0022     		movs	r2, #0
+ 100 001e 25F00105 		bic	r5, r5, #1
+ 101 0022 8C40     		lsls	r4, r4, r1
+ 102 0024 0560     		str	r5, [r0]
+ 103 0026 0260     		str	r2, [r0]
+ 104 0028 4260     		str	r2, [r0, #4]
+ 105 002a 8260     		str	r2, [r0, #8]
+ 106 002c C260     		str	r2, [r0, #12]
+ 107 002e C3E90F61 		strd	r6, r1, [r3, #60]
+ 108 0032 7460     		str	r4, [r6, #4]
+ 109 0034 1A84     		strh	r2, [r3, #32]	@ movhi
+ 110 0036 1046     		mov	r0, r2
+ 111 0038 70BC     		pop	{r4, r5, r6}
+ 112 003a C3E90A22 		strd	r2, r2, [r3, #40]
+ 113 003e C3E90C22 		strd	r2, r2, [r3, #48]
+ 114 0042 9A63     		str	r2, [r3, #56]
+ 115 0044 7047     		bx	lr
+ 116              	.L13:
+ 117 0046 0120     		movs	r0, #1
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 3
+
+
+ 118 0048 7047     		bx	lr
+ 119              	.L19:
+ 120 004a 00BF     		.align	2
+ 121              	.L18:
+ 122 004c F8FFFDBF 		.word	-1073872904
+ 123 0050 CDCCCCCC 		.word	-858993459
+ 124 0054 00000240 		.word	1073872896
+ 126              		.section	.text.HAL_DMA_Start,"ax",%progbits
+ 127              		.align	1
+ 128              		.p2align 2,,3
+ 129              		.global	HAL_DMA_Start
+ 130              		.syntax unified
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.fpu fpv4-sp-d16
+ 135              	HAL_DMA_Start:
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 139 0002 90F82040 		ldrb	r4, [r0, #32]	@ zero_extendqisi2
+ 140 0006 012C     		cmp	r4, #1
+ 141 0008 29D0     		beq	.L25
+ 142 000a 90F82150 		ldrb	r5, [r0, #33]	@ zero_extendqisi2
+ 143 000e 0124     		movs	r4, #1
+ 144 0010 A542     		cmp	r5, r4
+ 145 0012 80F82040 		strb	r4, [r0, #32]
+ 146 0016 04D0     		beq	.L27
+ 147 0018 0023     		movs	r3, #0
+ 148 001a 80F82030 		strb	r3, [r0, #32]
+ 149 001e 0220     		movs	r0, #2
+ 150 0020 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 151              	.L27:
+ 152 0022 0468     		ldr	r4, [r0]
+ 153 0024 0227     		movs	r7, #2
+ 154 0026 0026     		movs	r6, #0
+ 155 0028 80F82170 		strb	r7, [r0, #33]
+ 156 002c 8663     		str	r6, [r0, #56]
+ 157 002e D0E90FCE 		ldrd	ip, lr, [r0, #60]
+ 158 0032 2668     		ldr	r6, [r4]
+ 159 0034 4768     		ldr	r7, [r0, #4]
+ 160 0036 26F00106 		bic	r6, r6, #1
+ 161 003a 102F     		cmp	r7, #16
+ 162 003c 05FA0EF5 		lsl	r5, r5, lr
+ 163 0040 2660     		str	r6, [r4]
+ 164 0042 CCF80450 		str	r5, [ip, #4]
+ 165 0046 6360     		str	r3, [r4, #4]
+ 166 0048 0BBF     		itete	eq
+ 167 004a A260     		streq	r2, [r4, #8]
+ 168 004c A160     		strne	r1, [r4, #8]
+ 169 004e E160     		streq	r1, [r4, #12]
+ 170 0050 E260     		strne	r2, [r4, #12]
+ 171 0052 2368     		ldr	r3, [r4]
+ 172 0054 43F00103 		orr	r3, r3, #1
+ 173 0058 2360     		str	r3, [r4]
+ 174 005a 0020     		movs	r0, #0
+ 175 005c F0BD     		pop	{r4, r5, r6, r7, pc}
+ 176              	.L25:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 4
+
+
+ 177 005e 0220     		movs	r0, #2
+ 178 0060 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 180 0062 00BF     		.section	.text.HAL_DMA_Start_IT,"ax",%progbits
+ 181              		.align	1
+ 182              		.p2align 2,,3
+ 183              		.global	HAL_DMA_Start_IT
+ 184              		.syntax unified
+ 185              		.thumb
+ 186              		.thumb_func
+ 187              		.fpu fpv4-sp-d16
+ 189              	HAL_DMA_Start_IT:
+ 190              		@ args = 0, pretend = 0, frame = 0
+ 191              		@ frame_needed = 0, uses_anonymous_args = 0
+ 192              		@ link register save eliminated.
+ 193 0000 F0B4     		push	{r4, r5, r6, r7}
+ 194 0002 90F82040 		ldrb	r4, [r0, #32]	@ zero_extendqisi2
+ 195 0006 012C     		cmp	r4, #1
+ 196 0008 39D0     		beq	.L35
+ 197 000a 90F82150 		ldrb	r5, [r0, #33]	@ zero_extendqisi2
+ 198 000e 0124     		movs	r4, #1
+ 199 0010 A542     		cmp	r5, r4
+ 200 0012 80F82040 		strb	r4, [r0, #32]
+ 201 0016 05D0     		beq	.L37
+ 202 0018 0023     		movs	r3, #0
+ 203 001a 80F82030 		strb	r3, [r0, #32]
+ 204 001e F0BC     		pop	{r4, r5, r6, r7}
+ 205 0020 0220     		movs	r0, #2
+ 206 0022 7047     		bx	lr
+ 207              	.L37:
+ 208 0024 0468     		ldr	r4, [r0]
+ 209 0026 0227     		movs	r7, #2
+ 210 0028 0026     		movs	r6, #0
+ 211 002a 80F82170 		strb	r7, [r0, #33]
+ 212 002e 8663     		str	r6, [r0, #56]
+ 213 0030 2668     		ldr	r6, [r4]
+ 214 0032 C76B     		ldr	r7, [r0, #60]
+ 215 0034 26F0010C 		bic	ip, r6, #1
+ 216 0038 066C     		ldr	r6, [r0, #64]
+ 217 003a C4F800C0 		str	ip, [r4]
+ 218 003e B540     		lsls	r5, r5, r6
+ 219 0040 4668     		ldr	r6, [r0, #4]
+ 220 0042 7D60     		str	r5, [r7, #4]
+ 221 0044 6360     		str	r3, [r4, #4]
+ 222 0046 C36A     		ldr	r3, [r0, #44]
+ 223 0048 102E     		cmp	r6, #16
+ 224 004a 0BBF     		itete	eq
+ 225 004c A260     		streq	r2, [r4, #8]
+ 226 004e A160     		strne	r1, [r4, #8]
+ 227 0050 E160     		streq	r1, [r4, #12]
+ 228 0052 E260     		strne	r2, [r4, #12]
+ 229 0054 53B1     		cbz	r3, .L33
+ 230 0056 2368     		ldr	r3, [r4]
+ 231 0058 43F00E03 		orr	r3, r3, #14
+ 232 005c 2360     		str	r3, [r4]
+ 233              	.L34:
+ 234 005e 2368     		ldr	r3, [r4]
+ 235 0060 43F00103 		orr	r3, r3, #1
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 5
+
+
+ 236 0064 2360     		str	r3, [r4]
+ 237 0066 0020     		movs	r0, #0
+ 238 0068 F0BC     		pop	{r4, r5, r6, r7}
+ 239 006a 7047     		bx	lr
+ 240              	.L33:
+ 241 006c 2368     		ldr	r3, [r4]
+ 242 006e 43F00A03 		orr	r3, r3, #10
+ 243 0072 2360     		str	r3, [r4]
+ 244 0074 2368     		ldr	r3, [r4]
+ 245 0076 23F00403 		bic	r3, r3, #4
+ 246 007a 2360     		str	r3, [r4]
+ 247 007c EFE7     		b	.L34
+ 248              	.L35:
+ 249 007e 0220     		movs	r0, #2
+ 250 0080 F0BC     		pop	{r4, r5, r6, r7}
+ 251 0082 7047     		bx	lr
+ 253              		.section	.text.HAL_DMA_Abort,"ax",%progbits
+ 254              		.align	1
+ 255              		.p2align 2,,3
+ 256              		.global	HAL_DMA_Abort
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.fpu fpv4-sp-d16
+ 262              	HAL_DMA_Abort:
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265              		@ link register save eliminated.
+ 266 0000 90F82120 		ldrb	r2, [r0, #33]	@ zero_extendqisi2
+ 267 0004 022A     		cmp	r2, #2
+ 268 0006 0346     		mov	r3, r0
+ 269 0008 06D0     		beq	.L39
+ 270 000a 0421     		movs	r1, #4
+ 271 000c 0022     		movs	r2, #0
+ 272 000e 8163     		str	r1, [r0, #56]
+ 273 0010 80F82020 		strb	r2, [r0, #32]
+ 274 0014 0120     		movs	r0, #1
+ 275 0016 7047     		bx	lr
+ 276              	.L39:
+ 277 0018 0268     		ldr	r2, [r0]
+ 278 001a 30B4     		push	{r4, r5}
+ 279 001c 046C     		ldr	r4, [r0, #64]
+ 280 001e 1068     		ldr	r0, [r2]
+ 281 0020 DD6B     		ldr	r5, [r3, #60]
+ 282 0022 20F00E00 		bic	r0, r0, #14
+ 283 0026 1060     		str	r0, [r2]
+ 284 0028 1068     		ldr	r0, [r2]
+ 285 002a 0121     		movs	r1, #1
+ 286 002c 20F00100 		bic	r0, r0, #1
+ 287 0030 A140     		lsls	r1, r1, r4
+ 288 0032 4FF48074 		mov	r4, #256
+ 289 0036 1060     		str	r0, [r2]
+ 290 0038 6960     		str	r1, [r5, #4]
+ 291 003a 1C84     		strh	r4, [r3, #32]	@ movhi
+ 292 003c 0020     		movs	r0, #0
+ 293 003e 30BC     		pop	{r4, r5}
+ 294 0040 7047     		bx	lr
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 6
+
+
+ 296 0042 00BF     		.section	.text.HAL_DMA_Abort_IT,"ax",%progbits
+ 297              		.align	1
+ 298              		.p2align 2,,3
+ 299              		.global	HAL_DMA_Abort_IT
+ 300              		.syntax unified
+ 301              		.thumb
+ 302              		.thumb_func
+ 303              		.fpu fpv4-sp-d16
+ 305              	HAL_DMA_Abort_IT:
+ 306              		@ args = 0, pretend = 0, frame = 0
+ 307              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308 0000 90F82120 		ldrb	r2, [r0, #33]	@ zero_extendqisi2
+ 309 0004 022A     		cmp	r2, #2
+ 310 0006 03D0     		beq	.L45
+ 311 0008 0422     		movs	r2, #4
+ 312 000a 8263     		str	r2, [r0, #56]
+ 313 000c 0120     		movs	r0, #1
+ 314 000e 7047     		bx	lr
+ 315              	.L45:
+ 316 0010 0168     		ldr	r1, [r0]
+ 317 0012 0A68     		ldr	r2, [r1]
+ 318 0014 22F00E02 		bic	r2, r2, #14
+ 319 0018 70B5     		push	{r4, r5, r6, lr}
+ 320 001a 066C     		ldr	r6, [r0, #64]
+ 321 001c C56B     		ldr	r5, [r0, #60]
+ 322 001e 0A60     		str	r2, [r1]
+ 323 0020 0C68     		ldr	r4, [r1]
+ 324 0022 426B     		ldr	r2, [r0, #52]
+ 325 0024 24F00104 		bic	r4, r4, #1
+ 326 0028 0C60     		str	r4, [r1]
+ 327 002a 0121     		movs	r1, #1
+ 328 002c B140     		lsls	r1, r1, r6
+ 329 002e 4FF48074 		mov	r4, #256
+ 330 0032 6960     		str	r1, [r5, #4]
+ 331 0034 0484     		strh	r4, [r0, #32]	@ movhi
+ 332 0036 12B1     		cbz	r2, .L47
+ 333 0038 9047     		blx	r2
+ 334 003a 0020     		movs	r0, #0
+ 335 003c 70BD     		pop	{r4, r5, r6, pc}
+ 336              	.L47:
+ 337 003e 1046     		mov	r0, r2
+ 338 0040 70BD     		pop	{r4, r5, r6, pc}
+ 340 0042 00BF     		.section	.text.HAL_DMA_PollForTransfer,"ax",%progbits
+ 341              		.align	1
+ 342              		.p2align 2,,3
+ 343              		.global	HAL_DMA_PollForTransfer
+ 344              		.syntax unified
+ 345              		.thumb
+ 346              		.thumb_func
+ 347              		.fpu fpv4-sp-d16
+ 349              	HAL_DMA_PollForTransfer:
+ 350              		@ args = 0, pretend = 0, frame = 0
+ 351              		@ frame_needed = 0, uses_anonymous_args = 0
+ 352 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 353 0004 90F82150 		ldrb	r5, [r0, #33]	@ zero_extendqisi2
+ 354 0008 022D     		cmp	r5, #2
+ 355 000a 0446     		mov	r4, r0
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 7
+
+
+ 356 000c 07D0     		beq	.L52
+ 357 000e 0422     		movs	r2, #4
+ 358 0010 0023     		movs	r3, #0
+ 359 0012 8263     		str	r2, [r0, #56]
+ 360 0014 80F82030 		strb	r3, [r0, #32]
+ 361 0018 0120     		movs	r0, #1
+ 362              	.L53:
+ 363 001a BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 364              	.L52:
+ 365 001e 0368     		ldr	r3, [r0]
+ 366 0020 1B68     		ldr	r3, [r3]
+ 367 0022 9806     		lsls	r0, r3, #26
+ 368 0024 23D4     		bmi	.L70
+ 369 0026 236C     		ldr	r3, [r4, #64]
+ 370 0028 0F46     		mov	r7, r1
+ 371 002a 1646     		mov	r6, r2
+ 372 002c 29BB     		cbnz	r1, .L55
+ 373              	.L69:
+ 374 002e 9D40     		lsls	r5, r5, r3
+ 375 0030 FFF7FEFF 		bl	HAL_GetTick
+ 376 0034 4FF00809 		mov	r9, #8
+ 377 0038 8046     		mov	r8, r0
+ 378              	.L57:
+ 379 003a 721C     		adds	r2, r6, #1
+ 380 003c D4E90F31 		ldrd	r3, r1, [r4, #60]
+ 381 0040 1DD1     		bne	.L61
+ 382 0042 0820     		movs	r0, #8
+ 383 0044 8840     		lsls	r0, r0, r1
+ 384 0046 02E0     		b	.L64
+ 385              	.L71:
+ 386 0048 1A68     		ldr	r2, [r3]
+ 387 004a 1042     		tst	r0, r2
+ 388 004c 2DD1     		bne	.L63
+ 389              	.L64:
+ 390 004e 1A68     		ldr	r2, [r3]
+ 391 0050 2A42     		tst	r2, r5
+ 392 0052 F9D0     		beq	.L71
+ 393              	.L62:
+ 394 0054 A7BB     		cbnz	r7, .L66
+ 395 0056 0222     		movs	r2, #2
+ 396 0058 02FA01F1 		lsl	r1, r2, r1
+ 397 005c 0122     		movs	r2, #1
+ 398 005e 5960     		str	r1, [r3, #4]
+ 399 0060 84F82120 		strb	r2, [r4, #33]
+ 400              	.L67:
+ 401 0064 0020     		movs	r0, #0
+ 402 0066 84F82000 		strb	r0, [r4, #32]
+ 403 006a BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 404              	.L70:
+ 405 006e 4FF48073 		mov	r3, #256
+ 406 0072 A363     		str	r3, [r4, #56]
+ 407 0074 0120     		movs	r0, #1
+ 408 0076 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 409              	.L55:
+ 410 007a 0425     		movs	r5, #4
+ 411 007c D7E7     		b	.L69
+ 412              	.L61:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 8
+
+
+ 413 007e 1A68     		ldr	r2, [r3]
+ 414 0080 2A42     		tst	r2, r5
+ 415 0082 09FA01F0 		lsl	r0, r9, r1
+ 416 0086 E5D1     		bne	.L62
+ 417 0088 1A68     		ldr	r2, [r3]
+ 418 008a 1042     		tst	r0, r2
+ 419 008c 0DD1     		bne	.L63
+ 420 008e 2EB1     		cbz	r6, .L60
+ 421 0090 FFF7FEFF 		bl	HAL_GetTick
+ 422 0094 A0EB0800 		sub	r0, r0, r8
+ 423 0098 B042     		cmp	r0, r6
+ 424 009a CED9     		bls	.L57
+ 425              	.L60:
+ 426 009c 2022     		movs	r2, #32
+ 427 009e 4FF48073 		mov	r3, #256
+ 428 00a2 A263     		str	r2, [r4, #56]
+ 429 00a4 2384     		strh	r3, [r4, #32]	@ movhi
+ 430 00a6 0120     		movs	r0, #1
+ 431 00a8 B7E7     		b	.L53
+ 432              	.L63:
+ 433 00aa 0122     		movs	r2, #1
+ 434 00ac 02FA01F1 		lsl	r1, r2, r1
+ 435 00b0 4FF48075 		mov	r5, #256
+ 436 00b4 5960     		str	r1, [r3, #4]
+ 437 00b6 2584     		strh	r5, [r4, #32]	@ movhi
+ 438 00b8 1046     		mov	r0, r2
+ 439 00ba A263     		str	r2, [r4, #56]
+ 440 00bc BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 441              	.L66:
+ 442 00c0 0422     		movs	r2, #4
+ 443 00c2 02FA01F1 		lsl	r1, r2, r1
+ 444 00c6 5960     		str	r1, [r3, #4]
+ 445 00c8 CCE7     		b	.L67
+ 447 00ca 00BF     		.section	.text.HAL_DMA_IRQHandler,"ax",%progbits
+ 448              		.align	1
+ 449              		.p2align 2,,3
+ 450              		.global	HAL_DMA_IRQHandler
+ 451              		.syntax unified
+ 452              		.thumb
+ 453              		.thumb_func
+ 454              		.fpu fpv4-sp-d16
+ 456              	HAL_DMA_IRQHandler:
+ 457              		@ args = 0, pretend = 0, frame = 0
+ 458              		@ frame_needed = 0, uses_anonymous_args = 0
+ 459              		@ link register save eliminated.
+ 460 0000 70B4     		push	{r4, r5, r6}
+ 461 0002 D0E90F62 		ldrd	r6, r2, [r0, #60]
+ 462 0006 0423     		movs	r3, #4
+ 463 0008 3168     		ldr	r1, [r6]
+ 464 000a 0468     		ldr	r4, [r0]
+ 465 000c 9340     		lsls	r3, r3, r2
+ 466 000e 0B42     		tst	r3, r1
+ 467 0010 2568     		ldr	r5, [r4]
+ 468 0012 0ED0     		beq	.L73
+ 469 0014 15F0040F 		tst	r5, #4
+ 470 0018 0BD0     		beq	.L73
+ 471 001a 2268     		ldr	r2, [r4]
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 9
+
+
+ 472 001c 9206     		lsls	r2, r2, #26
+ 473 001e 03D4     		bmi	.L74
+ 474 0020 2268     		ldr	r2, [r4]
+ 475 0022 22F00402 		bic	r2, r2, #4
+ 476 0026 2260     		str	r2, [r4]
+ 477              	.L74:
+ 478 0028 C26A     		ldr	r2, [r0, #44]
+ 479 002a 7360     		str	r3, [r6, #4]
+ 480 002c CAB1     		cbz	r2, .L72
+ 481              	.L105:
+ 482 002e 70BC     		pop	{r4, r5, r6}
+ 483 0030 1047     		bx	r2	@ indirect register sibling call
+ 484              	.L73:
+ 485 0032 0223     		movs	r3, #2
+ 486 0034 9340     		lsls	r3, r3, r2
+ 487 0036 0B42     		tst	r3, r1
+ 488 0038 15D0     		beq	.L77
+ 489 003a 15F0020F 		tst	r5, #2
+ 490 003e 12D0     		beq	.L77
+ 491 0040 2268     		ldr	r2, [r4]
+ 492 0042 9206     		lsls	r2, r2, #26
+ 493 0044 06D4     		bmi	.L78
+ 494 0046 2268     		ldr	r2, [r4]
+ 495 0048 0121     		movs	r1, #1
+ 496 004a 22F00A02 		bic	r2, r2, #10
+ 497 004e 2260     		str	r2, [r4]
+ 498 0050 80F82110 		strb	r1, [r0, #33]
+ 499              	.L78:
+ 500 0054 826A     		ldr	r2, [r0, #40]
+ 501 0056 7360     		str	r3, [r6, #4]
+ 502 0058 0023     		movs	r3, #0
+ 503 005a 80F82030 		strb	r3, [r0, #32]
+ 504 005e 002A     		cmp	r2, #0
+ 505 0060 E5D1     		bne	.L105
+ 506              	.L72:
+ 507 0062 70BC     		pop	{r4, r5, r6}
+ 508 0064 7047     		bx	lr
+ 509              	.L77:
+ 510 0066 0823     		movs	r3, #8
+ 511 0068 9340     		lsls	r3, r3, r2
+ 512 006a 0B42     		tst	r3, r1
+ 513 006c F9D0     		beq	.L72
+ 514 006e 2B07     		lsls	r3, r5, #28
+ 515 0070 F7D5     		bpl	.L72
+ 516 0072 2368     		ldr	r3, [r4]
+ 517 0074 016B     		ldr	r1, [r0, #48]
+ 518 0076 23F00E03 		bic	r3, r3, #14
+ 519 007a 2360     		str	r3, [r4]
+ 520 007c 0123     		movs	r3, #1
+ 521 007e 03FA02F2 		lsl	r2, r3, r2
+ 522 0082 4FF48074 		mov	r4, #256
+ 523 0086 7260     		str	r2, [r6, #4]
+ 524 0088 8363     		str	r3, [r0, #56]
+ 525 008a 0484     		strh	r4, [r0, #32]	@ movhi
+ 526 008c 0029     		cmp	r1, #0
+ 527 008e E8D0     		beq	.L72
+ 528 0090 70BC     		pop	{r4, r5, r6}
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 10
+
+
+ 529 0092 0847     		bx	r1	@ indirect register sibling call
+ 531              		.section	.text.HAL_DMA_RegisterCallback,"ax",%progbits
+ 532              		.align	1
+ 533              		.p2align 2,,3
+ 534              		.global	HAL_DMA_RegisterCallback
+ 535              		.syntax unified
+ 536              		.thumb
+ 537              		.thumb_func
+ 538              		.fpu fpv4-sp-d16
+ 540              	HAL_DMA_RegisterCallback:
+ 541              		@ args = 0, pretend = 0, frame = 0
+ 542              		@ frame_needed = 0, uses_anonymous_args = 0
+ 543              		@ link register save eliminated.
+ 544 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 545 0004 012B     		cmp	r3, #1
+ 546 0006 1BD0     		beq	.L114
+ 547 0008 90F82130 		ldrb	r3, [r0, #33]	@ zero_extendqisi2
+ 548 000c 012B     		cmp	r3, #1
+ 549 000e 05D0     		beq	.L116
+ 550 0010 0123     		movs	r3, #1
+ 551              	.L108:
+ 552 0012 0022     		movs	r2, #0
+ 553 0014 80F82020 		strb	r2, [r0, #32]
+ 554 0018 1846     		mov	r0, r3
+ 555 001a 7047     		bx	lr
+ 556              	.L116:
+ 557 001c 0329     		cmp	r1, #3
+ 558 001e F8D8     		bhi	.L108
+ 559 0020 DFE801F0 		tbb	[pc, r1]
+ 560              	.L110:
+ 561 0024 05       		.byte	(.L113-.L110)/2
+ 562 0025 08       		.byte	(.L112-.L110)/2
+ 563 0026 0B       		.byte	(.L111-.L110)/2
+ 564 0027 02       		.byte	(.L109-.L110)/2
+ 565              		.p2align 1
+ 566              	.L109:
+ 567 0028 4263     		str	r2, [r0, #52]
+ 568 002a 0023     		movs	r3, #0
+ 569 002c F1E7     		b	.L108
+ 570              	.L113:
+ 571 002e 8262     		str	r2, [r0, #40]
+ 572 0030 0B46     		mov	r3, r1
+ 573 0032 EEE7     		b	.L108
+ 574              	.L112:
+ 575 0034 C262     		str	r2, [r0, #44]
+ 576 0036 0023     		movs	r3, #0
+ 577 0038 EBE7     		b	.L108
+ 578              	.L111:
+ 579 003a 0263     		str	r2, [r0, #48]
+ 580 003c 0023     		movs	r3, #0
+ 581 003e E8E7     		b	.L108
+ 582              	.L114:
+ 583 0040 0223     		movs	r3, #2
+ 584 0042 1846     		mov	r0, r3
+ 585 0044 7047     		bx	lr
+ 587 0046 00BF     		.section	.text.HAL_DMA_UnRegisterCallback,"ax",%progbits
+ 588              		.align	1
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 11
+
+
+ 589              		.p2align 2,,3
+ 590              		.global	HAL_DMA_UnRegisterCallback
+ 591              		.syntax unified
+ 592              		.thumb
+ 593              		.thumb_func
+ 594              		.fpu fpv4-sp-d16
+ 596              	HAL_DMA_UnRegisterCallback:
+ 597              		@ args = 0, pretend = 0, frame = 0
+ 598              		@ frame_needed = 0, uses_anonymous_args = 0
+ 599              		@ link register save eliminated.
+ 600 0000 90F82030 		ldrb	r3, [r0, #32]	@ zero_extendqisi2
+ 601 0004 012B     		cmp	r3, #1
+ 602 0006 13D0     		beq	.L126
+ 603 0008 90F82130 		ldrb	r3, [r0, #33]	@ zero_extendqisi2
+ 604 000c 0122     		movs	r2, #1
+ 605 000e 9342     		cmp	r3, r2
+ 606 0010 80F82020 		strb	r2, [r0, #32]
+ 607 0014 05D0     		beq	.L128
+ 608 0016 1346     		mov	r3, r2
+ 609              	.L119:
+ 610 0018 0022     		movs	r2, #0
+ 611 001a 80F82020 		strb	r2, [r0, #32]
+ 612 001e 1846     		mov	r0, r3
+ 613 0020 7047     		bx	lr
+ 614              	.L128:
+ 615 0022 0429     		cmp	r1, #4
+ 616 0024 F8D8     		bhi	.L119
+ 617 0026 DFE801F0 		tbb	[pc, r1]
+ 618              	.L121:
+ 619 002a 15       		.byte	(.L125-.L121)/2
+ 620 002b 12       		.byte	(.L124-.L121)/2
+ 621 002c 0F       		.byte	(.L123-.L121)/2
+ 622 002d 0C       		.byte	(.L122-.L121)/2
+ 623 002e 06       		.byte	(.L120-.L121)/2
+ 624 002f 00       		.p2align 1
+ 625              	.L126:
+ 626 0030 0223     		movs	r3, #2
+ 627 0032 1846     		mov	r0, r3
+ 628 0034 7047     		bx	lr
+ 629              	.L120:
+ 630 0036 0023     		movs	r3, #0
+ 631 0038 C0E90A33 		strd	r3, r3, [r0, #40]
+ 632 003c C0E90C33 		strd	r3, r3, [r0, #48]
+ 633 0040 EAE7     		b	.L119
+ 634              	.L122:
+ 635 0042 0023     		movs	r3, #0
+ 636 0044 4363     		str	r3, [r0, #52]
+ 637 0046 E7E7     		b	.L119
+ 638              	.L123:
+ 639 0048 0023     		movs	r3, #0
+ 640 004a 0363     		str	r3, [r0, #48]
+ 641 004c E4E7     		b	.L119
+ 642              	.L124:
+ 643 004e 0023     		movs	r3, #0
+ 644 0050 C362     		str	r3, [r0, #44]
+ 645 0052 E1E7     		b	.L119
+ 646              	.L125:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 12
+
+
+ 647 0054 0022     		movs	r2, #0
+ 648 0056 0B46     		mov	r3, r1
+ 649 0058 8262     		str	r2, [r0, #40]
+ 650 005a DDE7     		b	.L119
+ 652              		.section	.text.HAL_DMA_GetState,"ax",%progbits
+ 653              		.align	1
+ 654              		.p2align 2,,3
+ 655              		.global	HAL_DMA_GetState
+ 656              		.syntax unified
+ 657              		.thumb
+ 658              		.thumb_func
+ 659              		.fpu fpv4-sp-d16
+ 661              	HAL_DMA_GetState:
+ 662              		@ args = 0, pretend = 0, frame = 0
+ 663              		@ frame_needed = 0, uses_anonymous_args = 0
+ 664              		@ link register save eliminated.
+ 665 0000 90F82100 		ldrb	r0, [r0, #33]	@ zero_extendqisi2
+ 666 0004 7047     		bx	lr
+ 668 0006 00BF     		.section	.text.HAL_DMA_GetError,"ax",%progbits
+ 669              		.align	1
+ 670              		.p2align 2,,3
+ 671              		.global	HAL_DMA_GetError
+ 672              		.syntax unified
+ 673              		.thumb
+ 674              		.thumb_func
+ 675              		.fpu fpv4-sp-d16
+ 677              	HAL_DMA_GetError:
+ 678              		@ args = 0, pretend = 0, frame = 0
+ 679              		@ frame_needed = 0, uses_anonymous_args = 0
+ 680              		@ link register save eliminated.
+ 681 0000 806B     		ldr	r0, [r0, #56]
+ 682 0002 7047     		bx	lr
+ 684              		.ident	"GCC: (xPack GNU Arm Embedded GCC, 64-bit) 9.2.1 20191025 (release) [ARM/arm-9-branch revis
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_dma.c
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:16     .text.HAL_DMA_Init:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:25     .text.HAL_DMA_Init:0000000000000000 HAL_DMA_Init
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:69     .text.HAL_DMA_Init:0000000000000058 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:74     .text.HAL_DMA_DeInit:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:82     .text.HAL_DMA_DeInit:0000000000000000 HAL_DMA_DeInit
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:122    .text.HAL_DMA_DeInit:000000000000004c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:127    .text.HAL_DMA_Start:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:135    .text.HAL_DMA_Start:0000000000000000 HAL_DMA_Start
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:181    .text.HAL_DMA_Start_IT:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:189    .text.HAL_DMA_Start_IT:0000000000000000 HAL_DMA_Start_IT
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:254    .text.HAL_DMA_Abort:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:262    .text.HAL_DMA_Abort:0000000000000000 HAL_DMA_Abort
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:297    .text.HAL_DMA_Abort_IT:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:305    .text.HAL_DMA_Abort_IT:0000000000000000 HAL_DMA_Abort_IT
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:341    .text.HAL_DMA_PollForTransfer:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:349    .text.HAL_DMA_PollForTransfer:0000000000000000 HAL_DMA_PollForTransfer
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:448    .text.HAL_DMA_IRQHandler:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:456    .text.HAL_DMA_IRQHandler:0000000000000000 HAL_DMA_IRQHandler
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:532    .text.HAL_DMA_RegisterCallback:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:540    .text.HAL_DMA_RegisterCallback:0000000000000000 HAL_DMA_RegisterCallback
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:561    .text.HAL_DMA_RegisterCallback:0000000000000024 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:565    .text.HAL_DMA_RegisterCallback:0000000000000028 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:588    .text.HAL_DMA_UnRegisterCallback:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:596    .text.HAL_DMA_UnRegisterCallback:0000000000000000 HAL_DMA_UnRegisterCallback
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:619    .text.HAL_DMA_UnRegisterCallback:000000000000002a $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:653    .text.HAL_DMA_GetState:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:661    .text.HAL_DMA_GetState:0000000000000000 HAL_DMA_GetState
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:669    .text.HAL_DMA_GetError:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:677    .text.HAL_DMA_GetError:0000000000000000 HAL_DMA_GetError
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:624    .text.HAL_DMA_UnRegisterCallback:000000000000002f $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccpiPhte.s:624    .text.HAL_DMA_UnRegisterCallback:0000000000000030 $t
+
+UNDEFINED SYMBOLS
+HAL_GetTick

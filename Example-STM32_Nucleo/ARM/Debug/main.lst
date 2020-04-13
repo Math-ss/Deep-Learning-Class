@@ -1,0 +1,990 @@
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZL12MX_GPIO_Initv,"ax",%progbits
+  18              		.align	1
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	_ZL12MX_GPIO_Initv:
+  26              		.fnstart
+  27              	.LFB1960:
+  28              		.file 1 "Src/main.cpp"
+   1:Src/main.cpp  **** /* USER CODE BEGIN Header */
+   2:Src/main.cpp  **** /**
+   3:Src/main.cpp  ****   ******************************************************************************
+   4:Src/main.cpp  ****   * @file           : main.c
+   5:Src/main.cpp  ****   * @brief          : Main program body
+   6:Src/main.cpp  ****   ******************************************************************************
+   7:Src/main.cpp  ****   * @attention
+   8:Src/main.cpp  ****   *
+   9:Src/main.cpp  ****   * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+  10:Src/main.cpp  ****   * All rights reserved.</center></h2>
+  11:Src/main.cpp  ****   *
+  12:Src/main.cpp  ****   * This software component is licensed by ST under BSD 3-Clause license,
+  13:Src/main.cpp  ****   * the "License"; You may not use this file except in compliance with the
+  14:Src/main.cpp  ****   * License. You may obtain a copy of the License at:
+  15:Src/main.cpp  ****   *                        opensource.org/licenses/BSD-3-Clause
+  16:Src/main.cpp  ****   *
+  17:Src/main.cpp  ****   ******************************************************************************
+  18:Src/main.cpp  ****   */
+  19:Src/main.cpp  **** extern "C" {
+  20:Src/main.cpp  ****     /* USER CODE END Header */
+  21:Src/main.cpp  **** 
+  22:Src/main.cpp  ****     /* Includes ------------------------------------------------------------------*/
+  23:Src/main.cpp  **** #include "main.h"
+  24:Src/main.cpp  **** 
+  25:Src/main.cpp  **** /* Private includes ----------------------------------------------------------*/
+  26:Src/main.cpp  **** /* USER CODE BEGIN Includes */
+  27:Src/main.cpp  **** }
+  28:Src/main.cpp  **** 
+  29:Src/main.cpp  **** #include "NetworkLight.h"
+  30:Src/main.cpp  **** /* USER CODE END Includes */
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 2
+
+
+  31:Src/main.cpp  **** 
+  32:Src/main.cpp  **** /* Private typedef -----------------------------------------------------------*/
+  33:Src/main.cpp  **** /* USER CODE BEGIN PTD */
+  34:Src/main.cpp  **** 
+  35:Src/main.cpp  **** /* USER CODE END PTD */
+  36:Src/main.cpp  **** 
+  37:Src/main.cpp  **** /* Private define ------------------------------------------------------------*/
+  38:Src/main.cpp  **** /* USER CODE BEGIN PD */
+  39:Src/main.cpp  **** /* USER CODE END PD */
+  40:Src/main.cpp  **** 
+  41:Src/main.cpp  **** /* Private macro -------------------------------------------------------------*/
+  42:Src/main.cpp  **** /* USER CODE BEGIN PM */
+  43:Src/main.cpp  **** 
+  44:Src/main.cpp  **** /* USER CODE END PM */
+  45:Src/main.cpp  **** 
+  46:Src/main.cpp  **** /* Private variables ---------------------------------------------------------*/
+  47:Src/main.cpp  **** UART_HandleTypeDef huart2;
+  48:Src/main.cpp  **** 
+  49:Src/main.cpp  **** /* USER CODE BEGIN PV */
+  50:Src/main.cpp  **** 
+  51:Src/main.cpp  **** /* USER CODE END PV */
+  52:Src/main.cpp  **** 
+  53:Src/main.cpp  **** /* Private function prototypes -----------------------------------------------*/
+  54:Src/main.cpp  **** void SystemClock_Config(void);
+  55:Src/main.cpp  **** static void MX_GPIO_Init(void);
+  56:Src/main.cpp  **** static void MX_USART2_UART_Init(void);
+  57:Src/main.cpp  **** /* USER CODE BEGIN PFP */
+  58:Src/main.cpp  **** 
+  59:Src/main.cpp  **** /* USER CODE END PFP */
+  60:Src/main.cpp  **** 
+  61:Src/main.cpp  **** /* Private user code ---------------------------------------------------------*/
+  62:Src/main.cpp  **** /* USER CODE BEGIN 0 */
+  63:Src/main.cpp  **** 
+  64:Src/main.cpp  **** /* USER CODE END 0 */
+  65:Src/main.cpp  **** 
+  66:Src/main.cpp  **** /**
+  67:Src/main.cpp  ****   * @brief  The application entry point.
+  68:Src/main.cpp  ****   * @retval int
+  69:Src/main.cpp  ****   */
+  70:Src/main.cpp  **** int main(void)
+  71:Src/main.cpp  **** {
+  72:Src/main.cpp  ****   /* USER CODE BEGIN 1 */
+  73:Src/main.cpp  **** 
+  74:Src/main.cpp  ****   /* USER CODE END 1 */
+  75:Src/main.cpp  ****   
+  76:Src/main.cpp  **** 
+  77:Src/main.cpp  ****   /* MCU Configuration--------------------------------------------------------*/
+  78:Src/main.cpp  **** 
+  79:Src/main.cpp  ****   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  80:Src/main.cpp  ****   HAL_Init();
+  81:Src/main.cpp  **** 
+  82:Src/main.cpp  ****   /* USER CODE BEGIN Init */
+  83:Src/main.cpp  **** 
+  84:Src/main.cpp  ****   /* USER CODE END Init */
+  85:Src/main.cpp  **** 
+  86:Src/main.cpp  ****   /* Configure the system clock */
+  87:Src/main.cpp  ****   SystemClock_Config();
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 3
+
+
+  88:Src/main.cpp  **** 
+  89:Src/main.cpp  ****   /* USER CODE BEGIN SysInit */
+  90:Src/main.cpp  **** 
+  91:Src/main.cpp  ****   /* USER CODE END SysInit */
+  92:Src/main.cpp  **** 
+  93:Src/main.cpp  ****   /* Initialize all configured peripherals */
+  94:Src/main.cpp  ****   MX_GPIO_Init();
+  95:Src/main.cpp  ****   MX_USART2_UART_Init();
+  96:Src/main.cpp  ****   /* USER CODE BEGIN 2 */
+  97:Src/main.cpp  ****   uint8_t sizes[1] = { 10 };
+  98:Src/main.cpp  ****   NetworkLight<uint8_t, 11, 110> test(sizes, (uint8_t) 10, (uint8_t) 1, (uint8_t) 1);
+  99:Src/main.cpp  ****   /* USER CODE END 2 */
+ 100:Src/main.cpp  **** 
+ 101:Src/main.cpp  ****   /* Infinite loop */
+ 102:Src/main.cpp  ****   /* USER CODE BEGIN WHILE */
+ 103:Src/main.cpp  ****   while (1)
+ 104:Src/main.cpp  ****   {
+ 105:Src/main.cpp  ****     /* USER CODE END WHILE */
+ 106:Src/main.cpp  **** 
+ 107:Src/main.cpp  ****     /* USER CODE BEGIN 3 */
+ 108:Src/main.cpp  ****   }
+ 109:Src/main.cpp  ****   /* USER CODE END 3 */
+ 110:Src/main.cpp  **** }
+ 111:Src/main.cpp  **** 
+ 112:Src/main.cpp  **** /**
+ 113:Src/main.cpp  ****   * @brief System Clock Configuration
+ 114:Src/main.cpp  ****   * @retval None
+ 115:Src/main.cpp  ****   */
+ 116:Src/main.cpp  **** void SystemClock_Config(void)
+ 117:Src/main.cpp  **** {
+ 118:Src/main.cpp  ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 119:Src/main.cpp  ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 120:Src/main.cpp  **** 
+ 121:Src/main.cpp  ****   /** Initializes the CPU, AHB and APB busses clocks 
+ 122:Src/main.cpp  ****   */
+ 123:Src/main.cpp  ****   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+ 124:Src/main.cpp  ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 125:Src/main.cpp  ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 126:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 127:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 128:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
+ 129:Src/main.cpp  ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 130:Src/main.cpp  ****   {
+ 131:Src/main.cpp  ****     Error_Handler();
+ 132:Src/main.cpp  ****   }
+ 133:Src/main.cpp  ****   /** Initializes the CPU, AHB and APB busses clocks 
+ 134:Src/main.cpp  ****   */
+ 135:Src/main.cpp  ****   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+ 136:Src/main.cpp  ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 137:Src/main.cpp  ****   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+ 138:Src/main.cpp  ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 139:Src/main.cpp  ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 140:Src/main.cpp  ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 141:Src/main.cpp  **** 
+ 142:Src/main.cpp  ****   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+ 143:Src/main.cpp  ****   {
+ 144:Src/main.cpp  ****     Error_Handler();
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 4
+
+
+ 145:Src/main.cpp  ****   }
+ 146:Src/main.cpp  **** }
+ 147:Src/main.cpp  **** 
+ 148:Src/main.cpp  **** /**
+ 149:Src/main.cpp  ****   * @brief USART2 Initialization Function
+ 150:Src/main.cpp  ****   * @param None
+ 151:Src/main.cpp  ****   * @retval None
+ 152:Src/main.cpp  ****   */
+ 153:Src/main.cpp  **** static void MX_USART2_UART_Init(void)
+ 154:Src/main.cpp  **** {
+ 155:Src/main.cpp  **** 
+ 156:Src/main.cpp  ****   /* USER CODE BEGIN USART2_Init 0 */
+ 157:Src/main.cpp  **** 
+ 158:Src/main.cpp  ****   /* USER CODE END USART2_Init 0 */
+ 159:Src/main.cpp  **** 
+ 160:Src/main.cpp  ****   /* USER CODE BEGIN USART2_Init 1 */
+ 161:Src/main.cpp  **** 
+ 162:Src/main.cpp  ****   /* USER CODE END USART2_Init 1 */
+ 163:Src/main.cpp  ****   huart2.Instance = USART2;
+ 164:Src/main.cpp  ****   huart2.Init.BaudRate = 38400;
+ 165:Src/main.cpp  ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 166:Src/main.cpp  ****   huart2.Init.StopBits = UART_STOPBITS_1;
+ 167:Src/main.cpp  ****   huart2.Init.Parity = UART_PARITY_NONE;
+ 168:Src/main.cpp  ****   huart2.Init.Mode = UART_MODE_TX_RX;
+ 169:Src/main.cpp  ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 170:Src/main.cpp  ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+ 171:Src/main.cpp  ****   huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+ 172:Src/main.cpp  ****   huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+ 173:Src/main.cpp  ****   if (HAL_UART_Init(&huart2) != HAL_OK)
+ 174:Src/main.cpp  ****   {
+ 175:Src/main.cpp  ****     Error_Handler();
+ 176:Src/main.cpp  ****   }
+ 177:Src/main.cpp  ****   /* USER CODE BEGIN USART2_Init 2 */
+ 178:Src/main.cpp  **** 
+ 179:Src/main.cpp  ****   /* USER CODE END USART2_Init 2 */
+ 180:Src/main.cpp  **** 
+ 181:Src/main.cpp  **** }
+ 182:Src/main.cpp  **** 
+ 183:Src/main.cpp  **** /**
+ 184:Src/main.cpp  ****   * @brief GPIO Initialization Function
+ 185:Src/main.cpp  ****   * @param None
+ 186:Src/main.cpp  ****   * @retval None
+ 187:Src/main.cpp  ****   */
+ 188:Src/main.cpp  **** static void MX_GPIO_Init(void)
+ 189:Src/main.cpp  **** {
+  29              		.loc 1 189 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 40
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 70B5     		push	{r4, r5, r6, lr}
+  34              		.save {r4, r5, r6, lr}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 16
+  37              		.cfi_offset 4, -16
+  38              		.cfi_offset 5, -12
+  39              		.cfi_offset 6, -8
+  40              		.cfi_offset 14, -4
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 5
+
+
+  41              		.pad #40
+  42 0002 8AB0     		sub	sp, sp, #40
+  43              	.LCFI1:
+  44              		.cfi_def_cfa_offset 56
+ 190:Src/main.cpp  ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+  45              		.loc 1 190 3 view .LVU1
+  46              		.loc 1 190 20 is_stmt 0 view .LVU2
+  47 0004 0024     		movs	r4, #0
+  48 0006 0594     		str	r4, [sp, #20]
+  49 0008 0694     		str	r4, [sp, #24]
+  50 000a 0794     		str	r4, [sp, #28]
+  51 000c 0894     		str	r4, [sp, #32]
+  52 000e 0994     		str	r4, [sp, #36]
+ 191:Src/main.cpp  **** 
+ 192:Src/main.cpp  ****   /* GPIO Ports Clock Enable */
+ 193:Src/main.cpp  ****   __HAL_RCC_GPIOC_CLK_ENABLE();
+  53              		.loc 1 193 3 is_stmt 1 view .LVU3
+  54              	.LBB124:
+  55              		.loc 1 193 3 view .LVU4
+  56              		.loc 1 193 3 view .LVU5
+  57 0010 204B     		ldr	r3, .L3
+  58 0012 5A69     		ldr	r2, [r3, #20]
+  59 0014 42F40022 		orr	r2, r2, #524288
+  60 0018 5A61     		str	r2, [r3, #20]
+  61              		.loc 1 193 3 view .LVU6
+  62 001a 5A69     		ldr	r2, [r3, #20]
+  63 001c 02F40022 		and	r2, r2, #524288
+  64 0020 0192     		str	r2, [sp, #4]
+  65              		.loc 1 193 3 view .LVU7
+  66 0022 019A     		ldr	r2, [sp, #4]
+  67              	.LBE124:
+ 194:Src/main.cpp  ****   __HAL_RCC_GPIOF_CLK_ENABLE();
+  68              		.loc 1 194 3 view .LVU8
+  69              	.LBB125:
+  70              		.loc 1 194 3 view .LVU9
+  71              		.loc 1 194 3 view .LVU10
+  72 0024 5A69     		ldr	r2, [r3, #20]
+  73 0026 42F48002 		orr	r2, r2, #4194304
+  74 002a 5A61     		str	r2, [r3, #20]
+  75              		.loc 1 194 3 view .LVU11
+  76 002c 5A69     		ldr	r2, [r3, #20]
+  77 002e 02F48002 		and	r2, r2, #4194304
+  78 0032 0292     		str	r2, [sp, #8]
+  79              		.loc 1 194 3 view .LVU12
+  80 0034 029A     		ldr	r2, [sp, #8]
+  81              	.LBE125:
+ 195:Src/main.cpp  ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+  82              		.loc 1 195 3 view .LVU13
+  83              	.LBB126:
+  84              		.loc 1 195 3 view .LVU14
+  85              		.loc 1 195 3 view .LVU15
+  86 0036 5A69     		ldr	r2, [r3, #20]
+  87 0038 42F40032 		orr	r2, r2, #131072
+  88 003c 5A61     		str	r2, [r3, #20]
+  89              		.loc 1 195 3 view .LVU16
+  90 003e 5A69     		ldr	r2, [r3, #20]
+  91 0040 02F40032 		and	r2, r2, #131072
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 6
+
+
+  92 0044 0392     		str	r2, [sp, #12]
+  93              		.loc 1 195 3 view .LVU17
+  94 0046 039A     		ldr	r2, [sp, #12]
+  95              	.LBE126:
+ 196:Src/main.cpp  ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+  96              		.loc 1 196 3 view .LVU18
+  97              	.LBB127:
+  98              		.loc 1 196 3 view .LVU19
+  99              		.loc 1 196 3 view .LVU20
+ 100 0048 5A69     		ldr	r2, [r3, #20]
+ 101 004a 42F48022 		orr	r2, r2, #262144
+ 102 004e 5A61     		str	r2, [r3, #20]
+ 103              		.loc 1 196 3 view .LVU21
+ 104 0050 5B69     		ldr	r3, [r3, #20]
+ 105 0052 03F48023 		and	r3, r3, #262144
+ 106 0056 0493     		str	r3, [sp, #16]
+ 107              		.loc 1 196 3 view .LVU22
+ 108 0058 049B     		ldr	r3, [sp, #16]
+ 109              	.LBE127:
+ 197:Src/main.cpp  **** 
+ 198:Src/main.cpp  ****   /*Configure GPIO pin Output Level */
+ 199:Src/main.cpp  ****   HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
+ 110              		.loc 1 199 3 view .LVU23
+ 111              		.loc 1 199 20 is_stmt 0 view .LVU24
+ 112 005a 0F4D     		ldr	r5, .L3+4
+ 113 005c 2246     		mov	r2, r4
+ 114 005e 4FF40051 		mov	r1, #8192
+ 115 0062 2846     		mov	r0, r5
+ 116 0064 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 117              	.LVL0:
+ 200:Src/main.cpp  **** 
+ 201:Src/main.cpp  ****   /*Configure GPIO pin : B1_Pin */
+ 202:Src/main.cpp  ****   GPIO_InitStruct.Pin = B1_Pin;
+ 118              		.loc 1 202 3 is_stmt 1 view .LVU25
+ 119              		.loc 1 202 23 is_stmt 0 view .LVU26
+ 120 0068 4FF40056 		mov	r6, #8192
+ 121 006c 0596     		str	r6, [sp, #20]
+ 203:Src/main.cpp  ****   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+ 122              		.loc 1 203 3 is_stmt 1 view .LVU27
+ 123              		.loc 1 203 24 is_stmt 0 view .LVU28
+ 124 006e 0B4B     		ldr	r3, .L3+8
+ 125 0070 0693     		str	r3, [sp, #24]
+ 204:Src/main.cpp  ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 126              		.loc 1 204 3 is_stmt 1 view .LVU29
+ 127              		.loc 1 204 24 is_stmt 0 view .LVU30
+ 128 0072 0794     		str	r4, [sp, #28]
+ 205:Src/main.cpp  ****   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
+ 129              		.loc 1 205 3 is_stmt 1 view .LVU31
+ 130              		.loc 1 205 16 is_stmt 0 view .LVU32
+ 131 0074 05A9     		add	r1, sp, #20
+ 132 0076 0A48     		ldr	r0, .L3+12
+ 133 0078 FFF7FEFF 		bl	HAL_GPIO_Init
+ 134              	.LVL1:
+ 206:Src/main.cpp  **** 
+ 207:Src/main.cpp  ****   /*Configure GPIO pin : LD2_Pin */
+ 208:Src/main.cpp  ****   GPIO_InitStruct.Pin = LD2_Pin;
+ 135              		.loc 1 208 3 is_stmt 1 view .LVU33
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 7
+
+
+ 136              		.loc 1 208 23 is_stmt 0 view .LVU34
+ 137 007c 0596     		str	r6, [sp, #20]
+ 209:Src/main.cpp  ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 138              		.loc 1 209 3 is_stmt 1 view .LVU35
+ 139              		.loc 1 209 24 is_stmt 0 view .LVU36
+ 140 007e 0123     		movs	r3, #1
+ 141 0080 0693     		str	r3, [sp, #24]
+ 210:Src/main.cpp  ****   GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 142              		.loc 1 210 3 is_stmt 1 view .LVU37
+ 143              		.loc 1 210 24 is_stmt 0 view .LVU38
+ 144 0082 0794     		str	r4, [sp, #28]
+ 211:Src/main.cpp  ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 145              		.loc 1 211 3 is_stmt 1 view .LVU39
+ 146              		.loc 1 211 25 is_stmt 0 view .LVU40
+ 147 0084 0894     		str	r4, [sp, #32]
+ 212:Src/main.cpp  ****   HAL_GPIO_Init(LD2_GPIO_Port, &GPIO_InitStruct);
+ 148              		.loc 1 212 3 is_stmt 1 view .LVU41
+ 149              		.loc 1 212 16 is_stmt 0 view .LVU42
+ 150 0086 05A9     		add	r1, sp, #20
+ 151 0088 2846     		mov	r0, r5
+ 152 008a FFF7FEFF 		bl	HAL_GPIO_Init
+ 153              	.LVL2:
+ 213:Src/main.cpp  **** 
+ 214:Src/main.cpp  **** }
+ 154              		.loc 1 214 1 view .LVU43
+ 155 008e 0AB0     		add	sp, sp, #40
+ 156              	.LCFI2:
+ 157              		.cfi_def_cfa_offset 16
+ 158              		@ sp needed
+ 159 0090 70BD     		pop	{r4, r5, r6, pc}
+ 160              	.L4:
+ 161 0092 00BF     		.align	2
+ 162              	.L3:
+ 163 0094 00100240 		.word	1073876992
+ 164 0098 00040048 		.word	1207960576
+ 165 009c 00002110 		.word	270598144
+ 166 00a0 00080048 		.word	1207961600
+ 167              		.cfi_endproc
+ 168              	.LFE1960:
+ 169              		.fnend
+ 171              		.section	.text._ZL19MX_USART2_UART_Initv,"ax",%progbits
+ 172              		.align	1
+ 173              		.syntax unified
+ 174              		.thumb
+ 175              		.thumb_func
+ 176              		.fpu fpv4-sp-d16
+ 178              	_ZL19MX_USART2_UART_Initv:
+ 179              		.fnstart
+ 180              	.LFB1959:
+ 154:Src/main.cpp  **** 
+ 181              		.loc 1 154 1 is_stmt 1 view -0
+ 182              		.cfi_startproc
+ 183              		@ args = 0, pretend = 0, frame = 0
+ 184              		@ frame_needed = 0, uses_anonymous_args = 0
+ 185 0000 08B5     		push	{r3, lr}
+ 186              		.save {r3, lr}
+ 187              	.LCFI3:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 8
+
+
+ 188              		.cfi_def_cfa_offset 8
+ 189              		.cfi_offset 3, -8
+ 190              		.cfi_offset 14, -4
+ 163:Src/main.cpp  ****   huart2.Init.BaudRate = 38400;
+ 191              		.loc 1 163 3 view .LVU45
+ 163:Src/main.cpp  ****   huart2.Init.BaudRate = 38400;
+ 192              		.loc 1 163 19 is_stmt 0 view .LVU46
+ 193 0002 0948     		ldr	r0, .L7
+ 194 0004 094B     		ldr	r3, .L7+4
+ 195 0006 0360     		str	r3, [r0]
+ 164:Src/main.cpp  ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 196              		.loc 1 164 3 is_stmt 1 view .LVU47
+ 164:Src/main.cpp  ****   huart2.Init.WordLength = UART_WORDLENGTH_8B;
+ 197              		.loc 1 164 24 is_stmt 0 view .LVU48
+ 198 0008 4FF41643 		mov	r3, #38400
+ 199 000c 4360     		str	r3, [r0, #4]
+ 165:Src/main.cpp  ****   huart2.Init.StopBits = UART_STOPBITS_1;
+ 200              		.loc 1 165 3 is_stmt 1 view .LVU49
+ 165:Src/main.cpp  ****   huart2.Init.StopBits = UART_STOPBITS_1;
+ 201              		.loc 1 165 26 is_stmt 0 view .LVU50
+ 202 000e 0023     		movs	r3, #0
+ 203 0010 8360     		str	r3, [r0, #8]
+ 166:Src/main.cpp  ****   huart2.Init.Parity = UART_PARITY_NONE;
+ 204              		.loc 1 166 3 is_stmt 1 view .LVU51
+ 166:Src/main.cpp  ****   huart2.Init.Parity = UART_PARITY_NONE;
+ 205              		.loc 1 166 24 is_stmt 0 view .LVU52
+ 206 0012 C360     		str	r3, [r0, #12]
+ 167:Src/main.cpp  ****   huart2.Init.Mode = UART_MODE_TX_RX;
+ 207              		.loc 1 167 3 is_stmt 1 view .LVU53
+ 167:Src/main.cpp  ****   huart2.Init.Mode = UART_MODE_TX_RX;
+ 208              		.loc 1 167 22 is_stmt 0 view .LVU54
+ 209 0014 0361     		str	r3, [r0, #16]
+ 168:Src/main.cpp  ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 210              		.loc 1 168 3 is_stmt 1 view .LVU55
+ 168:Src/main.cpp  ****   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+ 211              		.loc 1 168 20 is_stmt 0 view .LVU56
+ 212 0016 0C22     		movs	r2, #12
+ 213 0018 4261     		str	r2, [r0, #20]
+ 169:Src/main.cpp  ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+ 214              		.loc 1 169 3 is_stmt 1 view .LVU57
+ 169:Src/main.cpp  ****   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+ 215              		.loc 1 169 25 is_stmt 0 view .LVU58
+ 216 001a 8361     		str	r3, [r0, #24]
+ 170:Src/main.cpp  ****   huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+ 217              		.loc 1 170 3 is_stmt 1 view .LVU59
+ 170:Src/main.cpp  ****   huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+ 218              		.loc 1 170 28 is_stmt 0 view .LVU60
+ 219 001c C361     		str	r3, [r0, #28]
+ 171:Src/main.cpp  ****   huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+ 220              		.loc 1 171 3 is_stmt 1 view .LVU61
+ 171:Src/main.cpp  ****   huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+ 221              		.loc 1 171 30 is_stmt 0 view .LVU62
+ 222 001e 0362     		str	r3, [r0, #32]
+ 172:Src/main.cpp  ****   if (HAL_UART_Init(&huart2) != HAL_OK)
+ 223              		.loc 1 172 3 is_stmt 1 view .LVU63
+ 172:Src/main.cpp  ****   if (HAL_UART_Init(&huart2) != HAL_OK)
+ 224              		.loc 1 172 38 is_stmt 0 view .LVU64
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 9
+
+
+ 225 0020 4362     		str	r3, [r0, #36]
+ 173:Src/main.cpp  ****   {
+ 226              		.loc 1 173 3 is_stmt 1 view .LVU65
+ 173:Src/main.cpp  ****   {
+ 227              		.loc 1 173 20 is_stmt 0 view .LVU66
+ 228 0022 FFF7FEFF 		bl	HAL_UART_Init
+ 229              	.LVL3:
+ 181:Src/main.cpp  **** 
+ 230              		.loc 1 181 1 view .LVU67
+ 231 0026 08BD     		pop	{r3, pc}
+ 232              	.L8:
+ 233              		.align	2
+ 234              	.L7:
+ 235 0028 00000000 		.word	.LANCHOR0
+ 236 002c 00440040 		.word	1073759232
+ 237              		.cfi_endproc
+ 238              	.LFE1959:
+ 239              		.fnend
+ 241              		.section	.text._Z18SystemClock_Configv,"ax",%progbits
+ 242              		.align	1
+ 243              		.global	_Z18SystemClock_Configv
+ 244              		.syntax unified
+ 245              		.thumb
+ 246              		.thumb_func
+ 247              		.fpu fpv4-sp-d16
+ 249              	_Z18SystemClock_Configv:
+ 250              		.fnstart
+ 251              	.LFB1958:
+ 117:Src/main.cpp  ****   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+ 252              		.loc 1 117 1 is_stmt 1 view -0
+ 253              		.cfi_startproc
+ 254              		@ args = 0, pretend = 0, frame = 64
+ 255              		@ frame_needed = 0, uses_anonymous_args = 0
+ 256 0000 30B5     		push	{r4, r5, lr}
+ 257              		.save {r4, r5, lr}
+ 258              	.LCFI4:
+ 259              		.cfi_def_cfa_offset 12
+ 260              		.cfi_offset 4, -12
+ 261              		.cfi_offset 5, -8
+ 262              		.cfi_offset 14, -4
+ 263              		.pad #68
+ 264 0002 91B0     		sub	sp, sp, #68
+ 265              	.LCFI5:
+ 266              		.cfi_def_cfa_offset 80
+ 118:Src/main.cpp  ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 267              		.loc 1 118 3 view .LVU69
+ 118:Src/main.cpp  ****   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+ 268              		.loc 1 118 22 is_stmt 0 view .LVU70
+ 269 0004 0024     		movs	r4, #0
+ 270 0006 0794     		str	r4, [sp, #28]
+ 271 0008 0894     		str	r4, [sp, #32]
+ 272 000a 0994     		str	r4, [sp, #36]
+ 273 000c 0C94     		str	r4, [sp, #48]
+ 119:Src/main.cpp  **** 
+ 274              		.loc 1 119 3 is_stmt 1 view .LVU71
+ 119:Src/main.cpp  **** 
+ 275              		.loc 1 119 22 is_stmt 0 view .LVU72
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 10
+
+
+ 276 000e 0194     		str	r4, [sp, #4]
+ 277 0010 0294     		str	r4, [sp, #8]
+ 278 0012 0394     		str	r4, [sp, #12]
+ 279 0014 0494     		str	r4, [sp, #16]
+ 280 0016 0594     		str	r4, [sp, #20]
+ 123:Src/main.cpp  ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 281              		.loc 1 123 3 is_stmt 1 view .LVU73
+ 123:Src/main.cpp  ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+ 282              		.loc 1 123 36 is_stmt 0 view .LVU74
+ 283 0018 0225     		movs	r5, #2
+ 284 001a 0695     		str	r5, [sp, #24]
+ 124:Src/main.cpp  ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 285              		.loc 1 124 3 is_stmt 1 view .LVU75
+ 124:Src/main.cpp  ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+ 286              		.loc 1 124 30 is_stmt 0 view .LVU76
+ 287 001c 0123     		movs	r3, #1
+ 288 001e 0A93     		str	r3, [sp, #40]
+ 125:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 289              		.loc 1 125 3 is_stmt 1 view .LVU77
+ 125:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+ 290              		.loc 1 125 41 is_stmt 0 view .LVU78
+ 291 0020 1023     		movs	r3, #16
+ 292 0022 0B93     		str	r3, [sp, #44]
+ 126:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 293              		.loc 1 126 3 is_stmt 1 view .LVU79
+ 126:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+ 294              		.loc 1 126 34 is_stmt 0 view .LVU80
+ 295 0024 0D95     		str	r5, [sp, #52]
+ 127:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
+ 296              		.loc 1 127 3 is_stmt 1 view .LVU81
+ 127:Src/main.cpp  ****   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL16;
+ 297              		.loc 1 127 35 is_stmt 0 view .LVU82
+ 298 0026 0E94     		str	r4, [sp, #56]
+ 128:Src/main.cpp  ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 299              		.loc 1 128 3 is_stmt 1 view .LVU83
+ 128:Src/main.cpp  ****   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+ 300              		.loc 1 128 32 is_stmt 0 view .LVU84
+ 301 0028 4FF46013 		mov	r3, #3670016
+ 302 002c 0F93     		str	r3, [sp, #60]
+ 129:Src/main.cpp  ****   {
+ 303              		.loc 1 129 3 is_stmt 1 view .LVU85
+ 129:Src/main.cpp  ****   {
+ 304              		.loc 1 129 24 is_stmt 0 view .LVU86
+ 305 002e 06A8     		add	r0, sp, #24
+ 306 0030 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 307              	.LVL4:
+ 135:Src/main.cpp  ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 308              		.loc 1 135 3 is_stmt 1 view .LVU87
+ 135:Src/main.cpp  ****                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+ 309              		.loc 1 135 31 is_stmt 0 view .LVU88
+ 310 0034 0F23     		movs	r3, #15
+ 311 0036 0193     		str	r3, [sp, #4]
+ 137:Src/main.cpp  ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 312              		.loc 1 137 3 is_stmt 1 view .LVU89
+ 137:Src/main.cpp  ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+ 313              		.loc 1 137 34 is_stmt 0 view .LVU90
+ 314 0038 0295     		str	r5, [sp, #8]
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 11
+
+
+ 138:Src/main.cpp  ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 315              		.loc 1 138 3 is_stmt 1 view .LVU91
+ 138:Src/main.cpp  ****   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+ 316              		.loc 1 138 35 is_stmt 0 view .LVU92
+ 317 003a 0394     		str	r4, [sp, #12]
+ 139:Src/main.cpp  ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 318              		.loc 1 139 3 is_stmt 1 view .LVU93
+ 139:Src/main.cpp  ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+ 319              		.loc 1 139 36 is_stmt 0 view .LVU94
+ 320 003c 4FF48063 		mov	r3, #1024
+ 321 0040 0493     		str	r3, [sp, #16]
+ 140:Src/main.cpp  **** 
+ 322              		.loc 1 140 3 is_stmt 1 view .LVU95
+ 140:Src/main.cpp  **** 
+ 323              		.loc 1 140 36 is_stmt 0 view .LVU96
+ 324 0042 0594     		str	r4, [sp, #20]
+ 142:Src/main.cpp  ****   {
+ 325              		.loc 1 142 3 is_stmt 1 view .LVU97
+ 142:Src/main.cpp  ****   {
+ 326              		.loc 1 142 26 is_stmt 0 view .LVU98
+ 327 0044 2946     		mov	r1, r5
+ 328 0046 01A8     		add	r0, sp, #4
+ 329 0048 FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 330              	.LVL5:
+ 146:Src/main.cpp  **** 
+ 331              		.loc 1 146 1 view .LVU99
+ 332 004c 11B0     		add	sp, sp, #68
+ 333              	.LCFI6:
+ 334              		.cfi_def_cfa_offset 12
+ 335              		@ sp needed
+ 336 004e 30BD     		pop	{r4, r5, pc}
+ 337              		.cfi_endproc
+ 338              	.LFE1958:
+ 339              		.fnend
+ 341              		.section	.text.main,"ax",%progbits
+ 342              		.align	1
+ 343              		.global	main
+ 344              		.syntax unified
+ 345              		.thumb
+ 346              		.thumb_func
+ 347              		.fpu fpv4-sp-d16
+ 349              	main:
+ 350              		.fnstart
+ 351              	.LFB1957:
+  71:Src/main.cpp  ****   /* USER CODE BEGIN 1 */
+ 352              		.loc 1 71 1 is_stmt 1 view -0
+ 353              		.cfi_startproc
+ 354              		@ args = 0, pretend = 0, frame = 0
+ 355              		@ frame_needed = 0, uses_anonymous_args = 0
+ 356 0000 08B5     		push	{r3, lr}
+ 357              		.save {r3, lr}
+ 358              	.LCFI7:
+ 359              		.cfi_def_cfa_offset 8
+ 360              		.cfi_offset 3, -8
+ 361              		.cfi_offset 14, -4
+  80:Src/main.cpp  **** 
+ 362              		.loc 1 80 3 view .LVU101
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 12
+
+
+  80:Src/main.cpp  **** 
+ 363              		.loc 1 80 11 is_stmt 0 view .LVU102
+ 364 0002 FFF7FEFF 		bl	HAL_Init
+ 365              	.LVL6:
+  87:Src/main.cpp  **** 
+ 366              		.loc 1 87 3 is_stmt 1 view .LVU103
+  87:Src/main.cpp  **** 
+ 367              		.loc 1 87 21 is_stmt 0 view .LVU104
+ 368 0006 FFF7FEFF 		bl	_Z18SystemClock_Configv
+ 369              	.LVL7:
+  94:Src/main.cpp  ****   MX_USART2_UART_Init();
+ 370              		.loc 1 94 3 is_stmt 1 view .LVU105
+  94:Src/main.cpp  ****   MX_USART2_UART_Init();
+ 371              		.loc 1 94 15 is_stmt 0 view .LVU106
+ 372 000a FFF7FEFF 		bl	_ZL12MX_GPIO_Initv
+ 373              	.LVL8:
+  95:Src/main.cpp  ****   /* USER CODE BEGIN 2 */
+ 374              		.loc 1 95 3 is_stmt 1 view .LVU107
+  95:Src/main.cpp  ****   /* USER CODE BEGIN 2 */
+ 375              		.loc 1 95 22 is_stmt 0 view .LVU108
+ 376 000e FFF7FEFF 		bl	_ZL19MX_USART2_UART_Initv
+ 377              	.LVL9:
+  97:Src/main.cpp  ****   NetworkLight<uint8_t, 11, 110> test(sizes, (uint8_t) 10, (uint8_t) 1, (uint8_t) 1);
+ 378              		.loc 1 97 3 is_stmt 1 view .LVU109
+  98:Src/main.cpp  ****   /* USER CODE END 2 */
+ 379              		.loc 1 98 3 view .LVU110
+ 380              	.LBB128:
+ 381              	.LBI128:
+ 382              		.file 2 "D:\\Users\\Ma-Game\\Documents\\Mathis\\Programmation\\C++\\Deep-Learning\\Lib-DeepLearnin
+   1:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** /*
+   2:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** deepNetworkMini.h
+   3:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+   4:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** int m_nb is for debuging
+   5:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+   6:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** Created by
+   7:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** MATHGIQUE
+   8:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** */
+   9:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  10:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** #pragma once
+  11:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  12:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** #include<fstream>
+  13:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** #include<cmath>
+  14:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** #include<ctype.h>
+  15:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  16:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** template<typename indexType, const int nbPerceptrons, const int nbWeights>
+  17:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** class NetworkLight
+  18:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** {
+  19:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** private:
+  20:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	float m_weights[nbWeights];
+  21:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	float m_biais[nbPerceptrons];
+  22:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	float m_perceptrons[nbPerceptrons];
+  23:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  24:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** protected:
+  25:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	float* m_input;
+  26:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	const indexType *m_sizeHidden;//Permet de gerer les index
+  27:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	const indexType m_nbInput;//Permet de gerer les index
+  28:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	const indexType m_nbOutput;//Permet de gerer les index
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 13
+
+
+  29:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	const indexType m_nbHidden;//Permet de gerer les index
+  30:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  31:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	indexType getSize(indexType i);
+  32:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	int getIndexDouble(indexType i, indexType j);
+  33:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	int getIndexTriple(indexType i, indexType j, indexType k);
+  34:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  35:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** public:
+  36:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	virtual float* runPrediction(float *input) final;
+  37:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	virtual bool loadWeight(const char* path);
+  38:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	NetworkLight(indexType* sizeHidden, indexType nbInput, indexType nbOutput, indexType nbHidden);
+  39:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  40:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	static float F_Sigmoide(float value);
+  41:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** };
+  42:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  43:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** template<typename indexType, int nbPerceptrons, int nbWeights>
+  44:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** inline indexType NetworkLight<indexType, nbPerceptrons, nbWeights>::getSize(indexType i)
+  45:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** {
+  46:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	if (i == 0)
+  47:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		return m_sizeHidden[0];
+  48:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  49:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	return (m_sizeHidden[i] - m_sizeHidden[i - 1]);
+  50:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** }
+  51:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  52:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** template<typename indexType, int nbPerceptrons, int nbWeights>
+  53:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** inline int NetworkLight<indexType, nbPerceptrons, nbWeights>::getIndexDouble(indexType i, indexType
+  54:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** {
+  55:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	if (i == 0)
+  56:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		return j;
+  57:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  58:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	return m_sizeHidden[i - 1] + j;
+  59:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** }
+  60:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  61:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** template<typename indexType, int nbPerceptrons, int nbWeights>
+  62:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** inline int NetworkLight<indexType, nbPerceptrons, nbWeights>::getIndexTriple(indexType i, indexType
+  63:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** {
+  64:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	if (i == 0)
+  65:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		return ((j * m_nbInput) + k);
+  66:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  67:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	int before = getSize(0) * m_nbInput;
+  68:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	for (int x = 1; x < i; x++)
+  69:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		before += getSize(x) * getSize(x - 1);
+  70:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  71:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	return (before + (j * getSize(i-1)) + k);
+  72:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** }
+  73:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  74:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** template<typename indexType, int nbPerceptrons, int nbWeights>
+  75:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** inline float* NetworkLight<indexType, nbPerceptrons, nbWeights>::runPrediction(float* input)
+  76:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** {
+  77:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	m_input = input;
+  78:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	float somme = 0.0f;
+  79:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	float bufferTest = 0.0f;
+  80:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  81:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	for (int i = 0; i < getSize(0); i++)
+  82:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	{
+  83:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		somme = 0.0f;
+  84:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		for (int j = 0; j < m_nbInput; j++)
+  85:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		{
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 14
+
+
+  86:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 			bufferTest = m_input[j];
+  87:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 			somme += m_weights[getIndexTriple(0, i, j)] * bufferTest;
+  88:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		}
+  89:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		somme += m_biais[getIndexDouble(0, i)];
+  90:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		m_perceptrons[getIndexDouble(0, i)] = F_Sigmoide(somme);
+  91:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	}
+  92:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+  93:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	for (int a = 1; a < m_nbHidden; a++)
+  94:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	{
+  95:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		for (int i = 0; i < getSize(a); i++)
+  96:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		{
+  97:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 			somme = 0.0f;
+  98:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 			for (int j = 0; j < getSize(a - 1); j++)
+  99:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 				somme += m_weights[getIndexTriple(a, i, j)] * m_perceptrons[getIndexDouble(a - 1, j)];
+ 100:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 			somme += m_biais[getIndexDouble(a, i)];
+ 101:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 			m_perceptrons[getIndexDouble(a, i)] = F_Sigmoide(somme);
+ 102:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		}
+ 103:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	}
+ 104:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+ 105:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	for (int i = 0; i < m_nbOutput; i++)
+ 106:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	{
+ 107:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		somme = 0.0f;
+ 108:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		for (int j = 0; j < getSize(m_nbHidden - 1); j++)
+ 109:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 			somme += m_weights[getIndexTriple(m_nbHidden, i, j)] * m_perceptrons[getIndexDouble(m_nbHidden -
+ 110:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		somme += m_biais[getIndexDouble(m_nbHidden, i)];
+ 111:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		m_perceptrons[getIndexDouble(m_nbHidden, i)] = F_Sigmoide(somme);
+ 112:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	}
+ 113:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+ 114:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	return (m_perceptrons + getIndexDouble(m_nbHidden, 0));
+ 115:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** }
+ 116:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+ 117:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** template<typename indexType, int nbPerceptrons, int nbWeights>
+ 118:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** inline bool NetworkLight<indexType, nbPerceptrons, nbWeights>::loadWeight(const char* path)
+ 119:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** {
+ 120:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	std::ifstream file;
+ 121:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	float enCours = 0.0f;
+ 122:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+ 123:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	file.open(path);
+ 124:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	if (!file)
+ 125:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		return false;
+ 126:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+ 127:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	for (int i = 0; i < nbWeights; i++)
+ 128:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		file >> m_weights[i];
+ 129:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+ 130:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	for (int i = 0; i < nbPerceptrons; i++)
+ 131:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 		file >> m_biais[i];
+ 132:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+ 133:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 	return true;
+ 134:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** }
+ 135:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** 
+ 136:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** template<typename indexType, int nbPerceptrons, int nbWeights>
+ 137:D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\NetworkLight.h **** inline NetworkLight<indexType, nbPerceptrons, nbWeights>::NetworkLight(indexType*sizeHidden, indexT
+ 383              		.loc 2 137 8 view .LVU111
+ 384              	.L12:
+ 385              		.loc 2 137 8 is_stmt 0 view .LVU112
+ 386              	.LBE128:
+ 103:Src/main.cpp  ****   {
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 15
+
+
+ 387              		.loc 1 103 3 is_stmt 1 discriminator 1 view .LVU113
+ 103:Src/main.cpp  ****   {
+ 388              		.loc 1 103 3 discriminator 1 view .LVU114
+ 389 0012 FEE7     		b	.L12
+ 390              		.cfi_endproc
+ 391              	.LFE1957:
+ 392              		.fnend
+ 394              		.section	.text.Error_Handler,"ax",%progbits
+ 395              		.align	1
+ 396              		.global	Error_Handler
+ 397              		.syntax unified
+ 398              		.thumb
+ 399              		.thumb_func
+ 400              		.fpu fpv4-sp-d16
+ 402              	Error_Handler:
+ 403              		.fnstart
+ 404              	.LFB1961:
+ 215:Src/main.cpp  **** 
+ 216:Src/main.cpp  **** /* USER CODE BEGIN 4 */
+ 217:Src/main.cpp  **** 
+ 218:Src/main.cpp  **** /* USER CODE END 4 */
+ 219:Src/main.cpp  **** 
+ 220:Src/main.cpp  **** /**
+ 221:Src/main.cpp  ****   * @brief  This function is executed in case of error occurrence.
+ 222:Src/main.cpp  ****   * @retval None
+ 223:Src/main.cpp  ****   */
+ 224:Src/main.cpp  **** void Error_Handler(void)
+ 225:Src/main.cpp  **** {
+ 405              		.loc 1 225 1 view -0
+ 406              		.cfi_startproc
+ 407              		@ args = 0, pretend = 0, frame = 0
+ 408              		@ frame_needed = 0, uses_anonymous_args = 0
+ 409              		@ link register save eliminated.
+ 226:Src/main.cpp  ****   /* USER CODE BEGIN Error_Handler_Debug */
+ 227:Src/main.cpp  ****   /* User can add his own implementation to report the HAL error return state */
+ 228:Src/main.cpp  **** 
+ 229:Src/main.cpp  ****   /* USER CODE END Error_Handler_Debug */
+ 230:Src/main.cpp  **** }
+ 410              		.loc 1 230 1 is_stmt 0 view .LVU116
+ 411 0000 7047     		bx	lr
+ 412              		.cfi_endproc
+ 413              	.LFE1961:
+ 414              		.cantunwind
+ 415              		.fnend
+ 417              		.global	huart2
+ 418              		.section	.bss.huart2,"aw",%nobits
+ 419              		.align	2
+ 420              		.set	.LANCHOR0,. + 0
+ 423              	huart2:
+ 424 0000 00000000 		.space	128
+ 424      00000000 
+ 424      00000000 
+ 424      00000000 
+ 424      00000000 
+ 425              		.text
+ 426              	.Letext0:
+ 427              		.file 3 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\machine\\_default_types.h"
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 16
+
+
+ 428              		.file 4 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 429              		.file 5 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\stdint.h"
+ 430              		.file 6 "Drivers/CMSIS/Include/core_cm4.h"
+ 431              		.file 7 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/system_stm32f3xx.h"
+ 432              		.file 8 "Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f302x8.h"
+ 433              		.file 9 "d:\\arm\\gnu_arm_embedded_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stddef.h"
+ 434              		.file 10 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h"
+ 435              		.file 11 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h"
+ 436              		.file 12 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_gpio.h"
+ 437              		.file 13 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h"
+ 438              		.file 14 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h"
+ 439              		.file 15 "Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h"
+ 440              		.file 16 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\cwchar"
+ 441              		.file 17 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\new"
+ 442              		.file 18 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\bits\\exception_ptr.h
+ 443              		.file 19 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\arm-none-eabi\\thumb\
+ 444              		.file 20 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\type_traits"
+ 445              		.file 21 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\bits\\stl_pair.h"
+ 446              		.file 22 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\debug\\debug.h"
+ 447              		.file 23 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\bits\\char_traits.h"
+ 448              		.file 24 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\cstdint"
+ 449              		.file 25 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\clocale"
+ 450              		.file 26 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\cstdlib"
+ 451              		.file 27 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\cstdio"
+ 452              		.file 28 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\bits\\basic_string.h"
+ 453              		.file 29 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\system_error"
+ 454              		.file 30 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\bits\\ios_base.h"
+ 455              		.file 31 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\cwctype"
+ 456              		.file 32 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\istream"
+ 457              		.file 33 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\streambuf"
+ 458              		.file 34 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\cmath"
+ 459              		.file 35 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\fstream"
+ 460              		.file 36 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\bits\\basic_ios.h"
+ 461              		.file 37 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\iosfwd"
+ 462              		.file 38 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\bits\\predefined_ops.
+ 463              		.file 39 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\ext\\new_allocator.h"
+ 464              		.file 40 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\ext\\numeric_traits.h
+ 465              		.file 41 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\sys\\lock.h"
+ 466              		.file 42 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\sys\\_types.h"
+ 467              		.file 43 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\sys\\reent.h"
+ 468              		.file 44 "d:\\arm\\gnu_arm_embedded_gcc\\lib\\gcc\\arm-none-eabi\\9.2.1\\include\\stdarg.h"
+ 469              		.file 45 "<built-in>"
+ 470              		.file 46 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\wchar.h"
+ 471              		.file 47 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\locale.h"
+ 472              		.file 48 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\ctype.h"
+ 473              		.file 49 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\stdlib.h"
+ 474              		.file 50 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\stdio.h"
+ 475              		.file 51 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\sys\\errno.h"
+ 476              		.file 52 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\wctype.h"
+ 477              		.file 53 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\math.h"
+ 478              		.file 54 "d:\\arm\\gnu_arm_embedded_gcc\\arm-none-eabi\\include\\c++\\9.2.1\\bits\\stl_iterator_ba
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.cpp
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:18     .text._ZL12MX_GPIO_Initv:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:25     .text._ZL12MX_GPIO_Initv:0000000000000000 _ZL12MX_GPIO_Initv
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:163    .text._ZL12MX_GPIO_Initv:0000000000000094 $d
+.ARM.exidx.text._ZL12MX_GPIO_Initv:0000000000000000 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:172    .text._ZL19MX_USART2_UART_Initv:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:178    .text._ZL19MX_USART2_UART_Initv:0000000000000000 _ZL19MX_USART2_UART_Initv
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:235    .text._ZL19MX_USART2_UART_Initv:0000000000000028 $d
+.ARM.extab.text._ZL19MX_USART2_UART_Initv:0000000000000000 $d
+.ARM.exidx.text._ZL19MX_USART2_UART_Initv:0000000000000000 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:242    .text._Z18SystemClock_Configv:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:249    .text._Z18SystemClock_Configv:0000000000000000 _Z18SystemClock_Configv
+.ARM.exidx.text._Z18SystemClock_Configv:0000000000000000 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:342    .text.main:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:349    .text.main:0000000000000000 main
+             .ARM.extab.text.main:0000000000000000 $d
+             .ARM.exidx.text.main:0000000000000000 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:395    .text.Error_Handler:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:402    .text.Error_Handler:0000000000000000 Error_Handler
+    .ARM.exidx.text.Error_Handler:0000000000000000 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:423    .bss.huart2:0000000000000000 huart2
+D:\Users\Ma-Game\AppData\Local\Temp\ccaFSVLW.s:419    .bss.huart2:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+HAL_GPIO_Init
+__aeabi_unwind_cpp_pr0
+HAL_UART_Init
+__aeabi_unwind_cpp_pr1
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+HAL_Init

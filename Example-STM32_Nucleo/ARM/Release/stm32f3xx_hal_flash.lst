@@ -1,0 +1,831 @@
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_flash.c"
+  14              		.text
+  15              		.section	.text.HAL_FLASH_Program,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	HAL_FLASH_Program
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	HAL_FLASH_Program:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  29 0004 614E     		ldr	r6, .L45
+  30 0006 96F818C0 		ldrb	ip, [r6, #24]	@ zero_extendqisi2
+  31 000a BCF1010F 		cmp	ip, #1
+  32 000e 00F0B180 		beq	.L21
+  33 0012 1D46     		mov	r5, r3
+  34 0014 0123     		movs	r3, #1
+  35 0016 8246     		mov	r10, r0
+  36 0018 0C46     		mov	r4, r1
+  37 001a 9046     		mov	r8, r2
+  38 001c 3376     		strb	r3, [r6, #24]
+  39 001e FFF7FEFF 		bl	HAL_GetTick
+  40 0022 5B4F     		ldr	r7, .L45+4
+  41 0024 8146     		mov	r9, r0
+  42 0026 4CF2503B 		movw	fp, #50000
+  43 002a 06E0     		b	.L3
+  44              	.L5:
+  45 002c FFF7FEFF 		bl	HAL_GetTick
+  46 0030 A0EB0900 		sub	r0, r0, r9
+  47 0034 5845     		cmp	r0, fp
+  48 0036 00F28880 		bhi	.L22
+  49              	.L3:
+  50 003a FB68     		ldr	r3, [r7, #12]
+  51 003c DB07     		lsls	r3, r3, #31
+  52 003e F5D4     		bmi	.L5
+  53 0040 FB68     		ldr	r3, [r7, #12]
+  54 0042 9806     		lsls	r0, r3, #26
+  55 0044 44BF     		itt	mi
+  56 0046 2023     		movmi	r3, #32
+  57 0048 FB60     		strmi	r3, [r7, #12]
+  58 004a 514B     		ldr	r3, .L45+4
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 2
+
+
+  59 004c DA68     		ldr	r2, [r3, #12]
+  60 004e D106     		lsls	r1, r2, #27
+  61 0050 7DD4     		bmi	.L7
+  62 0052 DB68     		ldr	r3, [r3, #12]
+  63 0054 13F00409 		ands	r9, r3, #4
+  64 0058 79D1     		bne	.L7
+  65 005a BAF1010F 		cmp	r10, #1
+  66 005e 00F09380 		beq	.L43
+  67 0062 BAF1020F 		cmp	r10, #2
+  68 0066 0CBF     		ite	eq
+  69 0068 0227     		moveq	r7, #2
+  70 006a 0427     		movne	r7, #4
+  71              	.L8:
+  72 006c DFF820A1 		ldr	r10, .L45+4
+  73 0070 04EB4707 		add	r7, r4, r7, lsl #1
+  74              	.L20:
+  75 0074 0021     		movs	r1, #0
+  76 0076 C9F12002 		rsb	r2, r9, #32
+  77 007a F161     		str	r1, [r6, #28]
+  78 007c 05FA02F2 		lsl	r2, r5, r2
+  79 0080 28FA09F0 		lsr	r0, r8, r9
+  80 0084 A9F12001 		sub	r1, r9, #32
+  81 0088 1043     		orrs	r0, r0, r2
+  82 008a 25FA01F1 		lsr	r1, r5, r1
+  83 008e DAF81020 		ldr	r2, [r10, #16]
+  84 0092 0843     		orrs	r0, r0, r1
+  85 0094 80B2     		uxth	r0, r0
+  86 0096 42F00102 		orr	r2, r2, #1
+  87 009a CAF81020 		str	r2, [r10, #16]
+  88 009e 2080     		strh	r0, [r4]	@ movhi
+  89 00a0 FFF7FEFF 		bl	HAL_GetTick
+  90 00a4 8346     		mov	fp, r0
+  91 00a6 07E0     		b	.L12
+  92              	.L14:
+  93 00a8 FFF7FEFF 		bl	HAL_GetTick
+  94 00ac 4CF25033 		movw	r3, #50000
+  95 00b0 A0EB0B00 		sub	r0, r0, fp
+  96 00b4 9842     		cmp	r0, r3
+  97 00b6 22D8     		bhi	.L13
+  98              	.L12:
+  99 00b8 DAF80C20 		ldr	r2, [r10, #12]
+ 100 00bc D307     		lsls	r3, r2, #31
+ 101 00be F3D4     		bmi	.L14
+ 102 00c0 DAF80C20 		ldr	r2, [r10, #12]
+ 103 00c4 9006     		lsls	r0, r2, #26
+ 104 00c6 44BF     		itt	mi
+ 105 00c8 2022     		movmi	r2, #32
+ 106 00ca CAF80C20 		strmi	r2, [r10, #12]
+ 107 00ce DAF80C20 		ldr	r2, [r10, #12]
+ 108 00d2 D106     		lsls	r1, r2, #27
+ 109 00d4 1BD4     		bmi	.L16
+ 110 00d6 DAF80C00 		ldr	r0, [r10, #12]
+ 111 00da 10F00400 		ands	r0, r0, #4
+ 112 00de 16D1     		bne	.L16
+ 113 00e0 DAF81020 		ldr	r2, [r10, #16]
+ 114 00e4 0234     		adds	r4, r4, #2
+ 115 00e6 22F00102 		bic	r2, r2, #1
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 3
+
+
+ 116 00ea BC42     		cmp	r4, r7
+ 117 00ec 09F11009 		add	r9, r9, #16
+ 118 00f0 CAF81020 		str	r2, [r10, #16]
+ 119 00f4 BED1     		bne	.L20
+ 120              	.L4:
+ 121 00f6 0023     		movs	r3, #0
+ 122 00f8 3376     		strb	r3, [r6, #24]
+ 123 00fa BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 124              	.L13:
+ 125 00fe DAF81030 		ldr	r3, [r10, #16]
+ 126 0102 23F00103 		bic	r3, r3, #1
+ 127 0106 CAF81030 		str	r3, [r10, #16]
+ 128 010a 0320     		movs	r0, #3
+ 129 010c F3E7     		b	.L4
+ 130              	.L16:
+ 131 010e 204B     		ldr	r3, .L45+4
+ 132 0110 DB68     		ldr	r3, [r3, #12]
+ 133 0112 13F01003 		ands	r3, r3, #16
+ 134 0116 16D0     		beq	.L26
+ 135 0118 F369     		ldr	r3, [r6, #28]
+ 136 011a 43F00203 		orr	r3, r3, #2
+ 137 011e F361     		str	r3, [r6, #28]
+ 138 0120 1421     		movs	r1, #20
+ 139 0122 1023     		movs	r3, #16
+ 140              	.L18:
+ 141 0124 1A4A     		ldr	r2, .L45+4
+ 142 0126 D268     		ldr	r2, [r2, #12]
+ 143 0128 5207     		lsls	r2, r2, #29
+ 144 012a 04D5     		bpl	.L19
+ 145 012c F269     		ldr	r2, [r6, #28]
+ 146 012e 42F00102 		orr	r2, r2, #1
+ 147 0132 0B46     		mov	r3, r1
+ 148 0134 F261     		str	r2, [r6, #28]
+ 149              	.L19:
+ 150 0136 164A     		ldr	r2, .L45+4
+ 151 0138 D360     		str	r3, [r2, #12]
+ 152 013a 1369     		ldr	r3, [r2, #16]
+ 153 013c 23F00103 		bic	r3, r3, #1
+ 154 0140 1361     		str	r3, [r2, #16]
+ 155 0142 0120     		movs	r0, #1
+ 156 0144 D7E7     		b	.L4
+ 157              	.L26:
+ 158 0146 0421     		movs	r1, #4
+ 159 0148 ECE7     		b	.L18
+ 160              	.L22:
+ 161 014a 0320     		movs	r0, #3
+ 162 014c D3E7     		b	.L4
+ 163              	.L7:
+ 164 014e 104B     		ldr	r3, .L45+4
+ 165 0150 DB68     		ldr	r3, [r3, #12]
+ 166 0152 13F01003 		ands	r3, r3, #16
+ 167 0156 10D1     		bne	.L44
+ 168 0158 0421     		movs	r1, #4
+ 169              	.L10:
+ 170 015a 0D4A     		ldr	r2, .L45+4
+ 171 015c D268     		ldr	r2, [r2, #12]
+ 172 015e 5207     		lsls	r2, r2, #29
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 4
+
+
+ 173 0160 04D5     		bpl	.L11
+ 174 0162 F269     		ldr	r2, [r6, #28]
+ 175 0164 42F00102 		orr	r2, r2, #1
+ 176 0168 0B46     		mov	r3, r1
+ 177 016a F261     		str	r2, [r6, #28]
+ 178              	.L11:
+ 179 016c 084A     		ldr	r2, .L45+4
+ 180 016e 0120     		movs	r0, #1
+ 181 0170 D360     		str	r3, [r2, #12]
+ 182 0172 C0E7     		b	.L4
+ 183              	.L21:
+ 184 0174 0220     		movs	r0, #2
+ 185 0176 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 186              	.L44:
+ 187 017a F369     		ldr	r3, [r6, #28]
+ 188 017c 43F00203 		orr	r3, r3, #2
+ 189 0180 F361     		str	r3, [r6, #28]
+ 190 0182 1421     		movs	r1, #20
+ 191 0184 1023     		movs	r3, #16
+ 192 0186 E8E7     		b	.L10
+ 193              	.L43:
+ 194 0188 5746     		mov	r7, r10
+ 195 018a 6FE7     		b	.L8
+ 196              	.L46:
+ 197              		.align	2
+ 198              	.L45:
+ 199 018c 00000000 		.word	pFlash
+ 200 0190 00200240 		.word	1073881088
+ 202              		.section	.text.HAL_FLASH_Program_IT,"ax",%progbits
+ 203              		.align	1
+ 204              		.p2align 2,,3
+ 205              		.global	HAL_FLASH_Program_IT
+ 206              		.syntax unified
+ 207              		.thumb
+ 208              		.thumb_func
+ 209              		.fpu fpv4-sp-d16
+ 211              	HAL_FLASH_Program_IT:
+ 212              		@ args = 0, pretend = 0, frame = 0
+ 213              		@ frame_needed = 0, uses_anonymous_args = 0
+ 214              		@ link register save eliminated.
+ 215 0000 F0B4     		push	{r4, r5, r6, r7}
+ 216 0002 174C     		ldr	r4, .L56
+ 217 0004 257E     		ldrb	r5, [r4, #24]	@ zero_extendqisi2
+ 218 0006 012D     		cmp	r5, #1
+ 219 0008 26D0     		beq	.L52
+ 220 000a 1646     		mov	r6, r2
+ 221 000c 154A     		ldr	r2, .L56+4
+ 222 000e 1F46     		mov	r7, r3
+ 223 0010 1369     		ldr	r3, [r2, #16]
+ 224 0012 0125     		movs	r5, #1
+ 225 0014 43F4A053 		orr	r3, r3, #5120
+ 226 0018 A842     		cmp	r0, r5
+ 227 001a 1361     		str	r3, [r2, #16]
+ 228 001c A160     		str	r1, [r4, #8]
+ 229 001e 2576     		strb	r5, [r4, #24]
+ 230 0020 C4E90467 		strd	r6, [r4, #16]
+ 231 0024 10D0     		beq	.L54
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 5
+
+
+ 232 0026 0228     		cmp	r0, #2
+ 233 0028 12D0     		beq	.L55
+ 234 002a 0522     		movs	r2, #5
+ 235 002c 0423     		movs	r3, #4
+ 236 002e 2270     		strb	r2, [r4]
+ 237 0030 6360     		str	r3, [r4, #4]
+ 238              	.L50:
+ 239 0032 0C4A     		ldr	r2, .L56+4
+ 240 0034 0020     		movs	r0, #0
+ 241 0036 E061     		str	r0, [r4, #28]
+ 242 0038 1369     		ldr	r3, [r2, #16]
+ 243 003a B6B2     		uxth	r6, r6
+ 244 003c 43F00103 		orr	r3, r3, #1
+ 245 0040 1361     		str	r3, [r2, #16]
+ 246 0042 0E80     		strh	r6, [r1]	@ movhi
+ 247 0044 F0BC     		pop	{r4, r5, r6, r7}
+ 248 0046 7047     		bx	lr
+ 249              	.L54:
+ 250 0048 0323     		movs	r3, #3
+ 251 004a 2370     		strb	r3, [r4]
+ 252 004c 6060     		str	r0, [r4, #4]
+ 253 004e F0E7     		b	.L50
+ 254              	.L55:
+ 255 0050 0423     		movs	r3, #4
+ 256 0052 2370     		strb	r3, [r4]
+ 257 0054 6060     		str	r0, [r4, #4]
+ 258 0056 ECE7     		b	.L50
+ 259              	.L52:
+ 260 0058 0220     		movs	r0, #2
+ 261 005a F0BC     		pop	{r4, r5, r6, r7}
+ 262 005c 7047     		bx	lr
+ 263              	.L57:
+ 264 005e 00BF     		.align	2
+ 265              	.L56:
+ 266 0060 00000000 		.word	pFlash
+ 267 0064 00200240 		.word	1073881088
+ 269              		.section	.text.HAL_FLASH_EndOfOperationCallback,"ax",%progbits
+ 270              		.align	1
+ 271              		.p2align 2,,3
+ 272              		.weak	HAL_FLASH_EndOfOperationCallback
+ 273              		.syntax unified
+ 274              		.thumb
+ 275              		.thumb_func
+ 276              		.fpu fpv4-sp-d16
+ 278              	HAL_FLASH_EndOfOperationCallback:
+ 279              		@ args = 0, pretend = 0, frame = 0
+ 280              		@ frame_needed = 0, uses_anonymous_args = 0
+ 281              		@ link register save eliminated.
+ 282 0000 7047     		bx	lr
+ 284 0002 00BF     		.section	.text.HAL_FLASH_OperationErrorCallback,"ax",%progbits
+ 285              		.align	1
+ 286              		.p2align 2,,3
+ 287              		.weak	HAL_FLASH_OperationErrorCallback
+ 288              		.syntax unified
+ 289              		.thumb
+ 290              		.thumb_func
+ 291              		.fpu fpv4-sp-d16
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 6
+
+
+ 293              	HAL_FLASH_OperationErrorCallback:
+ 294              		@ args = 0, pretend = 0, frame = 0
+ 295              		@ frame_needed = 0, uses_anonymous_args = 0
+ 296              		@ link register save eliminated.
+ 297 0000 7047     		bx	lr
+ 299 0002 00BF     		.section	.text.HAL_FLASH_IRQHandler,"ax",%progbits
+ 300              		.align	1
+ 301              		.p2align 2,,3
+ 302              		.global	HAL_FLASH_IRQHandler
+ 303              		.syntax unified
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.fpu fpv4-sp-d16
+ 308              	HAL_FLASH_IRQHandler:
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311 0000 2DE97848 		push	{r3, r4, r5, r6, fp, lr}
+ 312 0004 504B     		ldr	r3, .L91
+ 313 0006 514C     		ldr	r4, .L91+4
+ 314 0008 DA68     		ldr	r2, [r3, #12]
+ 315 000a D006     		lsls	r0, r2, #27
+ 316 000c 1BD4     		bmi	.L61
+ 317 000e DB68     		ldr	r3, [r3, #12]
+ 318 0010 5907     		lsls	r1, r3, #29
+ 319 0012 18D4     		bmi	.L61
+ 320              	.L62:
+ 321 0014 4C4D     		ldr	r5, .L91
+ 322 0016 EB68     		ldr	r3, [r5, #12]
+ 323 0018 9B06     		lsls	r3, r3, #26
+ 324 001a 04D5     		bpl	.L66
+ 325 001c 2023     		movs	r3, #32
+ 326 001e EB60     		str	r3, [r5, #12]
+ 327 0020 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 328 0022 002B     		cmp	r3, #0
+ 329 0024 30D1     		bne	.L86
+ 330              	.L66:
+ 331 0026 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 332 0028 03F0FF01 		and	r1, r3, #255
+ 333 002c 4BB9     		cbnz	r3, .L60
+ 334 002e 464B     		ldr	r3, .L91
+ 335 0030 1A69     		ldr	r2, [r3, #16]
+ 336 0032 22F00702 		bic	r2, r2, #7
+ 337 0036 1A61     		str	r2, [r3, #16]
+ 338 0038 1A69     		ldr	r2, [r3, #16]
+ 339 003a 22F4A052 		bic	r2, r2, #5120
+ 340 003e 1A61     		str	r2, [r3, #16]
+ 341 0040 2176     		strb	r1, [r4, #24]
+ 342              	.L60:
+ 343 0042 BDE87888 		pop	{r3, r4, r5, r6, fp, pc}
+ 344              	.L61:
+ 345 0046 404B     		ldr	r3, .L91
+ 346 0048 A068     		ldr	r0, [r4, #8]
+ 347 004a 4FF0FF32 		mov	r2, #-1
+ 348 004e A260     		str	r2, [r4, #8]
+ 349 0050 DB68     		ldr	r3, [r3, #12]
+ 350 0052 13F01003 		ands	r3, r3, #16
+ 351 0056 10D1     		bne	.L87
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 7
+
+
+ 352 0058 0421     		movs	r1, #4
+ 353              	.L63:
+ 354 005a 3B4A     		ldr	r2, .L91
+ 355 005c D268     		ldr	r2, [r2, #12]
+ 356 005e 5207     		lsls	r2, r2, #29
+ 357 0060 04D5     		bpl	.L64
+ 358 0062 E269     		ldr	r2, [r4, #28]
+ 359 0064 42F00102 		orr	r2, r2, #1
+ 360 0068 0B46     		mov	r3, r1
+ 361 006a E261     		str	r2, [r4, #28]
+ 362              	.L64:
+ 363 006c 364A     		ldr	r2, .L91
+ 364 006e D360     		str	r3, [r2, #12]
+ 365 0070 FFF7FEFF 		bl	HAL_FLASH_OperationErrorCallback
+ 366 0074 0023     		movs	r3, #0
+ 367 0076 2370     		strb	r3, [r4]
+ 368 0078 CCE7     		b	.L62
+ 369              	.L87:
+ 370 007a E369     		ldr	r3, [r4, #28]
+ 371 007c 43F00203 		orr	r3, r3, #2
+ 372 0080 E361     		str	r3, [r4, #28]
+ 373 0082 1421     		movs	r1, #20
+ 374 0084 1023     		movs	r3, #16
+ 375 0086 E8E7     		b	.L63
+ 376              	.L86:
+ 377 0088 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 378 008a 012B     		cmp	r3, #1
+ 379 008c 23D0     		beq	.L88
+ 380 008e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 381 0090 022B     		cmp	r3, #2
+ 382 0092 4BD0     		beq	.L89
+ 383 0094 6368     		ldr	r3, [r4, #4]
+ 384 0096 013B     		subs	r3, r3, #1
+ 385 0098 6360     		str	r3, [r4, #4]
+ 386 009a 6368     		ldr	r3, [r4, #4]
+ 387 009c 73B3     		cbz	r3, .L71
+ 388 009e A368     		ldr	r3, [r4, #8]
+ 389 00a0 0233     		adds	r3, r3, #2
+ 390 00a2 A360     		str	r3, [r4, #8]
+ 391 00a4 A668     		ldr	r6, [r4, #8]
+ 392 00a6 D4E90401 		ldrd	r0, [r4, #16]
+ 393 00aa 020C     		lsrs	r2, r0, #16
+ 394 00ac 42EA0142 		orr	r2, r2, r1, lsl #16
+ 395 00b0 0B0C     		lsrs	r3, r1, #16
+ 396 00b2 C4E90423 		strd	r2, [r4, #16]
+ 397 00b6 2B69     		ldr	r3, [r5, #16]
+ 398 00b8 23F00103 		bic	r3, r3, #1
+ 399 00bc 2B61     		str	r3, [r5, #16]
+ 400 00be 0021     		movs	r1, #0
+ 401 00c0 D4E904BC 		ldrd	fp, [r4, #16]
+ 402 00c4 E161     		str	r1, [r4, #28]
+ 403 00c6 2B69     		ldr	r3, [r5, #16]
+ 404 00c8 1FFA8BF2 		uxth	r2, fp
+ 405 00cc 43F00103 		orr	r3, r3, #1
+ 406 00d0 2B61     		str	r3, [r5, #16]
+ 407 00d2 3280     		strh	r2, [r6]	@ movhi
+ 408 00d4 A7E7     		b	.L66
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 8
+
+
+ 409              	.L88:
+ 410 00d6 6368     		ldr	r3, [r4, #4]
+ 411 00d8 013B     		subs	r3, r3, #1
+ 412 00da 6360     		str	r3, [r4, #4]
+ 413 00dc 6368     		ldr	r3, [r4, #4]
+ 414 00de F3B1     		cbz	r3, .L69
+ 415 00e0 A068     		ldr	r0, [r4, #8]
+ 416 00e2 FFF7FEFF 		bl	HAL_FLASH_EndOfOperationCallback
+ 417 00e6 A068     		ldr	r0, [r4, #8]
+ 418 00e8 00F50060 		add	r0, r0, #2048
+ 419 00ec A060     		str	r0, [r4, #8]
+ 420 00ee 2B69     		ldr	r3, [r5, #16]
+ 421 00f0 23F00203 		bic	r3, r3, #2
+ 422 00f4 2B61     		str	r3, [r5, #16]
+ 423 00f6 FFF7FEFF 		bl	FLASH_PageErase
+ 424 00fa 94E7     		b	.L66
+ 425              	.L71:
+ 426 00fc 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 427 00fe 032B     		cmp	r3, #3
+ 428 0100 1ED0     		beq	.L90
+ 429 0102 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 430 0104 A068     		ldr	r0, [r4, #8]
+ 431 0106 042B     		cmp	r3, #4
+ 432 0108 0CBF     		ite	eq
+ 433 010a 0238     		subeq	r0, r0, #2
+ 434 010c 0638     		subne	r0, r0, #6
+ 435 010e FFF7FEFF 		bl	HAL_FLASH_EndOfOperationCallback
+ 436              	.L73:
+ 437 0112 4FF0FF32 		mov	r2, #-1
+ 438 0116 0023     		movs	r3, #0
+ 439 0118 A260     		str	r2, [r4, #8]
+ 440 011a 2370     		strb	r3, [r4]
+ 441 011c 83E7     		b	.L66
+ 442              	.L69:
+ 443 011e 4FF0FF30 		mov	r0, #-1
+ 444 0122 A060     		str	r0, [r4, #8]
+ 445 0124 2370     		strb	r3, [r4]
+ 446 0126 FFF7FEFF 		bl	HAL_FLASH_EndOfOperationCallback
+ 447 012a 7CE7     		b	.L66
+ 448              	.L89:
+ 449 012c 2B69     		ldr	r3, [r5, #16]
+ 450 012e 23F00403 		bic	r3, r3, #4
+ 451 0132 2B61     		str	r3, [r5, #16]
+ 452 0134 0020     		movs	r0, #0
+ 453 0136 FFF7FEFF 		bl	HAL_FLASH_EndOfOperationCallback
+ 454 013a 0023     		movs	r3, #0
+ 455 013c 2370     		strb	r3, [r4]
+ 456 013e 72E7     		b	.L66
+ 457              	.L90:
+ 458 0140 A068     		ldr	r0, [r4, #8]
+ 459 0142 FFF7FEFF 		bl	HAL_FLASH_EndOfOperationCallback
+ 460 0146 E4E7     		b	.L73
+ 461              	.L92:
+ 462              		.align	2
+ 463              	.L91:
+ 464 0148 00200240 		.word	1073881088
+ 465 014c 00000000 		.word	pFlash
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 9
+
+
+ 467              		.section	.text.HAL_FLASH_Unlock,"ax",%progbits
+ 468              		.align	1
+ 469              		.p2align 2,,3
+ 470              		.global	HAL_FLASH_Unlock
+ 471              		.syntax unified
+ 472              		.thumb
+ 473              		.thumb_func
+ 474              		.fpu fpv4-sp-d16
+ 476              	HAL_FLASH_Unlock:
+ 477              		@ args = 0, pretend = 0, frame = 0
+ 478              		@ frame_needed = 0, uses_anonymous_args = 0
+ 479              		@ link register save eliminated.
+ 480 0000 064B     		ldr	r3, .L96
+ 481 0002 1869     		ldr	r0, [r3, #16]
+ 482 0004 10F08000 		ands	r0, r0, #128
+ 483 0008 06D0     		beq	.L94
+ 484 000a 0549     		ldr	r1, .L96+4
+ 485 000c 054A     		ldr	r2, .L96+8
+ 486 000e 5960     		str	r1, [r3, #4]
+ 487 0010 5A60     		str	r2, [r3, #4]
+ 488 0012 1869     		ldr	r0, [r3, #16]
+ 489 0014 C0F3C010 		ubfx	r0, r0, #7, #1
+ 490              	.L94:
+ 491 0018 7047     		bx	lr
+ 492              	.L97:
+ 493 001a 00BF     		.align	2
+ 494              	.L96:
+ 495 001c 00200240 		.word	1073881088
+ 496 0020 23016745 		.word	1164378403
+ 497 0024 AB89EFCD 		.word	-839939669
+ 499              		.section	.text.HAL_FLASH_Lock,"ax",%progbits
+ 500              		.align	1
+ 501              		.p2align 2,,3
+ 502              		.global	HAL_FLASH_Lock
+ 503              		.syntax unified
+ 504              		.thumb
+ 505              		.thumb_func
+ 506              		.fpu fpv4-sp-d16
+ 508              	HAL_FLASH_Lock:
+ 509              		@ args = 0, pretend = 0, frame = 0
+ 510              		@ frame_needed = 0, uses_anonymous_args = 0
+ 511              		@ link register save eliminated.
+ 512 0000 034A     		ldr	r2, .L99
+ 513 0002 1369     		ldr	r3, [r2, #16]
+ 514 0004 43F08003 		orr	r3, r3, #128
+ 515 0008 1361     		str	r3, [r2, #16]
+ 516 000a 0020     		movs	r0, #0
+ 517 000c 7047     		bx	lr
+ 518              	.L100:
+ 519 000e 00BF     		.align	2
+ 520              	.L99:
+ 521 0010 00200240 		.word	1073881088
+ 523              		.section	.text.HAL_FLASH_OB_Unlock,"ax",%progbits
+ 524              		.align	1
+ 525              		.p2align 2,,3
+ 526              		.global	HAL_FLASH_OB_Unlock
+ 527              		.syntax unified
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 10
+
+
+ 528              		.thumb
+ 529              		.thumb_func
+ 530              		.fpu fpv4-sp-d16
+ 532              	HAL_FLASH_OB_Unlock:
+ 533              		@ args = 0, pretend = 0, frame = 0
+ 534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 535              		@ link register save eliminated.
+ 536 0000 054B     		ldr	r3, .L104
+ 537 0002 1869     		ldr	r0, [r3, #16]
+ 538 0004 10F40070 		ands	r0, r0, #512
+ 539 0008 04D1     		bne	.L103
+ 540 000a 0449     		ldr	r1, .L104+4
+ 541 000c 044A     		ldr	r2, .L104+8
+ 542 000e 9960     		str	r1, [r3, #8]
+ 543 0010 9A60     		str	r2, [r3, #8]
+ 544 0012 7047     		bx	lr
+ 545              	.L103:
+ 546 0014 0120     		movs	r0, #1
+ 547 0016 7047     		bx	lr
+ 548              	.L105:
+ 549              		.align	2
+ 550              	.L104:
+ 551 0018 00200240 		.word	1073881088
+ 552 001c 23016745 		.word	1164378403
+ 553 0020 AB89EFCD 		.word	-839939669
+ 555              		.section	.text.HAL_FLASH_OB_Lock,"ax",%progbits
+ 556              		.align	1
+ 557              		.p2align 2,,3
+ 558              		.global	HAL_FLASH_OB_Lock
+ 559              		.syntax unified
+ 560              		.thumb
+ 561              		.thumb_func
+ 562              		.fpu fpv4-sp-d16
+ 564              	HAL_FLASH_OB_Lock:
+ 565              		@ args = 0, pretend = 0, frame = 0
+ 566              		@ frame_needed = 0, uses_anonymous_args = 0
+ 567              		@ link register save eliminated.
+ 568 0000 034A     		ldr	r2, .L107
+ 569 0002 1369     		ldr	r3, [r2, #16]
+ 570 0004 23F40073 		bic	r3, r3, #512
+ 571 0008 1361     		str	r3, [r2, #16]
+ 572 000a 0020     		movs	r0, #0
+ 573 000c 7047     		bx	lr
+ 574              	.L108:
+ 575 000e 00BF     		.align	2
+ 576              	.L107:
+ 577 0010 00200240 		.word	1073881088
+ 579              		.section	.text.HAL_FLASH_OB_Launch,"ax",%progbits
+ 580              		.align	1
+ 581              		.p2align 2,,3
+ 582              		.global	HAL_FLASH_OB_Launch
+ 583              		.syntax unified
+ 584              		.thumb
+ 585              		.thumb_func
+ 586              		.fpu fpv4-sp-d16
+ 588              	HAL_FLASH_OB_Launch:
+ 589              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 11
+
+
+ 590              		@ frame_needed = 0, uses_anonymous_args = 0
+ 591 0000 70B5     		push	{r4, r5, r6, lr}
+ 592 0002 1F4C     		ldr	r4, .L128
+ 593 0004 2369     		ldr	r3, [r4, #16]
+ 594 0006 43F40053 		orr	r3, r3, #8192
+ 595 000a 2361     		str	r3, [r4, #16]
+ 596 000c FFF7FEFF 		bl	HAL_GetTick
+ 597 0010 4CF25036 		movw	r6, #50000
+ 598 0014 0546     		mov	r5, r0
+ 599 0016 04E0     		b	.L110
+ 600              	.L112:
+ 601 0018 FFF7FEFF 		bl	HAL_GetTick
+ 602 001c 401B     		subs	r0, r0, r5
+ 603 001e B042     		cmp	r0, r6
+ 604 0020 24D8     		bhi	.L117
+ 605              	.L110:
+ 606 0022 E368     		ldr	r3, [r4, #12]
+ 607 0024 DB07     		lsls	r3, r3, #31
+ 608 0026 F7D4     		bmi	.L112
+ 609 0028 E368     		ldr	r3, [r4, #12]
+ 610 002a 9806     		lsls	r0, r3, #26
+ 611 002c 44BF     		itt	mi
+ 612 002e 2023     		movmi	r3, #32
+ 613 0030 E360     		strmi	r3, [r4, #12]
+ 614 0032 134B     		ldr	r3, .L128
+ 615 0034 DA68     		ldr	r2, [r3, #12]
+ 616 0036 D106     		lsls	r1, r2, #27
+ 617 0038 04D4     		bmi	.L114
+ 618 003a D868     		ldr	r0, [r3, #12]
+ 619 003c 10F00400 		ands	r0, r0, #4
+ 620 0040 00D1     		bne	.L114
+ 621 0042 70BD     		pop	{r4, r5, r6, pc}
+ 622              	.L114:
+ 623 0044 0E4B     		ldr	r3, .L128
+ 624 0046 DB68     		ldr	r3, [r3, #12]
+ 625 0048 13F01003 		ands	r3, r3, #16
+ 626 004c 10D1     		bne	.L127
+ 627 004e 0420     		movs	r0, #4
+ 628              	.L115:
+ 629 0050 0B4A     		ldr	r2, .L128
+ 630 0052 D268     		ldr	r2, [r2, #12]
+ 631 0054 5207     		lsls	r2, r2, #29
+ 632 0056 05D5     		bpl	.L116
+ 633 0058 0A49     		ldr	r1, .L128+4
+ 634 005a CA69     		ldr	r2, [r1, #28]
+ 635 005c 42F00102 		orr	r2, r2, #1
+ 636 0060 0346     		mov	r3, r0
+ 637 0062 CA61     		str	r2, [r1, #28]
+ 638              	.L116:
+ 639 0064 064A     		ldr	r2, .L128
+ 640 0066 0120     		movs	r0, #1
+ 641 0068 D360     		str	r3, [r2, #12]
+ 642 006a 70BD     		pop	{r4, r5, r6, pc}
+ 643              	.L117:
+ 644 006c 0320     		movs	r0, #3
+ 645 006e 70BD     		pop	{r4, r5, r6, pc}
+ 646              	.L127:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 12
+
+
+ 647 0070 044A     		ldr	r2, .L128+4
+ 648 0072 D369     		ldr	r3, [r2, #28]
+ 649 0074 43F00203 		orr	r3, r3, #2
+ 650 0078 D361     		str	r3, [r2, #28]
+ 651 007a 1420     		movs	r0, #20
+ 652 007c 1023     		movs	r3, #16
+ 653 007e E7E7     		b	.L115
+ 654              	.L129:
+ 655              		.align	2
+ 656              	.L128:
+ 657 0080 00200240 		.word	1073881088
+ 658 0084 00000000 		.word	pFlash
+ 660              		.section	.text.HAL_FLASH_GetError,"ax",%progbits
+ 661              		.align	1
+ 662              		.p2align 2,,3
+ 663              		.global	HAL_FLASH_GetError
+ 664              		.syntax unified
+ 665              		.thumb
+ 666              		.thumb_func
+ 667              		.fpu fpv4-sp-d16
+ 669              	HAL_FLASH_GetError:
+ 670              		@ args = 0, pretend = 0, frame = 0
+ 671              		@ frame_needed = 0, uses_anonymous_args = 0
+ 672              		@ link register save eliminated.
+ 673 0000 014B     		ldr	r3, .L131
+ 674 0002 D869     		ldr	r0, [r3, #28]
+ 675 0004 7047     		bx	lr
+ 676              	.L132:
+ 677 0006 00BF     		.align	2
+ 678              	.L131:
+ 679 0008 00000000 		.word	pFlash
+ 681              		.section	.text.FLASH_WaitForLastOperation,"ax",%progbits
+ 682              		.align	1
+ 683              		.p2align 2,,3
+ 684              		.global	FLASH_WaitForLastOperation
+ 685              		.syntax unified
+ 686              		.thumb
+ 687              		.thumb_func
+ 688              		.fpu fpv4-sp-d16
+ 690              	FLASH_WaitForLastOperation:
+ 691              		@ args = 0, pretend = 0, frame = 0
+ 692              		@ frame_needed = 0, uses_anonymous_args = 0
+ 693 0000 70B5     		push	{r4, r5, r6, lr}
+ 694 0002 0446     		mov	r4, r0
+ 695 0004 FFF7FEFF 		bl	HAL_GetTick
+ 696 0008 1E4E     		ldr	r6, .L156
+ 697 000a 0546     		mov	r5, r0
+ 698              	.L134:
+ 699 000c 601C     		adds	r0, r4, #1
+ 700 000e 12D1     		bne	.L138
+ 701 0010 1C4A     		ldr	r2, .L156
+ 702              	.L139:
+ 703 0012 D368     		ldr	r3, [r2, #12]
+ 704 0014 D907     		lsls	r1, r3, #31
+ 705 0016 FCD4     		bmi	.L139
+ 706              	.L140:
+ 707 0018 1A4B     		ldr	r3, .L156
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 13
+
+
+ 708 001a DA68     		ldr	r2, [r3, #12]
+ 709 001c 9006     		lsls	r0, r2, #26
+ 710 001e 44BF     		itt	mi
+ 711 0020 2022     		movmi	r2, #32
+ 712 0022 DA60     		strmi	r2, [r3, #12]
+ 713 0024 174B     		ldr	r3, .L156
+ 714 0026 DA68     		ldr	r2, [r3, #12]
+ 715 0028 D106     		lsls	r1, r2, #27
+ 716 002a 0FD4     		bmi	.L143
+ 717 002c D868     		ldr	r0, [r3, #12]
+ 718 002e 10F00400 		ands	r0, r0, #4
+ 719 0032 0BD1     		bne	.L143
+ 720 0034 70BD     		pop	{r4, r5, r6, pc}
+ 721              	.L138:
+ 722 0036 F368     		ldr	r3, [r6, #12]
+ 723 0038 DB07     		lsls	r3, r3, #31
+ 724 003a EDD5     		bpl	.L140
+ 725 003c 24B1     		cbz	r4, .L137
+ 726 003e FFF7FEFF 		bl	HAL_GetTick
+ 727 0042 401B     		subs	r0, r0, r5
+ 728 0044 A042     		cmp	r0, r4
+ 729 0046 E1D9     		bls	.L134
+ 730              	.L137:
+ 731 0048 0320     		movs	r0, #3
+ 732 004a 70BD     		pop	{r4, r5, r6, pc}
+ 733              	.L143:
+ 734 004c 0D4B     		ldr	r3, .L156
+ 735 004e DB68     		ldr	r3, [r3, #12]
+ 736 0050 13F01003 		ands	r3, r3, #16
+ 737 0054 14D0     		beq	.L147
+ 738 0056 0C4A     		ldr	r2, .L156+4
+ 739 0058 D369     		ldr	r3, [r2, #28]
+ 740 005a 43F00203 		orr	r3, r3, #2
+ 741 005e D361     		str	r3, [r2, #28]
+ 742 0060 1420     		movs	r0, #20
+ 743 0062 1023     		movs	r3, #16
+ 744              	.L144:
+ 745 0064 074A     		ldr	r2, .L156
+ 746 0066 D268     		ldr	r2, [r2, #12]
+ 747 0068 5207     		lsls	r2, r2, #29
+ 748 006a 05D5     		bpl	.L145
+ 749 006c 0649     		ldr	r1, .L156+4
+ 750 006e CA69     		ldr	r2, [r1, #28]
+ 751 0070 42F00102 		orr	r2, r2, #1
+ 752 0074 0346     		mov	r3, r0
+ 753 0076 CA61     		str	r2, [r1, #28]
+ 754              	.L145:
+ 755 0078 024A     		ldr	r2, .L156
+ 756 007a 0120     		movs	r0, #1
+ 757 007c D360     		str	r3, [r2, #12]
+ 758 007e 70BD     		pop	{r4, r5, r6, pc}
+ 759              	.L147:
+ 760 0080 0420     		movs	r0, #4
+ 761 0082 EFE7     		b	.L144
+ 762              	.L157:
+ 763              		.align	2
+ 764              	.L156:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 14
+
+
+ 765 0084 00200240 		.word	1073881088
+ 766 0088 00000000 		.word	pFlash
+ 768              		.comm	pFlash,32,8
+ 769              		.ident	"GCC: (xPack GNU Arm Embedded GCC, 64-bit) 9.2.1 20191025 (release) [ARM/arm-9-branch revis
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_flash.c
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:16     .text.HAL_FLASH_Program:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:25     .text.HAL_FLASH_Program:0000000000000000 HAL_FLASH_Program
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:199    .text.HAL_FLASH_Program:000000000000018c $d
+                            *COM*:0000000000000020 pFlash
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:203    .text.HAL_FLASH_Program_IT:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:211    .text.HAL_FLASH_Program_IT:0000000000000000 HAL_FLASH_Program_IT
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:266    .text.HAL_FLASH_Program_IT:0000000000000060 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:270    .text.HAL_FLASH_EndOfOperationCallback:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:278    .text.HAL_FLASH_EndOfOperationCallback:0000000000000000 HAL_FLASH_EndOfOperationCallback
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:285    .text.HAL_FLASH_OperationErrorCallback:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:293    .text.HAL_FLASH_OperationErrorCallback:0000000000000000 HAL_FLASH_OperationErrorCallback
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:300    .text.HAL_FLASH_IRQHandler:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:308    .text.HAL_FLASH_IRQHandler:0000000000000000 HAL_FLASH_IRQHandler
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:464    .text.HAL_FLASH_IRQHandler:0000000000000148 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:468    .text.HAL_FLASH_Unlock:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:476    .text.HAL_FLASH_Unlock:0000000000000000 HAL_FLASH_Unlock
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:495    .text.HAL_FLASH_Unlock:000000000000001c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:500    .text.HAL_FLASH_Lock:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:508    .text.HAL_FLASH_Lock:0000000000000000 HAL_FLASH_Lock
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:521    .text.HAL_FLASH_Lock:0000000000000010 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:524    .text.HAL_FLASH_OB_Unlock:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:532    .text.HAL_FLASH_OB_Unlock:0000000000000000 HAL_FLASH_OB_Unlock
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:551    .text.HAL_FLASH_OB_Unlock:0000000000000018 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:556    .text.HAL_FLASH_OB_Lock:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:564    .text.HAL_FLASH_OB_Lock:0000000000000000 HAL_FLASH_OB_Lock
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:577    .text.HAL_FLASH_OB_Lock:0000000000000010 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:580    .text.HAL_FLASH_OB_Launch:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:588    .text.HAL_FLASH_OB_Launch:0000000000000000 HAL_FLASH_OB_Launch
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:657    .text.HAL_FLASH_OB_Launch:0000000000000080 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:661    .text.HAL_FLASH_GetError:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:669    .text.HAL_FLASH_GetError:0000000000000000 HAL_FLASH_GetError
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:679    .text.HAL_FLASH_GetError:0000000000000008 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:682    .text.FLASH_WaitForLastOperation:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:690    .text.FLASH_WaitForLastOperation:0000000000000000 FLASH_WaitForLastOperation
+D:\Users\Ma-Game\AppData\Local\Temp\ccZhNRFs.s:765    .text.FLASH_WaitForLastOperation:0000000000000084 $d
+
+UNDEFINED SYMBOLS
+HAL_GetTick
+FLASH_PageErase

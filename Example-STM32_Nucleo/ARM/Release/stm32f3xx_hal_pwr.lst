@@ -1,0 +1,400 @@
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_pwr.c"
+  14              		.text
+  15              		.section	.text.HAL_PWR_DeInit,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	HAL_PWR_DeInit
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	HAL_PWR_DeInit:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28              		@ link register save eliminated.
+  29 0000 044B     		ldr	r3, .L3
+  30 0002 1A69     		ldr	r2, [r3, #16]
+  31 0004 42F08052 		orr	r2, r2, #268435456
+  32 0008 1A61     		str	r2, [r3, #16]
+  33 000a 1A69     		ldr	r2, [r3, #16]
+  34 000c 22F08052 		bic	r2, r2, #268435456
+  35 0010 1A61     		str	r2, [r3, #16]
+  36 0012 7047     		bx	lr
+  37              	.L4:
+  38              		.align	2
+  39              	.L3:
+  40 0014 00100240 		.word	1073876992
+  42              		.section	.text.HAL_PWR_EnableBkUpAccess,"ax",%progbits
+  43              		.align	1
+  44              		.p2align 2,,3
+  45              		.global	HAL_PWR_EnableBkUpAccess
+  46              		.syntax unified
+  47              		.thumb
+  48              		.thumb_func
+  49              		.fpu fpv4-sp-d16
+  51              	HAL_PWR_EnableBkUpAccess:
+  52              		@ args = 0, pretend = 0, frame = 0
+  53              		@ frame_needed = 0, uses_anonymous_args = 0
+  54              		@ link register save eliminated.
+  55 0000 024A     		ldr	r2, .L6
+  56 0002 1368     		ldr	r3, [r2]
+  57 0004 43F48073 		orr	r3, r3, #256
+  58 0008 1360     		str	r3, [r2]
+  59 000a 7047     		bx	lr
+  60              	.L7:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s 			page 2
+
+
+  61              		.align	2
+  62              	.L6:
+  63 000c 00700040 		.word	1073770496
+  65              		.section	.text.HAL_PWR_DisableBkUpAccess,"ax",%progbits
+  66              		.align	1
+  67              		.p2align 2,,3
+  68              		.global	HAL_PWR_DisableBkUpAccess
+  69              		.syntax unified
+  70              		.thumb
+  71              		.thumb_func
+  72              		.fpu fpv4-sp-d16
+  74              	HAL_PWR_DisableBkUpAccess:
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77              		@ link register save eliminated.
+  78 0000 024A     		ldr	r2, .L9
+  79 0002 1368     		ldr	r3, [r2]
+  80 0004 23F48073 		bic	r3, r3, #256
+  81 0008 1360     		str	r3, [r2]
+  82 000a 7047     		bx	lr
+  83              	.L10:
+  84              		.align	2
+  85              	.L9:
+  86 000c 00700040 		.word	1073770496
+  88              		.section	.text.HAL_PWR_EnableWakeUpPin,"ax",%progbits
+  89              		.align	1
+  90              		.p2align 2,,3
+  91              		.global	HAL_PWR_EnableWakeUpPin
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+  95              		.fpu fpv4-sp-d16
+  97              	HAL_PWR_EnableWakeUpPin:
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100              		@ link register save eliminated.
+ 101 0000 024A     		ldr	r2, .L12
+ 102 0002 5368     		ldr	r3, [r2, #4]
+ 103 0004 1843     		orrs	r0, r0, r3
+ 104 0006 5060     		str	r0, [r2, #4]
+ 105 0008 7047     		bx	lr
+ 106              	.L13:
+ 107 000a 00BF     		.align	2
+ 108              	.L12:
+ 109 000c 00700040 		.word	1073770496
+ 111              		.section	.text.HAL_PWR_DisableWakeUpPin,"ax",%progbits
+ 112              		.align	1
+ 113              		.p2align 2,,3
+ 114              		.global	HAL_PWR_DisableWakeUpPin
+ 115              		.syntax unified
+ 116              		.thumb
+ 117              		.thumb_func
+ 118              		.fpu fpv4-sp-d16
+ 120              	HAL_PWR_DisableWakeUpPin:
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123              		@ link register save eliminated.
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s 			page 3
+
+
+ 124 0000 024A     		ldr	r2, .L15
+ 125 0002 5368     		ldr	r3, [r2, #4]
+ 126 0004 23EA0000 		bic	r0, r3, r0
+ 127 0008 5060     		str	r0, [r2, #4]
+ 128 000a 7047     		bx	lr
+ 129              	.L16:
+ 130              		.align	2
+ 131              	.L15:
+ 132 000c 00700040 		.word	1073770496
+ 134              		.section	.text.HAL_PWR_EnterSLEEPMode,"ax",%progbits
+ 135              		.align	1
+ 136              		.p2align 2,,3
+ 137              		.global	HAL_PWR_EnterSLEEPMode
+ 138              		.syntax unified
+ 139              		.thumb
+ 140              		.thumb_func
+ 141              		.fpu fpv4-sp-d16
+ 143              	HAL_PWR_EnterSLEEPMode:
+ 144              		@ args = 0, pretend = 0, frame = 0
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146              		@ link register save eliminated.
+ 147 0000 064A     		ldr	r2, .L21
+ 148 0002 1369     		ldr	r3, [r2, #16]
+ 149 0004 0129     		cmp	r1, #1
+ 150 0006 23F00403 		bic	r3, r3, #4
+ 151 000a 1361     		str	r3, [r2, #16]
+ 152 000c 03D0     		beq	.L20
+ 153              		.syntax unified
+ 154              	@ 300 "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c" 1
+ 155 000e 40BF     		sev
+ 156              	@ 0 "" 2
+ 157              	@ 301 "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c" 1
+ 158 0010 20BF     		wfe
+ 159              	@ 0 "" 2
+ 160              	@ 302 "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c" 1
+ 161 0012 20BF     		wfe
+ 162              	@ 0 "" 2
+ 163              		.thumb
+ 164              		.syntax unified
+ 165 0014 7047     		bx	lr
+ 166              	.L20:
+ 167              		.syntax unified
+ 168              	@ 295 "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c" 1
+ 169 0016 30BF     		wfi
+ 170              	@ 0 "" 2
+ 171              		.thumb
+ 172              		.syntax unified
+ 173 0018 7047     		bx	lr
+ 174              	.L22:
+ 175 001a 00BF     		.align	2
+ 176              	.L21:
+ 177 001c 00ED00E0 		.word	-536810240
+ 179              		.section	.text.HAL_PWR_EnterSTOPMode,"ax",%progbits
+ 180              		.align	1
+ 181              		.p2align 2,,3
+ 182              		.global	HAL_PWR_EnterSTOPMode
+ 183              		.syntax unified
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s 			page 4
+
+
+ 184              		.thumb
+ 185              		.thumb_func
+ 186              		.fpu fpv4-sp-d16
+ 188              	HAL_PWR_EnterSTOPMode:
+ 189              		@ args = 0, pretend = 0, frame = 0
+ 190              		@ frame_needed = 0, uses_anonymous_args = 0
+ 191              		@ link register save eliminated.
+ 192 0000 10B4     		push	{r4}
+ 193 0002 0D4C     		ldr	r4, .L28
+ 194 0004 0D4A     		ldr	r2, .L28+4
+ 195 0006 2368     		ldr	r3, [r4]
+ 196 0008 23F00303 		bic	r3, r3, #3
+ 197 000c 0343     		orrs	r3, r3, r0
+ 198 000e 2360     		str	r3, [r4]
+ 199 0010 1369     		ldr	r3, [r2, #16]
+ 200 0012 0129     		cmp	r1, #1
+ 201 0014 43F00403 		orr	r3, r3, #4
+ 202 0018 1361     		str	r3, [r2, #16]
+ 203 001a 0AD0     		beq	.L27
+ 204              		.syntax unified
+ 205              	@ 357 "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c" 1
+ 206 001c 40BF     		sev
+ 207              	@ 0 "" 2
+ 208              	@ 358 "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c" 1
+ 209 001e 20BF     		wfe
+ 210              	@ 0 "" 2
+ 211              	@ 359 "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c" 1
+ 212 0020 20BF     		wfe
+ 213              	@ 0 "" 2
+ 214              		.thumb
+ 215              		.syntax unified
+ 216              	.L25:
+ 217 0022 064A     		ldr	r2, .L28+4
+ 218 0024 5DF8044B 		ldr	r4, [sp], #4
+ 219 0028 1369     		ldr	r3, [r2, #16]
+ 220 002a 23F00403 		bic	r3, r3, #4
+ 221 002e 1361     		str	r3, [r2, #16]
+ 222 0030 7047     		bx	lr
+ 223              	.L27:
+ 224              		.syntax unified
+ 225              	@ 352 "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c" 1
+ 226 0032 30BF     		wfi
+ 227              	@ 0 "" 2
+ 228              		.thumb
+ 229              		.syntax unified
+ 230 0034 F5E7     		b	.L25
+ 231              	.L29:
+ 232 0036 00BF     		.align	2
+ 233              	.L28:
+ 234 0038 00700040 		.word	1073770496
+ 235 003c 00ED00E0 		.word	-536810240
+ 237              		.section	.text.HAL_PWR_EnterSTANDBYMode,"ax",%progbits
+ 238              		.align	1
+ 239              		.p2align 2,,3
+ 240              		.global	HAL_PWR_EnterSTANDBYMode
+ 241              		.syntax unified
+ 242              		.thumb
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s 			page 5
+
+
+ 243              		.thumb_func
+ 244              		.fpu fpv4-sp-d16
+ 246              	HAL_PWR_EnterSTANDBYMode:
+ 247              		@ args = 0, pretend = 0, frame = 0
+ 248              		@ frame_needed = 0, uses_anonymous_args = 0
+ 249              		@ link register save eliminated.
+ 250 0000 0549     		ldr	r1, .L31
+ 251 0002 064A     		ldr	r2, .L31+4
+ 252 0004 0B68     		ldr	r3, [r1]
+ 253 0006 43F00203 		orr	r3, r3, #2
+ 254 000a 0B60     		str	r3, [r1]
+ 255 000c 1369     		ldr	r3, [r2, #16]
+ 256 000e 43F00403 		orr	r3, r3, #4
+ 257 0012 1361     		str	r3, [r2, #16]
+ 258              		.syntax unified
+ 259              	@ 388 "Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_hal_pwr.c" 1
+ 260 0014 30BF     		wfi
+ 261              	@ 0 "" 2
+ 262              		.thumb
+ 263              		.syntax unified
+ 264 0016 7047     		bx	lr
+ 265              	.L32:
+ 266              		.align	2
+ 267              	.L31:
+ 268 0018 00700040 		.word	1073770496
+ 269 001c 00ED00E0 		.word	-536810240
+ 271              		.section	.text.HAL_PWR_EnableSleepOnExit,"ax",%progbits
+ 272              		.align	1
+ 273              		.p2align 2,,3
+ 274              		.global	HAL_PWR_EnableSleepOnExit
+ 275              		.syntax unified
+ 276              		.thumb
+ 277              		.thumb_func
+ 278              		.fpu fpv4-sp-d16
+ 280              	HAL_PWR_EnableSleepOnExit:
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283              		@ link register save eliminated.
+ 284 0000 024A     		ldr	r2, .L34
+ 285 0002 1369     		ldr	r3, [r2, #16]
+ 286 0004 43F00203 		orr	r3, r3, #2
+ 287 0008 1361     		str	r3, [r2, #16]
+ 288 000a 7047     		bx	lr
+ 289              	.L35:
+ 290              		.align	2
+ 291              	.L34:
+ 292 000c 00ED00E0 		.word	-536810240
+ 294              		.section	.text.HAL_PWR_DisableSleepOnExit,"ax",%progbits
+ 295              		.align	1
+ 296              		.p2align 2,,3
+ 297              		.global	HAL_PWR_DisableSleepOnExit
+ 298              		.syntax unified
+ 299              		.thumb
+ 300              		.thumb_func
+ 301              		.fpu fpv4-sp-d16
+ 303              	HAL_PWR_DisableSleepOnExit:
+ 304              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s 			page 6
+
+
+ 305              		@ frame_needed = 0, uses_anonymous_args = 0
+ 306              		@ link register save eliminated.
+ 307 0000 024A     		ldr	r2, .L37
+ 308 0002 1369     		ldr	r3, [r2, #16]
+ 309 0004 23F00203 		bic	r3, r3, #2
+ 310 0008 1361     		str	r3, [r2, #16]
+ 311 000a 7047     		bx	lr
+ 312              	.L38:
+ 313              		.align	2
+ 314              	.L37:
+ 315 000c 00ED00E0 		.word	-536810240
+ 317              		.section	.text.HAL_PWR_EnableSEVOnPend,"ax",%progbits
+ 318              		.align	1
+ 319              		.p2align 2,,3
+ 320              		.global	HAL_PWR_EnableSEVOnPend
+ 321              		.syntax unified
+ 322              		.thumb
+ 323              		.thumb_func
+ 324              		.fpu fpv4-sp-d16
+ 326              	HAL_PWR_EnableSEVOnPend:
+ 327              		@ args = 0, pretend = 0, frame = 0
+ 328              		@ frame_needed = 0, uses_anonymous_args = 0
+ 329              		@ link register save eliminated.
+ 330 0000 024A     		ldr	r2, .L40
+ 331 0002 1369     		ldr	r3, [r2, #16]
+ 332 0004 43F01003 		orr	r3, r3, #16
+ 333 0008 1361     		str	r3, [r2, #16]
+ 334 000a 7047     		bx	lr
+ 335              	.L41:
+ 336              		.align	2
+ 337              	.L40:
+ 338 000c 00ED00E0 		.word	-536810240
+ 340              		.section	.text.HAL_PWR_DisableSEVOnPend,"ax",%progbits
+ 341              		.align	1
+ 342              		.p2align 2,,3
+ 343              		.global	HAL_PWR_DisableSEVOnPend
+ 344              		.syntax unified
+ 345              		.thumb
+ 346              		.thumb_func
+ 347              		.fpu fpv4-sp-d16
+ 349              	HAL_PWR_DisableSEVOnPend:
+ 350              		@ args = 0, pretend = 0, frame = 0
+ 351              		@ frame_needed = 0, uses_anonymous_args = 0
+ 352              		@ link register save eliminated.
+ 353 0000 024A     		ldr	r2, .L43
+ 354 0002 1369     		ldr	r3, [r2, #16]
+ 355 0004 23F01003 		bic	r3, r3, #16
+ 356 0008 1361     		str	r3, [r2, #16]
+ 357 000a 7047     		bx	lr
+ 358              	.L44:
+ 359              		.align	2
+ 360              	.L43:
+ 361 000c 00ED00E0 		.word	-536810240
+ 363              		.ident	"GCC: (xPack GNU Arm Embedded GCC, 64-bit) 9.2.1 20191025 (release) [ARM/arm-9-branch revis
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_pwr.c
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:16     .text.HAL_PWR_DeInit:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:25     .text.HAL_PWR_DeInit:0000000000000000 HAL_PWR_DeInit
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:40     .text.HAL_PWR_DeInit:0000000000000014 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:43     .text.HAL_PWR_EnableBkUpAccess:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:51     .text.HAL_PWR_EnableBkUpAccess:0000000000000000 HAL_PWR_EnableBkUpAccess
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:63     .text.HAL_PWR_EnableBkUpAccess:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:66     .text.HAL_PWR_DisableBkUpAccess:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:74     .text.HAL_PWR_DisableBkUpAccess:0000000000000000 HAL_PWR_DisableBkUpAccess
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:86     .text.HAL_PWR_DisableBkUpAccess:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:89     .text.HAL_PWR_EnableWakeUpPin:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:97     .text.HAL_PWR_EnableWakeUpPin:0000000000000000 HAL_PWR_EnableWakeUpPin
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:109    .text.HAL_PWR_EnableWakeUpPin:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:112    .text.HAL_PWR_DisableWakeUpPin:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:120    .text.HAL_PWR_DisableWakeUpPin:0000000000000000 HAL_PWR_DisableWakeUpPin
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:132    .text.HAL_PWR_DisableWakeUpPin:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:135    .text.HAL_PWR_EnterSLEEPMode:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:143    .text.HAL_PWR_EnterSLEEPMode:0000000000000000 HAL_PWR_EnterSLEEPMode
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:177    .text.HAL_PWR_EnterSLEEPMode:000000000000001c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:180    .text.HAL_PWR_EnterSTOPMode:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:188    .text.HAL_PWR_EnterSTOPMode:0000000000000000 HAL_PWR_EnterSTOPMode
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:234    .text.HAL_PWR_EnterSTOPMode:0000000000000038 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:238    .text.HAL_PWR_EnterSTANDBYMode:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:246    .text.HAL_PWR_EnterSTANDBYMode:0000000000000000 HAL_PWR_EnterSTANDBYMode
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:268    .text.HAL_PWR_EnterSTANDBYMode:0000000000000018 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:272    .text.HAL_PWR_EnableSleepOnExit:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:280    .text.HAL_PWR_EnableSleepOnExit:0000000000000000 HAL_PWR_EnableSleepOnExit
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:292    .text.HAL_PWR_EnableSleepOnExit:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:295    .text.HAL_PWR_DisableSleepOnExit:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:303    .text.HAL_PWR_DisableSleepOnExit:0000000000000000 HAL_PWR_DisableSleepOnExit
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:315    .text.HAL_PWR_DisableSleepOnExit:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:318    .text.HAL_PWR_EnableSEVOnPend:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:326    .text.HAL_PWR_EnableSEVOnPend:0000000000000000 HAL_PWR_EnableSEVOnPend
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:338    .text.HAL_PWR_EnableSEVOnPend:000000000000000c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:341    .text.HAL_PWR_DisableSEVOnPend:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:349    .text.HAL_PWR_DisableSEVOnPend:0000000000000000 HAL_PWR_DisableSEVOnPend
+D:\Users\Ma-Game\AppData\Local\Temp\ccg3UIBV.s:361    .text.HAL_PWR_DisableSEVOnPend:000000000000000c $d
+
+NO UNDEFINED SYMBOLS

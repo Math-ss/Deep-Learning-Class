@@ -1,0 +1,477 @@
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_exti.c"
+  14              		.text
+  15              		.section	.text.HAL_EXTI_SetConfigLine,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	HAL_EXTI_SetConfigLine
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	HAL_EXTI_SetConfigLine:
+  26              		@ args = 0, pretend = 0, frame = 0
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28              		@ link register save eliminated.
+  29 0000 0028     		cmp	r0, #0
+  30 0002 40D0     		beq	.L14
+  31 0004 0029     		cmp	r1, #0
+  32 0006 3ED0     		beq	.L14
+  33 0008 0A68     		ldr	r2, [r1]
+  34 000a F0B4     		push	{r4, r5, r6, r7}
+  35 000c 0260     		str	r2, [r0]
+  36 000e 02F01F04 		and	r4, r2, #31
+  37 0012 0120     		movs	r0, #1
+  38 0014 C2F30047 		ubfx	r7, r2, #16, #1
+  39 0018 9501     		lsls	r5, r2, #6
+  40 001a 00FA04F0 		lsl	r0, r0, r4
+  41 001e 4FEA4713 		lsl	r3, r7, #5
+  42 0022 18D5     		bpl	.L4
+  43 0024 234D     		ldr	r5, .L21
+  44 0026 5E59     		ldr	r6, [r3, r5]
+  45 0028 05EB4715 		add	r5, r5, r7, lsl #5
+  46 002c 8F68     		ldr	r7, [r1, #8]
+  47 002e FF07     		lsls	r7, r7, #31
+  48 0030 4CBF     		ite	mi
+  49 0032 0643     		orrmi	r6, r6, r0
+  50 0034 8643     		bicpl	r6, r6, r0
+  51 0036 2E60     		str	r6, [r5]
+  52 0038 1F4D     		ldr	r5, .L21+4
+  53 003a 8F68     		ldr	r7, [r1, #8]
+  54 003c 5E59     		ldr	r6, [r3, r5]
+  55 003e BF07     		lsls	r7, r7, #30
+  56 0040 1D44     		add	r5, r5, r3
+  57 0042 4CBF     		ite	mi
+  58 0044 0643     		orrmi	r6, r6, r0
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s 			page 2
+
+
+  59 0046 8643     		bicpl	r6, r6, r0
+  60 0048 2E60     		str	r6, [r5]
+  61 004a 0D68     		ldr	r5, [r1]
+  62 004c 05F0C065 		and	r5, r5, #100663296
+  63 0050 B5F1C06F 		cmp	r5, #100663296
+  64 0054 19D0     		beq	.L20
+  65              	.L4:
+  66 0056 03F18042 		add	r2, r3, #1073741824
+  67 005a 02F58232 		add	r2, r2, #66560
+  68 005e 4D68     		ldr	r5, [r1, #4]
+  69 0060 1468     		ldr	r4, [r2]
+  70 0062 ED07     		lsls	r5, r5, #31
+  71 0064 4CBF     		ite	mi
+  72 0066 0443     		orrmi	r4, r4, r0
+  73 0068 8443     		bicpl	r4, r4, r0
+  74 006a 1460     		str	r4, [r2]
+  75 006c 4C68     		ldr	r4, [r1, #4]
+  76 006e 1349     		ldr	r1, .L21+8
+  77 0070 5A58     		ldr	r2, [r3, r1]
+  78 0072 0B44     		add	r3, r3, r1
+  79 0074 A107     		lsls	r1, r4, #30
+  80 0076 4CBF     		ite	mi
+  81 0078 1043     		orrmi	r0, r0, r2
+  82 007a 22EA0000 		bicpl	r0, r2, r0
+  83 007e 1860     		str	r0, [r3]
+  84 0080 F0BC     		pop	{r4, r5, r6, r7}
+  85 0082 0020     		movs	r0, #0
+  86 0084 7047     		bx	lr
+  87              	.L14:
+  88 0086 0120     		movs	r0, #1
+  89 0088 7047     		bx	lr
+  90              	.L20:
+  91 008a 04F01C04 		and	r4, r4, #28
+  92 008e 04F18044 		add	r4, r4, #1073741824
+  93 0092 04F58034 		add	r4, r4, #65536
+  94 0096 02F00302 		and	r2, r2, #3
+  95 009a A668     		ldr	r6, [r4, #8]
+  96 009c CD68     		ldr	r5, [r1, #12]
+  97 009e 9200     		lsls	r2, r2, #2
+  98 00a0 0F27     		movs	r7, #15
+  99 00a2 9740     		lsls	r7, r7, r2
+ 100 00a4 26EA0706 		bic	r6, r6, r7
+ 101 00a8 05FA02F2 		lsl	r2, r5, r2
+ 102 00ac 3243     		orrs	r2, r2, r6
+ 103 00ae A260     		str	r2, [r4, #8]
+ 104 00b0 D1E7     		b	.L4
+ 105              	.L22:
+ 106 00b2 00BF     		.align	2
+ 107              	.L21:
+ 108 00b4 08040140 		.word	1073808392
+ 109 00b8 0C040140 		.word	1073808396
+ 110 00bc 04040140 		.word	1073808388
+ 112              		.section	.text.HAL_EXTI_GetConfigLine,"ax",%progbits
+ 113              		.align	1
+ 114              		.p2align 2,,3
+ 115              		.global	HAL_EXTI_GetConfigLine
+ 116              		.syntax unified
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s 			page 3
+
+
+ 117              		.thumb
+ 118              		.thumb_func
+ 119              		.fpu fpv4-sp-d16
+ 121              	HAL_EXTI_GetConfigLine:
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124              		@ link register save eliminated.
+ 125 0000 0028     		cmp	r0, #0
+ 126 0002 3BD0     		beq	.L30
+ 127 0004 0029     		cmp	r1, #0
+ 128 0006 39D0     		beq	.L30
+ 129 0008 0368     		ldr	r3, [r0]
+ 130 000a 0B60     		str	r3, [r1]
+ 131 000c 70B4     		push	{r4, r5, r6}
+ 132 000e C3F30045 		ubfx	r5, r3, #16, #1
+ 133 0012 6D01     		lsls	r5, r5, #5
+ 134 0014 05F18042 		add	r2, r5, #1073741824
+ 135 0018 02F58232 		add	r2, r2, #66560
+ 136 001c 03F01F06 		and	r6, r3, #31
+ 137 0020 1068     		ldr	r0, [r2]
+ 138 0022 1F4C     		ldr	r4, .L42
+ 139 0024 0122     		movs	r2, #1
+ 140 0026 B240     		lsls	r2, r2, r6
+ 141 0028 0242     		tst	r2, r0
+ 142 002a 14BF     		ite	ne
+ 143 002c 0120     		movne	r0, #1
+ 144 002e 0020     		moveq	r0, #0
+ 145 0030 4860     		str	r0, [r1, #4]
+ 146 0032 2C59     		ldr	r4, [r5, r4]
+ 147 0034 2242     		tst	r2, r4
+ 148 0036 1CBF     		itt	ne
+ 149 0038 40F00200 		orrne	r0, r0, #2
+ 150 003c 4860     		strne	r0, [r1, #4]
+ 151 003e 13F00070 		ands	r0, r3, #33554432
+ 152 0042 17D0     		beq	.L26
+ 153 0044 1748     		ldr	r0, .L42+4
+ 154 0046 184C     		ldr	r4, .L42+8
+ 155 0048 2858     		ldr	r0, [r5, r0]
+ 156 004a 0242     		tst	r2, r0
+ 157 004c 14BF     		ite	ne
+ 158 004e 0120     		movne	r0, #1
+ 159 0050 0020     		moveq	r0, #0
+ 160 0052 8860     		str	r0, [r1, #8]
+ 161 0054 2C59     		ldr	r4, [r5, r4]
+ 162 0056 2242     		tst	r2, r4
+ 163 0058 18BF     		it	ne
+ 164 005a 40F00200 		orrne	r0, r0, #2
+ 165 005e 03F0C063 		and	r3, r3, #100663296
+ 166 0062 18BF     		it	ne
+ 167 0064 8860     		strne	r0, [r1, #8]
+ 168 0066 B3F1C06F 		cmp	r3, #100663296
+ 169 006a 09D0     		beq	.L41
+ 170 006c 0020     		movs	r0, #0
+ 171 006e 70BC     		pop	{r4, r5, r6}
+ 172 0070 C860     		str	r0, [r1, #12]
+ 173 0072 7047     		bx	lr
+ 174              	.L26:
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s 			page 4
+
+
+ 175 0074 70BC     		pop	{r4, r5, r6}
+ 176 0076 C1E90200 		strd	r0, r0, [r1, #8]
+ 177 007a 7047     		bx	lr
+ 178              	.L30:
+ 179 007c 0120     		movs	r0, #1
+ 180 007e 7047     		bx	lr
+ 181              	.L41:
+ 182 0080 B208     		lsrs	r2, r6, #2
+ 183 0082 0A48     		ldr	r0, .L42+12
+ 184 0084 0232     		adds	r2, r2, #2
+ 185 0086 F343     		mvns	r3, r6
+ 186 0088 50F82220 		ldr	r2, [r0, r2, lsl #2]
+ 187 008c 03F00303 		and	r3, r3, #3
+ 188 0090 9B00     		lsls	r3, r3, #2
+ 189 0092 02FA03F3 		lsl	r3, r2, r3
+ 190 0096 1B0E     		lsrs	r3, r3, #24
+ 191 0098 0020     		movs	r0, #0
+ 192 009a 70BC     		pop	{r4, r5, r6}
+ 193 009c CB60     		str	r3, [r1, #12]
+ 194 009e 7047     		bx	lr
+ 195              	.L43:
+ 196              		.align	2
+ 197              	.L42:
+ 198 00a0 04040140 		.word	1073808388
+ 199 00a4 08040140 		.word	1073808392
+ 200 00a8 0C040140 		.word	1073808396
+ 201 00ac 00000140 		.word	1073807360
+ 203              		.section	.text.HAL_EXTI_ClearConfigLine,"ax",%progbits
+ 204              		.align	1
+ 205              		.p2align 2,,3
+ 206              		.global	HAL_EXTI_ClearConfigLine
+ 207              		.syntax unified
+ 208              		.thumb
+ 209              		.thumb_func
+ 210              		.fpu fpv4-sp-d16
+ 212              	HAL_EXTI_ClearConfigLine:
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		@ link register save eliminated.
+ 216 0000 0028     		cmp	r0, #0
+ 217 0002 3ED0     		beq	.L48
+ 218 0004 F0B4     		push	{r4, r5, r6, r7}
+ 219 0006 0568     		ldr	r5, [r0]
+ 220 0008 1F4F     		ldr	r7, .L55
+ 221 000a C5F30042 		ubfx	r2, r5, #16, #1
+ 222 000e 5201     		lsls	r2, r2, #5
+ 223 0010 02F18041 		add	r1, r2, #1073741824
+ 224 0014 01F58231 		add	r1, r1, #66560
+ 225 0018 05F01F06 		and	r6, r5, #31
+ 226 001c 0C68     		ldr	r4, [r1]
+ 227 001e 0123     		movs	r3, #1
+ 228 0020 B340     		lsls	r3, r3, r6
+ 229 0022 24EA0304 		bic	r4, r4, r3
+ 230 0026 0C60     		str	r4, [r1]
+ 231 0028 D159     		ldr	r1, [r2, r7]
+ 232 002a 21EA0301 		bic	r1, r1, r3
+ 233 002e D151     		str	r1, [r2, r7]
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s 			page 5
+
+
+ 234 0030 0168     		ldr	r1, [r0]
+ 235 0032 8901     		lsls	r1, r1, #6
+ 236 0034 6FEA0303 		mvn	r3, r3
+ 237 0038 0DD5     		bpl	.L53
+ 238 003a 144F     		ldr	r7, .L55+4
+ 239 003c 144C     		ldr	r4, .L55+8
+ 240 003e D159     		ldr	r1, [r2, r7]
+ 241 0040 1940     		ands	r1, r1, r3
+ 242 0042 D151     		str	r1, [r2, r7]
+ 243 0044 1159     		ldr	r1, [r2, r4]
+ 244 0046 0B40     		ands	r3, r3, r1
+ 245 0048 1351     		str	r3, [r2, r4]
+ 246 004a 0368     		ldr	r3, [r0]
+ 247 004c 03F0C063 		and	r3, r3, #100663296
+ 248 0050 B3F1C06F 		cmp	r3, #100663296
+ 249 0054 02D0     		beq	.L54
+ 250              	.L53:
+ 251 0056 0020     		movs	r0, #0
+ 252 0058 F0BC     		pop	{r4, r5, r6, r7}
+ 253 005a 7047     		bx	lr
+ 254              	.L54:
+ 255 005c 06F01C06 		and	r6, r6, #28
+ 256 0060 06F18046 		add	r6, r6, #1073741824
+ 257 0064 06F58036 		add	r6, r6, #65536
+ 258 0068 05F00305 		and	r5, r5, #3
+ 259 006c B368     		ldr	r3, [r6, #8]
+ 260 006e AD00     		lsls	r5, r5, #2
+ 261 0070 0F22     		movs	r2, #15
+ 262 0072 02FA05F5 		lsl	r5, r2, r5
+ 263 0076 23EA0505 		bic	r5, r3, r5
+ 264 007a B560     		str	r5, [r6, #8]
+ 265 007c 0020     		movs	r0, #0
+ 266 007e F0BC     		pop	{r4, r5, r6, r7}
+ 267 0080 7047     		bx	lr
+ 268              	.L48:
+ 269 0082 0120     		movs	r0, #1
+ 270 0084 7047     		bx	lr
+ 271              	.L56:
+ 272 0086 00BF     		.align	2
+ 273              	.L55:
+ 274 0088 04040140 		.word	1073808388
+ 275 008c 08040140 		.word	1073808392
+ 276 0090 0C040140 		.word	1073808396
+ 278              		.section	.text.HAL_EXTI_RegisterCallback,"ax",%progbits
+ 279              		.align	1
+ 280              		.p2align 2,,3
+ 281              		.global	HAL_EXTI_RegisterCallback
+ 282              		.syntax unified
+ 283              		.thumb
+ 284              		.thumb_func
+ 285              		.fpu fpv4-sp-d16
+ 287              	HAL_EXTI_RegisterCallback:
+ 288              		@ args = 0, pretend = 0, frame = 0
+ 289              		@ frame_needed = 0, uses_anonymous_args = 0
+ 290              		@ link register save eliminated.
+ 291 0000 11B9     		cbnz	r1, .L59
+ 292 0002 4260     		str	r2, [r0, #4]
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s 			page 6
+
+
+ 293 0004 0846     		mov	r0, r1
+ 294 0006 7047     		bx	lr
+ 295              	.L59:
+ 296 0008 0120     		movs	r0, #1
+ 297 000a 7047     		bx	lr
+ 299              		.section	.text.HAL_EXTI_GetHandle,"ax",%progbits
+ 300              		.align	1
+ 301              		.p2align 2,,3
+ 302              		.global	HAL_EXTI_GetHandle
+ 303              		.syntax unified
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.fpu fpv4-sp-d16
+ 308              	HAL_EXTI_GetHandle:
+ 309              		@ args = 0, pretend = 0, frame = 0
+ 310              		@ frame_needed = 0, uses_anonymous_args = 0
+ 311              		@ link register save eliminated.
+ 312 0000 10B1     		cbz	r0, .L62
+ 313 0002 0160     		str	r1, [r0]
+ 314 0004 0020     		movs	r0, #0
+ 315 0006 7047     		bx	lr
+ 316              	.L62:
+ 317 0008 0120     		movs	r0, #1
+ 318 000a 7047     		bx	lr
+ 320              		.section	.text.HAL_EXTI_IRQHandler,"ax",%progbits
+ 321              		.align	1
+ 322              		.p2align 2,,3
+ 323              		.global	HAL_EXTI_IRQHandler
+ 324              		.syntax unified
+ 325              		.thumb
+ 326              		.thumb_func
+ 327              		.fpu fpv4-sp-d16
+ 329              	HAL_EXTI_IRQHandler:
+ 330              		@ args = 0, pretend = 0, frame = 0
+ 331              		@ frame_needed = 0, uses_anonymous_args = 0
+ 332              		@ link register save eliminated.
+ 333 0000 0368     		ldr	r3, [r0]
+ 334 0002 0949     		ldr	r1, .L70
+ 335 0004 C3F30042 		ubfx	r2, r3, #16, #1
+ 336 0008 5201     		lsls	r2, r2, #5
+ 337 000a 03F01F03 		and	r3, r3, #31
+ 338 000e 5158     		ldr	r1, [r2, r1]
+ 339 0010 0122     		movs	r2, #1
+ 340 0012 02FA03F3 		lsl	r3, r2, r3
+ 341 0016 1942     		tst	r1, r3
+ 342 0018 04D0     		beq	.L63
+ 343 001a 4268     		ldr	r2, [r0, #4]
+ 344 001c 0349     		ldr	r1, .L70+4
+ 345 001e 4B61     		str	r3, [r1, #20]
+ 346 0020 02B1     		cbz	r2, .L63
+ 347 0022 1047     		bx	r2	@ indirect register sibling call
+ 348              	.L63:
+ 349 0024 7047     		bx	lr
+ 350              	.L71:
+ 351 0026 00BF     		.align	2
+ 352              	.L70:
+ 353 0028 14040140 		.word	1073808404
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s 			page 7
+
+
+ 354 002c 00040140 		.word	1073808384
+ 356              		.section	.text.HAL_EXTI_GetPending,"ax",%progbits
+ 357              		.align	1
+ 358              		.p2align 2,,3
+ 359              		.global	HAL_EXTI_GetPending
+ 360              		.syntax unified
+ 361              		.thumb
+ 362              		.thumb_func
+ 363              		.fpu fpv4-sp-d16
+ 365              	HAL_EXTI_GetPending:
+ 366              		@ args = 0, pretend = 0, frame = 0
+ 367              		@ frame_needed = 0, uses_anonymous_args = 0
+ 368              		@ link register save eliminated.
+ 369 0000 0368     		ldr	r3, [r0]
+ 370 0002 0649     		ldr	r1, .L73
+ 371 0004 C3F30042 		ubfx	r2, r3, #16, #1
+ 372 0008 5201     		lsls	r2, r2, #5
+ 373 000a 03F01F03 		and	r3, r3, #31
+ 374 000e 5258     		ldr	r2, [r2, r1]
+ 375 0010 0120     		movs	r0, #1
+ 376 0012 9840     		lsls	r0, r0, r3
+ 377 0014 1040     		ands	r0, r0, r2
+ 378 0016 D840     		lsrs	r0, r0, r3
+ 379 0018 7047     		bx	lr
+ 380              	.L74:
+ 381 001a 00BF     		.align	2
+ 382              	.L73:
+ 383 001c 14040140 		.word	1073808404
+ 385              		.section	.text.HAL_EXTI_ClearPending,"ax",%progbits
+ 386              		.align	1
+ 387              		.p2align 2,,3
+ 388              		.global	HAL_EXTI_ClearPending
+ 389              		.syntax unified
+ 390              		.thumb
+ 391              		.thumb_func
+ 392              		.fpu fpv4-sp-d16
+ 394              	HAL_EXTI_ClearPending:
+ 395              		@ args = 0, pretend = 0, frame = 0
+ 396              		@ frame_needed = 0, uses_anonymous_args = 0
+ 397              		@ link register save eliminated.
+ 398 0000 0368     		ldr	r3, [r0]
+ 399 0002 0548     		ldr	r0, .L76
+ 400 0004 C3F30042 		ubfx	r2, r3, #16, #1
+ 401 0008 0121     		movs	r1, #1
+ 402 000a 5201     		lsls	r2, r2, #5
+ 403 000c 03F01F03 		and	r3, r3, #31
+ 404 0010 01FA03F3 		lsl	r3, r1, r3
+ 405 0014 1350     		str	r3, [r2, r0]
+ 406 0016 7047     		bx	lr
+ 407              	.L77:
+ 408              		.align	2
+ 409              	.L76:
+ 410 0018 14040140 		.word	1073808404
+ 412              		.section	.text.HAL_EXTI_GenerateSWI,"ax",%progbits
+ 413              		.align	1
+ 414              		.p2align 2,,3
+ 415              		.global	HAL_EXTI_GenerateSWI
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s 			page 8
+
+
+ 416              		.syntax unified
+ 417              		.thumb
+ 418              		.thumb_func
+ 419              		.fpu fpv4-sp-d16
+ 421              	HAL_EXTI_GenerateSWI:
+ 422              		@ args = 0, pretend = 0, frame = 0
+ 423              		@ frame_needed = 0, uses_anonymous_args = 0
+ 424              		@ link register save eliminated.
+ 425 0000 0368     		ldr	r3, [r0]
+ 426 0002 0548     		ldr	r0, .L79
+ 427 0004 C3F30042 		ubfx	r2, r3, #16, #1
+ 428 0008 0121     		movs	r1, #1
+ 429 000a 5201     		lsls	r2, r2, #5
+ 430 000c 03F01F03 		and	r3, r3, #31
+ 431 0010 01FA03F3 		lsl	r3, r1, r3
+ 432 0014 1350     		str	r3, [r2, r0]
+ 433 0016 7047     		bx	lr
+ 434              	.L80:
+ 435              		.align	2
+ 436              	.L79:
+ 437 0018 10040140 		.word	1073808400
+ 439              		.ident	"GCC: (xPack GNU Arm Embedded GCC, 64-bit) 9.2.1 20191025 (release) [ARM/arm-9-branch revis
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_exti.c
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:16     .text.HAL_EXTI_SetConfigLine:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:25     .text.HAL_EXTI_SetConfigLine:0000000000000000 HAL_EXTI_SetConfigLine
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:108    .text.HAL_EXTI_SetConfigLine:00000000000000b4 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:113    .text.HAL_EXTI_GetConfigLine:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:121    .text.HAL_EXTI_GetConfigLine:0000000000000000 HAL_EXTI_GetConfigLine
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:198    .text.HAL_EXTI_GetConfigLine:00000000000000a0 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:204    .text.HAL_EXTI_ClearConfigLine:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:212    .text.HAL_EXTI_ClearConfigLine:0000000000000000 HAL_EXTI_ClearConfigLine
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:274    .text.HAL_EXTI_ClearConfigLine:0000000000000088 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:279    .text.HAL_EXTI_RegisterCallback:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:287    .text.HAL_EXTI_RegisterCallback:0000000000000000 HAL_EXTI_RegisterCallback
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:300    .text.HAL_EXTI_GetHandle:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:308    .text.HAL_EXTI_GetHandle:0000000000000000 HAL_EXTI_GetHandle
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:321    .text.HAL_EXTI_IRQHandler:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:329    .text.HAL_EXTI_IRQHandler:0000000000000000 HAL_EXTI_IRQHandler
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:353    .text.HAL_EXTI_IRQHandler:0000000000000028 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:357    .text.HAL_EXTI_GetPending:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:365    .text.HAL_EXTI_GetPending:0000000000000000 HAL_EXTI_GetPending
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:383    .text.HAL_EXTI_GetPending:000000000000001c $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:386    .text.HAL_EXTI_ClearPending:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:394    .text.HAL_EXTI_ClearPending:0000000000000000 HAL_EXTI_ClearPending
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:410    .text.HAL_EXTI_ClearPending:0000000000000018 $d
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:413    .text.HAL_EXTI_GenerateSWI:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:421    .text.HAL_EXTI_GenerateSWI:0000000000000000 HAL_EXTI_GenerateSWI
+D:\Users\Ma-Game\AppData\Local\Temp\ccZO6Mvp.s:437    .text.HAL_EXTI_GenerateSWI:0000000000000018 $d
+
+NO UNDEFINED SYMBOLS

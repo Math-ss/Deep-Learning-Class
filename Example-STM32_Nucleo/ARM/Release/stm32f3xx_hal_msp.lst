@@ -1,0 +1,167 @@
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32f3xx_hal_msp.c"
+  14              		.text
+  15              		.section	.text.HAL_MspInit,"ax",%progbits
+  16              		.align	1
+  17              		.p2align 2,,3
+  18              		.global	HAL_MspInit
+  19              		.arch armv7e-m
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	HAL_MspInit:
+  26              		@ args = 0, pretend = 0, frame = 8
+  27              		@ frame_needed = 0, uses_anonymous_args = 0
+  28              		@ link register save eliminated.
+  29 0000 0A4B     		ldr	r3, .L4
+  30 0002 9A69     		ldr	r2, [r3, #24]
+  31 0004 42F00102 		orr	r2, r2, #1
+  32 0008 9A61     		str	r2, [r3, #24]
+  33 000a 9A69     		ldr	r2, [r3, #24]
+  34 000c 82B0     		sub	sp, sp, #8
+  35 000e 02F00102 		and	r2, r2, #1
+  36 0012 0092     		str	r2, [sp]
+  37 0014 009A     		ldr	r2, [sp]
+  38 0016 DA69     		ldr	r2, [r3, #28]
+  39 0018 42F08052 		orr	r2, r2, #268435456
+  40 001c DA61     		str	r2, [r3, #28]
+  41 001e DB69     		ldr	r3, [r3, #28]
+  42 0020 03F08053 		and	r3, r3, #268435456
+  43 0024 0193     		str	r3, [sp, #4]
+  44 0026 019B     		ldr	r3, [sp, #4]
+  45 0028 02B0     		add	sp, sp, #8
+  46              		@ sp needed
+  47 002a 7047     		bx	lr
+  48              	.L5:
+  49              		.align	2
+  50              	.L4:
+  51 002c 00100240 		.word	1073876992
+  53              		.section	.text.HAL_UART_MspInit,"ax",%progbits
+  54              		.align	1
+  55              		.p2align 2,,3
+  56              		.global	HAL_UART_MspInit
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s 			page 2
+
+
+  60              		.fpu fpv4-sp-d16
+  62              	HAL_UART_MspInit:
+  63              		@ args = 0, pretend = 0, frame = 32
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65 0000 70B5     		push	{r4, r5, r6, lr}
+  66 0002 0168     		ldr	r1, [r0]
+  67 0004 194A     		ldr	r2, .L10
+  68 0006 88B0     		sub	sp, sp, #32
+  69 0008 0023     		movs	r3, #0
+  70 000a 9142     		cmp	r1, r2
+  71 000c CDE90233 		strd	r3, r3, [sp, #8]
+  72 0010 CDE90433 		strd	r3, r3, [sp, #16]
+  73 0014 0693     		str	r3, [sp, #24]
+  74 0016 01D0     		beq	.L9
+  75 0018 08B0     		add	sp, sp, #32
+  76              		@ sp needed
+  77 001a 70BD     		pop	{r4, r5, r6, pc}
+  78              	.L9:
+  79 001c 03F18043 		add	r3, r3, #1073741824
+  80 0020 03F50433 		add	r3, r3, #135168
+  81 0024 0720     		movs	r0, #7
+  82 0026 DA69     		ldr	r2, [r3, #28]
+  83 0028 42F40032 		orr	r2, r2, #131072
+  84 002c DA61     		str	r2, [r3, #28]
+  85 002e DA69     		ldr	r2, [r3, #28]
+  86 0030 02F40032 		and	r2, r2, #131072
+  87 0034 0092     		str	r2, [sp]
+  88 0036 009A     		ldr	r2, [sp]
+  89 0038 5A69     		ldr	r2, [r3, #20]
+  90 003a 42F40032 		orr	r2, r2, #131072
+  91 003e 5A61     		str	r2, [r3, #20]
+  92 0040 5B69     		ldr	r3, [r3, #20]
+  93 0042 0690     		str	r0, [sp, #24]
+  94 0044 03F40033 		and	r3, r3, #131072
+  95 0048 0193     		str	r3, [sp, #4]
+  96 004a 0022     		movs	r2, #0
+  97 004c 0023     		movs	r3, #0
+  98 004e 02A9     		add	r1, sp, #8
+  99 0050 0C24     		movs	r4, #12
+ 100 0052 0225     		movs	r5, #2
+ 101 0054 4FF09040 		mov	r0, #1207959552
+ 102 0058 CDE90245 		strd	r4, [sp, #8]
+ 103 005c CDE90423 		strd	r2, [sp, #16]
+ 104 0060 019E     		ldr	r6, [sp, #4]
+ 105 0062 FFF7FEFF 		bl	HAL_GPIO_Init
+ 106 0066 08B0     		add	sp, sp, #32
+ 107              		@ sp needed
+ 108 0068 70BD     		pop	{r4, r5, r6, pc}
+ 109              	.L11:
+ 110 006a 00BF     		.align	2
+ 111              	.L10:
+ 112 006c 00440040 		.word	1073759232
+ 114              		.section	.text.HAL_UART_MspDeInit,"ax",%progbits
+ 115              		.align	1
+ 116              		.p2align 2,,3
+ 117              		.global	HAL_UART_MspDeInit
+ 118              		.syntax unified
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s 			page 3
+
+
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.fpu fpv4-sp-d16
+ 123              	HAL_UART_MspDeInit:
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 0, uses_anonymous_args = 0
+ 126              		@ link register save eliminated.
+ 127 0000 074B     		ldr	r3, .L15
+ 128 0002 0268     		ldr	r2, [r0]
+ 129 0004 9A42     		cmp	r2, r3
+ 130 0006 00D0     		beq	.L14
+ 131 0008 7047     		bx	lr
+ 132              	.L14:
+ 133 000a 064A     		ldr	r2, .L15+4
+ 134 000c D369     		ldr	r3, [r2, #28]
+ 135 000e 23F40033 		bic	r3, r3, #131072
+ 136 0012 D361     		str	r3, [r2, #28]
+ 137 0014 0C21     		movs	r1, #12
+ 138 0016 4FF09040 		mov	r0, #1207959552
+ 139 001a FFF7FEBF 		b	HAL_GPIO_DeInit
+ 140              	.L16:
+ 141 001e 00BF     		.align	2
+ 142              	.L15:
+ 143 0020 00440040 		.word	1073759232
+ 144 0024 00100240 		.word	1073876992
+ 146              		.ident	"GCC: (xPack GNU Arm Embedded GCC, 64-bit) 9.2.1 20191025 (release) [ARM/arm-9-branch revis
+ARM GAS  D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f3xx_hal_msp.c
+D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s:16     .text.HAL_MspInit:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s:25     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s:51     .text.HAL_MspInit:000000000000002c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s:54     .text.HAL_UART_MspInit:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s:62     .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
+D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s:112    .text.HAL_UART_MspInit:000000000000006c $d
+D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s:115    .text.HAL_UART_MspDeInit:0000000000000000 $t
+D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s:123    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
+D:\Users\Ma-Game\AppData\Local\Temp\cc0t0Kkq.s:143    .text.HAL_UART_MspDeInit:0000000000000020 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_Init
+HAL_GPIO_DeInit
