@@ -1,0 +1,32 @@
+﻿  deepNetworkMini.cpp
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(27,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(30,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(38,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(41,23): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(48,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(51,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(59,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(62,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(71,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(80,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(93,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(96,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(110,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(113,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(118,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(124,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(127,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(132,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(158,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(171,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(172,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(174,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(201,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(242,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(245,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(265,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(266,21): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(267,22): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(270,20): warning C4018: '<': signed/unsigned mismatch
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\deepNetworkMini.cpp(271,21): warning C4018: '<': signed/unsigned mismatch
+  Lib-DeepLearning.vcxproj -> D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Lib-DeepLearning\Win32\Release\Lib-DeepLearning.lib

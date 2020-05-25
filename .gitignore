@@ -39,3 +39,4 @@
 *.filters
 *.user
 /Lib-DeepLearning/x64
+/Example-MNIST/x64/Debug

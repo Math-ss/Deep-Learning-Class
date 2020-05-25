@@ -14,7 +14,6 @@ MATHGIQUE
 #include<ctime>
 #include<cstdio>
 #include"deepNetworkMini.h"
-#include"NetworkLight.h"
 #include <iostream>
 
 using namespace std;

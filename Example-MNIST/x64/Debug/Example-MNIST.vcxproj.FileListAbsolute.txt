@@ -1,0 +1,2 @@
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\x64\Debug\Example-MNIST.exe
+D:\Users\Ma-Game\Documents\Mathis\Programmation\C++\Deep-Learning\Example-MNIST\x64\Debug\Example-MNIST.pdb
