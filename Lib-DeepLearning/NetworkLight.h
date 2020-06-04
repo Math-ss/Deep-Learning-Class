@@ -1,5 +1,5 @@
 /*
-deepNetworkMini.h
+deepBackPropagationLearning.h
 
 int m_nb is for debuging
 

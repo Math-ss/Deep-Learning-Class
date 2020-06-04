@@ -164,11 +164,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="deepNetworkMini.cpp" />
+    <ClCompile Include="AI_Interface.cpp" />
+    <ClCompile Include="DeepLearningNetwork.cpp" />
+    <ClCompile Include="BackPropagationLearning.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AI_Interface.h" />
     <ClInclude Include="DataUtilisation.h" />
-    <ClInclude Include="deepNetworkMini.h" />
+    <ClInclude Include="DeepLearningNetwork.h" />
+    <ClInclude Include="BackPropagationLearning.h" />
     <ClInclude Include="NetworkLight.h" />
   </ItemGroup>
   <ItemGroup>
