@@ -12,6 +12,7 @@ MATHGIQUE
 #include<string>
 #include<fstream>
 #include "deepNetworkMini.h"
+#include "DataUtilisation.h"
 #include <iostream>
 
 
