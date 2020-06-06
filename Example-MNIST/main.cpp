@@ -12,8 +12,8 @@ Created by Math's
 #include<cstdlib>
 #include<ctime>
 #include<cstdio>
-#include "BackPropagationLearning.h"
 #include<iostream>
+#include "BackPropagationLearning.h"
 
 using namespace std;
 
@@ -37,7 +37,6 @@ int main(void)
   vector<int> visi(10);
   int decide = 0;
   vector<float> test(784);
- 
 
   for (int i = 0; i < 200; i++)
   {
@@ -82,19 +81,26 @@ int main(void)
 	  test[783] = buffer;
   }
 
-  string fonctiun("sigmoide");
-
   //Setup the network
-  BackPropagationLearning MNIST(784, 10, define, fonctiun);
-  MNIST.setData(train);
-  MNIST.setExcepted(prevu);
+  BackPropagationLearning MNIST(784, 10, define, BackPropagationLearning::SIGMOIDE);
+  MNIST.setData(&train);
+  MNIST.setExcepted(&prevu);
 
-  //Train the Newtork on data : will compute 2'500 times the complete std::vector
-  MNIST.training(2'500 * train.size());
+  //Train the Newtork on our data : it will compute 2'500 times the complete train vector
+  TrainingParameters param;
+  param.repetition = 2'500 * train.size();
 
-  //Compute prediction for test and get the results
-  MNIST.computePrediction(test);
-  const vector<float>& result = MNIST.getPredictionCopy();
+  MNIST.training(&param);
+
+  //Compute prediction for test and get the results (const ref)
+  MNIST.computePrediction(&param, &test);
+  const vector<float>& result = MNIST.getPrediction();
+
+  //Prints them
+  for (float var : result)
+  {
+      cout << var << endl;
+  }
 
   //Save wheights (could be used with NetworkLight)
   MNIST.saveWeights("");

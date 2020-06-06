@@ -1,8 +1,6 @@
 /*
 "DeepLearningNetwork.cpp"
 
-Be careful, the softmax mode isn't good !!!!
-
 Created by Math's
 */
 
@@ -12,8 +10,8 @@ Created by Math's
 
 using namespace std;
 
-DeepLearningNetwork::DeepLearningNetwork(int inputLayer, int outputLayer, std::vector<int>& hiddenLayer, std::string& f)
-	:m_nbInput(inputLayer), m_nbOutput(outputLayer), m_fLogi(f)
+DeepLearningNetwork::DeepLearningNetwork(int inputLayer, int outputLayer, std::vector<int>& hiddenLayer, AIF_Activation FActivation)
+	:m_nbInput(inputLayer), m_nbOutput(outputLayer), m_FActivation(FActivation)
 {
 	m_perceptrons.push_back(vector<float>(hiddenLayer[0]));
 	m_biais.push_back(vector<float>(hiddenLayer[0]));
@@ -39,74 +37,69 @@ DeepLearningNetwork::DeepLearningNetwork(int inputLayer, int outputLayer, std::v
 		}
 }
 
-void DeepLearningNetwork::computePrediction(std::vector<float>& input)
+void DeepLearningNetwork::computePrediction(TrainingParameters *param, std::vector<float> *input)
 {
-	double somme = 0;
+	float somme = 0;
 	int last = m_perceptrons.size() - 1;
 
 	if (last > 0)
 	{
 		for (int i = 0; i < m_perceptrons[0].size(); i++)
 		{
-			somme = 0;
-			for (int j = 0; j < input.size(); j++)
-				somme += m_weights[0][i][j] * input[j];
+			somme = 0.0f;
+			for (int j = 0; j < input->size(); j++)
+				somme += m_weights[0][i][j] * (*input)[j];
 			somme += m_biais[0][i];
-			m_perceptrons[0][i] = F_Sigmoide(somme);
+			m_perceptrons[0][i] = F_Activation(somme);
 		}
 
 		for (int a = 1; a < last; a++)
 		{
 			for (int i = 0; i < m_perceptrons[a].size(); i++)
 			{
-				somme = 0;
+				somme = 0.0f;
 				for (int j = 0; j < m_perceptrons[a - 1].size(); j++)
 					somme += m_weights[a][i][j] * m_perceptrons[a - 1][j];
 				somme += m_biais[a][i];
-				m_perceptrons[a][i] = F_Sigmoide(somme);
+				m_perceptrons[a][i] = F_Activation(somme);
 			}
 		}
 
 		for (int w = 0; w < m_perceptrons[last].size(); w++)
 		{
-			somme = 0;
+			somme = 0.0f;
 			for (int j = 0; j < m_perceptrons[last - 1].size(); j++)
 				somme += m_weights[last][w][j] * m_perceptrons[last - 1][j];
 			somme += m_biais[last][w];
-			m_perceptrons[last][w] = somme;
+			m_perceptrons[last][w] = F_Activation(somme);
 		}
 	}
 	else
 	{
 		for (int w = 0; w < m_perceptrons[0].size(); w++)
 		{
-			somme = 0;
-			for (int j = 0; j < input.size(); j++)
-				somme += m_weights[0][w][j] * input[j];
+			somme = 0.0f;
+			for (int j = 0; j < input->size(); j++)
+				somme += m_weights[0][w][j] * (*input)[j];
 			somme += m_biais[0][w];
-			m_perceptrons[0][w] = somme;
+			m_perceptrons[0][w] = F_Activation(somme);
 		}
 	}
+}
 
-	if (m_fLogi == "sigmoide")
-	{
-		for (int w = 0; w < m_perceptrons[last].size(); w++)
-			m_perceptrons[last][w] = F_Sigmoide(m_perceptrons[last][w]);
-	}
-	else if (m_fLogi == "softmax")
-	{
-		F_Softmax(&(m_perceptrons[last]));
-	}
-	else if (m_fLogi == "tangente")
-	{
-		for (int w = 0; w < m_perceptrons[0].size(); w++)
-			m_perceptrons[last][w] = F_TangenteHyper(m_perceptrons[last][w]);
-	}
+std::vector<float> const *DeepLearningNetwork::getPredictionPtr() const
+{
+	return &(m_perceptrons[m_perceptrons.size() - 1]);
+}
+
+std::vector<float> DeepLearningNetwork::getPrediction() const
+{
+	return m_perceptrons[m_perceptrons.size() - 1];
 }
 
 float DeepLearningNetwork::F_Sigmoide(float value)
 {
-	float inverse = pow(2.718281828459f, value);
+	float inverse = powf(2.718281828459f, value);
 	inverse = 1.0f + (1.0f / inverse);
 	return 1.0f / inverse;
 }
@@ -121,7 +114,22 @@ float DeepLearningNetwork::F_TangenteHyper(float value)
 	return (num / denom);
 }
 
-void DeepLearningNetwork::F_Softmax(std::vector<float>& value)
+float DeepLearningNetwork::F_Activation(float value)
+{
+	switch (m_FActivation)
+	{
+	case SIGMOIDE:
+		return F_Sigmoide(value);
+
+	case TANGEANTE_HYPER:
+		return F_TangenteHyper(value);
+
+	default:
+		return F_Sigmoide(value);
+	}
+}
+
+/*void DeepLearningNetwork::F_Softmax(std::vector<float>& value)
 {
 	float denom = 0.0f, num = 0.0f;
 
@@ -133,12 +141,7 @@ void DeepLearningNetwork::F_Softmax(std::vector<float>& value)
 		num = pow(2.718281828459f, value[i]);
 		value[i] = num / denom;
 	}
-}
-
-float DeepLearningNetwork::F_Derivative_Sigmoide(float value)
-{
-	return value * (1.0f - value);
-}
+}*/
 
 bool DeepLearningNetwork::saveWeights(std::string path)
 {

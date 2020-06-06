@@ -5,9 +5,10 @@ Created by Math's
 */
 
 #pragma once
-#include "AI_Interface.h"
+
 #include <string>
 #include <ctype.h>
+#include "AI_Interface.h"
 
 /*
 Basic interface for a perceptron's network.
@@ -19,10 +20,24 @@ class BackPropagationLearning
 (coming soon !!)
 */
 
-class DeepLearningNetwork :
-	public AI_Interface
+class DeepLearningNetwork : public AI_Interface
 {
+public:
+
+	/*
+	If you need to extend this list, create the same enum (same type name) and add your constant at the end. (try to keep the same order)
+	Override the necessary functions accordingly and add if necessary the correct activation functions (static).
+	DON'T USE INHERITED CONSTRUCTOR(S) TO SET m_FActivation !
+	When you are outside the class, always use : YourClass::CONSTANT to avoid issues
+	*/
+	enum AIF_Activation
+	{
+		SIGMOIDE,
+		TANGEANTE_HYPER
+	};
+
 protected:
+
 	std::vector<std::vector<std::vector<float>>> m_weights;
 	std::vector< std::vector<float>> m_biais;
 
@@ -30,10 +45,14 @@ protected:
 	Activation value of each perceptron
 	*/
 	std::vector<std::vector<float>> m_perceptrons;
+
 	int m_nbInput;
 	int m_nbOutput;
 
-	std::string m_fLogi;
+	/*
+	Network activation function
+	*/
+	uint8_t m_FActivation;
 
 public:
 	DeepLearningNetwork(int inputLayer, int outputLayer, std::vector<int>& hiddenLayer, AIF_Activation FActivation = SIGMOIDE);
@@ -54,20 +73,23 @@ public:
 	virtual std::vector<float> getPrediction() const override;
 
 	/*
-	Usefull non-linear function.
-	*/
-	static float F_Sigmoide(float value);
-	/*
-	Usefull non-linear function.
-	*/
-	static float F_TangenteHyper(float value);
-
-	static float F_Derivative_Sigmoide(float value);
-
-	/*
 	Write all wheights in a info.wtw file
 		*path -> the path with a / at the end
 	*/
 	virtual bool saveWeights(std::string path);
+
+	/*
+	Call the correct activation function (depends on m_FActivation)
+	*/
+	virtual float F_Activation(float value);
+
+	/*
+	Sigmoide activation function
+	*/
+	static float F_Sigmoide(float value);
+	/*
+	Hyperbolic tangeant activation function
+	*/
+	static float F_TangenteHyper(float value);
 };
 

@@ -1,8 +1,6 @@
 /*
 "BackPropagationLearning.h"
 
-Be careful, the softmax mode isn't good !!!!
-
 Created by Math's
 */
 
@@ -13,28 +11,60 @@ Created by Math's
 #include "DeepLearningNetwork.h"
 
 /*
-Network with backpropagation
+New parameter for backpropagation
+*/
+struct BackPropagationParameters : public TrainingParameters
+{
+	/*
+	Learning rate of backpropagation
+	*/
+	float learningRate;
+
+	BackPropagationParameters():learningRate(0.5)
+	{}
+};
+
+/*
+Perceptron network with backpropagation
 */
 class BackPropagationLearning : public DeepLearningNetwork
 {
 protected:
 	std::vector<std::vector<float>> m_delta;
+
 	/*
-	Indicates in each under data vector we are for the updateParameters() method
+	Specifies which subtables of m_data is currently being used
 	*/
 	int m_trainingProgression;
 	
 public:
-	BackPropagationLearning(int inputLayer, int outputLayer, std::vector<int> &hiddenLayer, std::string &f);
+	BackPropagationLearning(int inputLayer, int outputLayer, std::vector<int> &hiddenLayer, AIF_Activation FActivation = SIGMOIDE);
 
 	/*
-	Call computePrediction() then updateParameters()
-		*repetion -> indicates the absolute number of calls, but the input change at each call (depends on m_data.size())
+	Call computePrediction() then updateParameters() (by updating m_trainingProgression)
+		*param must be of type BackPropagationParameters
 	*/
-	virtual void training(int repetition = 1, float learningRate = 0.5) override;
-	virtual void updateParameters(float learningRate = 0.5) override;
+	virtual void training(TrainingParameters *param) override;
 
 	/*
 	Gradient descent implementation
+		*param must be of type BackPropagationParameters
 	*/
+	virtual void updateParameters(TrainingParameters* param) override;
+
+	/*
+	Call correct derivative function
+	*/
+	virtual float F_Derivative_Activation(float value);
+
+	/*
+	Derivative(for gradient descent)
+		*Be carefull value is y and not x
+	*/
+	static float F_Derivative_Sigmoide(float value);
+	/*
+	Derivative(for gradient descent)
+		*Be carefull value is y and not x
+	*/
+	static float F_Derivative_TangenteHyper(float value);
 };
