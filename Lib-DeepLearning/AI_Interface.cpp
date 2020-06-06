@@ -1,3 +1,9 @@
+/*
+"AI_Interface.cpp"
+
+Created by Math's
+*/
+
 #include "AI_Interface.h"
 
 void AI_Interface::training(int repetition, float learningRate = 0.5)

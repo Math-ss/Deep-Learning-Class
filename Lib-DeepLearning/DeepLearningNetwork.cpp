@@ -1,6 +1,14 @@
-#include "DeepLearningNetwork.h"
+/*
+"DeepLearningNetwork.cpp"
+
+Be careful, the softmax mode isn't good !!!!
+
+Created by Math's
+*/
+
 #include <fstream>
 #include <iostream>
+#include "DeepLearningNetwork.h"
 
 using namespace std;
 

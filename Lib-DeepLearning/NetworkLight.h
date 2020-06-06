@@ -3,8 +3,7 @@ deepBackPropagationLearning.h
 
 int m_nb is for debuging
 
-Created by
-MATHGIQUE
+Created by Math's
 */
 
 #pragma once

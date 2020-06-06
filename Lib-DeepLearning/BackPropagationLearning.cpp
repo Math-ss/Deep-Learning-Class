@@ -1,10 +1,7 @@
 /*
-deepBackPropagationLearning.cpp
+"BackPropagationLearning.cpp"
 
-Be careful, the softmax mode isn't good !!!!
-
-Create by 
-MATHGIQUE
+Created by Math's
 */
 
 #include<cstdio>
@@ -13,7 +10,6 @@ MATHGIQUE
 #include<fstream>
 #include <iostream>
 #include "BackPropagationLearning.h"
-
 
 using namespace std;
 
