@@ -31,7 +31,7 @@ Basic interface to implement an AI
 class AI_Interface
 {
 public:
-	AI_Interface();
+	AI_Interface(){}
 
 	/*
 	Just return a pointer of the latest results obtained 

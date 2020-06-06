@@ -63,7 +63,7 @@ void BackPropagationLearning::updateParameters(TrainingParameters* param)
 
 		m_delta[0][j] = error * F_Derivative_Activation(m_perceptrons[0][j]);
 
-		for (int k = 0; k < m_data[m_trainingProgression].size(); k++)
+		for (int k = 0; k < (*m_data)[m_trainingProgression].size(); k++)
 			m_weights[0][j][k] += BackParam->learningRate * m_delta[0][j] * (*m_data)[m_trainingProgression][k];
 		m_biais[0][j] += BackParam->learningRate * m_delta[0][j];
 	}

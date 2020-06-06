@@ -21,10 +21,14 @@ int main(void)
 {
   srand(time(NULL));
 
+  //Open training file
   ifstream Ftrain("mnist_train_complete.csv");
 
   if (!Ftrain)
 	  return 1;
+
+  //Set std::cout
+  cout.setf(std::ios::fixed, std::ios::floatfield);
   
   //Contain size of each hidden layer
   vector<int> define(1, 15);
@@ -87,7 +91,7 @@ int main(void)
   MNIST.setExcepted(&prevu);
 
   //Train the Newtork on our data : it will compute 2'500 times the complete train vector
-  TrainingParameters param;
+  BackPropagationParameters param;
   param.repetition = 2'500 * train.size();
 
   MNIST.training(&param);
@@ -101,6 +105,7 @@ int main(void)
   {
       cout << var << endl;
   }
+  cout << endl << decide << endl;
 
   //Save wheights (could be used with NetworkLight)
   MNIST.saveWeights("");
