@@ -26,7 +26,7 @@ void BackPropagationLearning::training(TrainingParameters* param)
 void BackPropagationLearning::updateParameters(TrainingParameters* param)
 {
 	int last = m_perceptrons.size() - 1;
-	BackPropagationParameters* BackParam = (BackPropagationParameters*) param;
+	BackPropagationParameters* BackParam = static_cast<BackPropagationParameters*> (param);
 
 	for (int i = 0; i < m_perceptrons[last].size(); i++)
 	{
@@ -72,17 +72,21 @@ void BackPropagationLearning::updateParameters(TrainingParameters* param)
 BackPropagationLearning::BackPropagationLearning(int inputLayer, int outputLayer, vector<int>& hiddenLayer, AIF_Activation FActivation)
 	:DeepLearningNetwork::DeepLearningNetwork(inputLayer, outputLayer, hiddenLayer, FActivation), m_trainingProgression(0)
 {
-	m_delta.push_back(vector<float>(hiddenLayer[0]));
+	for (int i = 0; i < hiddenLayer.size(); i++)
+		m_delta.push_back(vector<float>(hiddenLayer[i], 0.0f));
 
-	for (int i = 1; i < hiddenLayer.size(); i++)
-		m_delta.push_back(vector<float>(hiddenLayer[i]));
-
-	m_delta.push_back(vector<float>(outputLayer));
+	m_delta.push_back(vector<float>(outputLayer, 0.0f));
 }
 
 BackPropagationLearning::BackPropagationLearning(BackPropagationLearning& source)
 	:DeepLearningNetwork(source), m_delta(source.m_delta), m_trainingProgression(0)
 {}
+
+BackPropagationLearning::BackPropagationLearning(DeepLearningNetwork & source) : DeepLearningNetwork(source), m_trainingProgression(0)
+{
+	for (int i = 0; i < m_perceptrons.size(); i++)
+		m_delta.push_back(vector<float>(m_perceptrons[i].size(), 0.0f));
+}
 
 float BackPropagationLearning::F_Derivative_Sigmoide(float value)
 {

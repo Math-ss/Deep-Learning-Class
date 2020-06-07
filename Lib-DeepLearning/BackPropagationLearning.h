@@ -39,6 +39,7 @@ protected:
 public:
 	BackPropagationLearning(int inputLayer, int outputLayer, std::vector<int> &hiddenLayer, AIF_Activation FActivation = SIGMOIDE);
 	BackPropagationLearning(BackPropagationLearning& source);
+	BackPropagationLearning(DeepLearningNetwork& source);
 
 	/*
 	Call computePrediction() then updateParameters() (by updating m_trainingProgression)

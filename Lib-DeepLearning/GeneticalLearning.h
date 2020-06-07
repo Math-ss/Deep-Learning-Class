@@ -42,7 +42,7 @@ protected:
 
 public:
 	GeneticalLearning(int inputLayer, int outputLayer, std::vector<int>& hiddenLayer, AIF_Activation FActivation = SIGMOIDE);
-	GeneticalLearning(GeneticalLearning& source);
+	GeneticalLearning(DeepLearningNetwork& source);
 
 	/*
 	Randomize some wheights (for more details see GeneticalParameters.condition)

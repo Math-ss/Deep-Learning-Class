@@ -14,7 +14,7 @@ GeneticalLearning::GeneticalLearning(int inputLayer, int outputLayer, std::vecto
 	m_FActivation = FActivation;
 }
 
-GeneticalLearning::GeneticalLearning(GeneticalLearning& source)
+GeneticalLearning::GeneticalLearning(DeepLearningNetwork& source)
 	:DeepLearningNetwork(source), m_fitness(0)
 {}
 
