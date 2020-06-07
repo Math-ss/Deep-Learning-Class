@@ -31,7 +31,8 @@ Basic interface to implement an AI
 class AI_Interface
 {
 public:
-	AI_Interface(){}
+	AI_Interface() : m_data(nullptr), m_excepted(nullptr)
+	{}
 
 	/*
 	Just return a pointer of the latest results obtained 
