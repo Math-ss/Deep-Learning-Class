@@ -20,8 +20,7 @@ struct BackPropagationParameters : public TrainingParameters
 	*/
 	float learningRate;
 
-	BackPropagationParameters():learningRate(0.5)
-	{}
+	BackPropagationParameters() : learningRate(0.5) {}
 };
 
 /*
@@ -39,6 +38,7 @@ protected:
 	
 public:
 	BackPropagationLearning(int inputLayer, int outputLayer, std::vector<int> &hiddenLayer, AIF_Activation FActivation = SIGMOIDE);
+	BackPropagationLearning(BackPropagationLearning& source);
 
 	/*
 	Call computePrediction() then updateParameters() (by updating m_trainingProgression)

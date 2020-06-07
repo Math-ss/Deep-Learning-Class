@@ -14,6 +14,10 @@ GeneticalLearning::GeneticalLearning(int inputLayer, int outputLayer, std::vecto
 	m_FActivation = FActivation;
 }
 
+GeneticalLearning::GeneticalLearning(GeneticalLearning& source)
+	:DeepLearningNetwork(source), m_fitness(0)
+{}
+
 void GeneticalLearning::updateParameters(TrainingParameters* param)
 {
 	GeneticalParameters* GeneticalParam = static_cast<GeneticalParameters*>(param);

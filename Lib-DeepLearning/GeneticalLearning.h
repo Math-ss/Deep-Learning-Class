@@ -27,6 +27,8 @@ struct GeneticalParameters : public TrainingParameters
 	Indicates the chances for a given weight to be modified (in range [0.0f, 1.0f]
 	*/
 	float condition;
+	
+	GeneticalParameters() : fitnessDiff(0), end(false), condition(0.1f) {}
 };
 
 class GeneticalLearning : public DeepLearningNetwork
@@ -40,6 +42,7 @@ protected:
 
 public:
 	GeneticalLearning(int inputLayer, int outputLayer, std::vector<int>& hiddenLayer, AIF_Activation FActivation = SIGMOIDE);
+	GeneticalLearning(GeneticalLearning& source);
 
 	/*
 	Randomize some wheights (for more details see GeneticalParameters.condition)

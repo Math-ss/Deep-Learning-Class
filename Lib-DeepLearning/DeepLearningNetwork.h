@@ -17,7 +17,7 @@ Basic interface for a perceptron's network.
 class BackPropagationLearning
 
 -For genetical algorithm see:
-(coming soon !!)
+class GeneticalLearning
 */
 
 class DeepLearningNetwork : public AI_Interface
@@ -27,7 +27,10 @@ public:
 	/*
 	If you need to extend this list, create the same enum (same type name) and add your constant at the end. (try to keep the same order)
 	Override the necessary functions accordingly and add if necessary the correct activation functions (static).
+
 	DON'T USE INHERITED CONSTRUCTOR(S) TO SET m_FActivation !
+	The copy construcor is safe (uses directly the type uint8_t)
+
 	When you are outside the class, always use : YourClass::CONSTANT to avoid issues
 	*/
 	enum AIF_Activation
@@ -56,6 +59,7 @@ protected:
 
 public:
 	DeepLearningNetwork(int inputLayer, int outputLayer, std::vector<int>& hiddenLayer, AIF_Activation FActivation = SIGMOIDE);
+	DeepLearningNetwork(DeepLearningNetwork& source);
 
 	/*
 	Make a FeedForward

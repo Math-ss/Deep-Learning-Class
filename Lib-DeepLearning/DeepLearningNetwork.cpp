@@ -37,6 +37,10 @@ DeepLearningNetwork::DeepLearningNetwork(int inputLayer, int outputLayer, std::v
 		}
 }
 
+DeepLearningNetwork::DeepLearningNetwork(DeepLearningNetwork& source)
+	:AI_Interface(source), m_weights(source.m_weights), m_biais(source.m_biais), m_perceptrons(source.m_perceptrons), m_nbInput(source.m_nbInput), m_nbOutput(source.m_nbOutput), m_FActivation(source.m_FActivation)
+{}
+
 void DeepLearningNetwork::computePrediction(TrainingParameters *param, std::vector<float> *input)
 {
 	float somme = 0;

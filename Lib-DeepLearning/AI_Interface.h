@@ -20,9 +20,7 @@ struct TrainingParameters
 	*/
 	int repetition;
 
-	TrainingParameters() 
-		: repetition(1)
-	{}
+	TrainingParameters() : repetition(1) {}
 };
 
 /*
@@ -31,8 +29,8 @@ Basic interface to implement an AI
 class AI_Interface
 {
 public:
-	AI_Interface() : m_data(nullptr), m_excepted(nullptr)
-	{}
+	AI_Interface() : m_data(nullptr), m_excepted(nullptr) {}
+	AI_Interface(AI_Interface& source) : m_data(nullptr), m_excepted(nullptr) {}
 
 	/*
 	Just return a pointer of the latest results obtained 

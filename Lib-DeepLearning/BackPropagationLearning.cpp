@@ -80,6 +80,10 @@ BackPropagationLearning::BackPropagationLearning(int inputLayer, int outputLayer
 	m_delta.push_back(vector<float>(outputLayer));
 }
 
+BackPropagationLearning::BackPropagationLearning(BackPropagationLearning& source)
+	:DeepLearningNetwork(source), m_delta(source.m_delta), m_trainingProgression(0)
+{}
+
 float BackPropagationLearning::F_Derivative_Sigmoide(float value)
 {
 	return value * (1.0f - value);
