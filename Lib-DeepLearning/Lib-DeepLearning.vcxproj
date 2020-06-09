@@ -168,12 +168,14 @@
     <ClCompile Include="DeepLearningNetwork.cpp" />
     <ClCompile Include="BackPropagationLearning.cpp" />
     <ClCompile Include="GeneticalLearning.cpp" />
+    <ClCompile Include="KNearstNeighbors.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AI_Interface.h" />
     <ClInclude Include="DeepLearningNetwork.h" />
     <ClInclude Include="BackPropagationLearning.h" />
     <ClInclude Include="GeneticalLearning.h" />
+    <ClInclude Include="KNearstNeighbors.h" />
     <ClInclude Include="NetworkLight.h" />
   </ItemGroup>
   <ItemGroup>

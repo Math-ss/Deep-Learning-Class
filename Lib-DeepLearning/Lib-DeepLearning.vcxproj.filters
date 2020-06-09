@@ -27,6 +27,9 @@
     <ClCompile Include="GeneticalLearning.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KNearstNeighbors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="NetworkLight.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneticalLearning.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KNearstNeighbors.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
